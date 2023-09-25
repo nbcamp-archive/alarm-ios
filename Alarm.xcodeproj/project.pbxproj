@@ -12,6 +12,10 @@
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
 		1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E12AC1E77E003D1D81 /* SceneDelegate.swift */; };
+		1C5EC7ED2AC1EA8F003D1D81 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E72AC1EA8F003D1D81 /* .gitkeep */; };
+		1C5EC7EE2AC1EA8F003D1D81 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E92AC1EA8F003D1D81 /* .gitkeep */; };
+		1C5EC7EF2AC1EA8F003D1D81 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7EB2AC1EA8F003D1D81 /* .gitkeep */; };
+		1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F02AC1EAA1003D1D81 /* BaseUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		1C5EC7D92AC1D5D2003D1D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C5EC7E12AC1E77E003D1D81 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1C5EC7E72AC1EA8F003D1D81 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C5EC7E92AC1EA8F003D1D81 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C5EC7EB2AC1EA8F003D1D81 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		1C5EC7F02AC1EAA1003D1D81 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		1C5EC7CA2AC1D5D1003D1D81 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C5EC7E52AC1EA8F003D1D81 /* Global */,
 				1C5EC7E42AC1E830003D1D81 /* Resource */,
 				1C5EC7DF2AC1E77E003D1D81 /* Application */,
 				1C5EC7CF2AC1D5D1003D1D81 /* ViewController.swift */,
@@ -78,6 +87,49 @@
 				1C5EC7D92AC1D5D2003D1D81 /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		1C5EC7E52AC1EA8F003D1D81 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7E62AC1EA8F003D1D81 /* Literal */,
+				1C5EC7E82AC1EA8F003D1D81 /* Extension */,
+				1C5EC7EA2AC1EA8F003D1D81 /* Protocol */,
+				1C5EC7EC2AC1EA8F003D1D81 /* Base */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		1C5EC7E62AC1EA8F003D1D81 /* Literal */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7E72AC1EA8F003D1D81 /* .gitkeep */,
+			);
+			path = Literal;
+			sourceTree = "<group>";
+		};
+		1C5EC7E82AC1EA8F003D1D81 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7E92AC1EA8F003D1D81 /* .gitkeep */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1C5EC7EA2AC1EA8F003D1D81 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7EB2AC1EA8F003D1D81 /* .gitkeep */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1C5EC7EC2AC1EA8F003D1D81 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7F02AC1EAA1003D1D81 /* BaseUIViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +190,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5EC7ED2AC1EA8F003D1D81 /* .gitkeep in Resources */,
 				1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */,
+				1C5EC7EF2AC1EA8F003D1D81 /* .gitkeep in Resources */,
 				1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */,
+				1C5EC7EE2AC1EA8F003D1D81 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
+				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC7D02AC1D5D1003D1D81 /* ViewController.swift in Sources */,
 				1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */,
 			);
