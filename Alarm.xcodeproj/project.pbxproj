@@ -54,11 +54,9 @@
 		1C5EC7CA2AC1D5D1003D1D81 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C5EC7E42AC1E830003D1D81 /* Resource */,
 				1C5EC7DF2AC1E77E003D1D81 /* Application */,
 				1C5EC7CF2AC1D5D1003D1D81 /* ViewController.swift */,
-				1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */,
-				1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */,
-				1C5EC7D92AC1D5D2003D1D81 /* Info.plist */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -70,6 +68,16 @@
 				1C5EC7E12AC1E77E003D1D81 /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		1C5EC7E42AC1E830003D1D81 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */,
+				1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */,
+				1C5EC7D92AC1D5D2003D1D81 /* Info.plist */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
