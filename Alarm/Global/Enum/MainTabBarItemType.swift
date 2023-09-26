@@ -21,6 +21,15 @@ enum MainTabBarItemType: String, CaseIterable {
         }
     }
     
+    func toInt() -> Int {
+        switch self {
+        case .weather: return 0
+        case .alarm: return 1
+        case .stopwatch: return 2
+        case .timer: return 3
+        }
+    }
+    
     func toSymbolName() -> String {
         switch self {
         case .weather: return "날씨"
@@ -32,19 +41,10 @@ enum MainTabBarItemType: String, CaseIterable {
     
     func toSymbol() -> String {
         switch self {
-        case .weather: return "circle"
-        case .alarm: return "circle"
-        case .stopwatch: return "circle"
-        case .timer: return "circle"
-        }
-    }
-    
-    func getCoordinator(navigationController: UINavigationController) -> Coordinator {
-        switch self {
-        case .weather: return WeatherViewCoordinator(navigationController: navigationController)
-        case .alarm: return AlarmViewCoordinator(navigationController: navigationController)
-        case .stopwatch: return StopwatchViewCoordinator(navigationController: navigationController)
-        case .timer: return TimerViewCoordinator(navigationController: navigationController)
+        case .weather: return "cloud.sun.fill"
+        case .alarm: return "alarm.fill"
+        case .stopwatch: return "stopwatch.fill"
+        case .timer: return "timer"
         }
     }
     
