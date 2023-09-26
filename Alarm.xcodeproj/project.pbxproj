@@ -17,6 +17,7 @@
 		1C5EC7F42AC1EE36003D1D81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F32AC1EE36003D1D81 /* ViewController.swift */; };
 		1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */; };
 		1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */; };
+		1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1C5EC7F32AC1EE36003D1D81 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItemType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		1C5EC7E52AC1EA8F003D1D81 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				1C5EC7F92AC292E9003D1D81 /* Enum */,
 				1C5EC7E62AC1EA8F003D1D81 /* Literal */,
 				1C5EC7E82AC1EA8F003D1D81 /* Extension */,
 				1C5EC7EA2AC1EA8F003D1D81 /* Protocol */,
@@ -141,6 +144,14 @@
 				1C5EC7F32AC1EE36003D1D81 /* ViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1C5EC7F92AC292E9003D1D81 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +230,7 @@
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
+				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C5EC7F42AC1EE36003D1D81 /* ViewController.swift in Sources */,
 				1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */,
 			);
