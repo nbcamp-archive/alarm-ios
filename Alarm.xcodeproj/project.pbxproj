@@ -24,6 +24,9 @@
 		1C5EC8112AC2DF80003D1D81 /* StopwatchViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */; };
 		1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */; };
 		1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */; };
+		1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81B2AC32349003D1D81 /* SnapKit */; };
+		1C5EC81F2AC32358003D1D81 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81E2AC32358003D1D81 /* Then */; };
+		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */,
+				1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */,
+				1C5EC81F2AC32358003D1D81 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +230,11 @@
 			dependencies = (
 			);
 			name = Alarm;
+			packageProductDependencies = (
+				1C5EC81B2AC32349003D1D81 /* SnapKit */,
+				1C5EC81E2AC32358003D1D81 /* Then */,
+				1C5EC8212AC32377003D1D81 /* Alamofire */,
+			);
 			productName = Alarm;
 			productReference = 1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */;
 			productType = "com.apple.product-type.application";
@@ -252,6 +263,11 @@
 				Base,
 			);
 			mainGroup = 1C5EC7BF2AC1D5D1003D1D81;
+			packageReferences = (
+				1C5EC81A2AC32349003D1D81 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				1C5EC81D2AC32358003D1D81 /* XCRemoteSwiftPackageReference "Then" */,
+				1C5EC8202AC32377003D1D81 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 1C5EC7C92AC1D5D1003D1D81 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -500,6 +516,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1C5EC81A2AC32349003D1D81 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		1C5EC81D2AC32358003D1D81 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		1C5EC8202AC32377003D1D81 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C5EC81B2AC32349003D1D81 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C5EC81A2AC32349003D1D81 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		1C5EC81E2AC32358003D1D81 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C5EC81D2AC32358003D1D81 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		1C5EC8212AC32377003D1D81 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1C5EC8202AC32377003D1D81 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1C5EC7C02AC1D5D1003D1D81 /* Project object */;
 }
