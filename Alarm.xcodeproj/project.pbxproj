@@ -18,6 +18,7 @@
 		1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */; };
 		1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */; };
 		1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */; };
+		1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7FD2AC29FC3003D1D81 /* MainTabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItemType.swift; sourceTree = "<group>"; };
+		1C5EC7FD2AC29FC3003D1D81 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */,
 				1C5EC7E12AC1E77E003D1D81 /* SceneDelegate.swift */,
 				1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */,
+				1C5EC7FD2AC29FC3003D1D81 /* MainTabBarCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
+				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C5EC7F42AC1EE36003D1D81 /* ViewController.swift in Sources */,
