@@ -16,6 +16,7 @@
 		1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F02AC1EAA1003D1D81 /* BaseUIViewController.swift */; };
 		1C5EC7F42AC1EE36003D1D81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F32AC1EE36003D1D81 /* ViewController.swift */; };
 		1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */; };
+		1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1C5EC7F02AC1EAA1003D1D81 /* BaseUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		1C5EC7F32AC1EE36003D1D81 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */,
 				1C5EC7E12AC1E77E003D1D81 /* SceneDelegate.swift */,
+				1C5EC7F72AC28FC9003D1D81 /* AppCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
