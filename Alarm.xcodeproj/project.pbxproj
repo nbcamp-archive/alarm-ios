@@ -11,8 +11,6 @@
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
 		1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E12AC1E77E003D1D81 /* SceneDelegate.swift */; };
-		1C5EC7ED2AC1EA8F003D1D81 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E72AC1EA8F003D1D81 /* .gitkeep */; };
-		1C5EC7EE2AC1EA8F003D1D81 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E92AC1EA8F003D1D81 /* .gitkeep */; };
 		1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F02AC1EAA1003D1D81 /* BaseUIViewController.swift */; };
 		1C5EC7F42AC1EE36003D1D81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F32AC1EE36003D1D81 /* ViewController.swift */; };
 		1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7F52AC28E33003D1D81 /* Coordinator.swift */; };
@@ -20,6 +18,7 @@
 		1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */; };
 		1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7FD2AC29FC3003D1D81 /* MainTabBarCoordinator.swift */; };
 		1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8002AC2A5EE003D1D81 /* WeatherViewController.swift */; };
+		1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +37,7 @@
 		1C5EC7FA2AC2931A003D1D81 /* MainTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarItemType.swift; sourceTree = "<group>"; };
 		1C5EC7FD2AC29FC3003D1D81 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8002AC2A5EE003D1D81 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5EC8002AC2A5EE003D1D81 /* WeatherViewController.swift */,
+				1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -226,10 +227,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C5EC7ED2AC1EA8F003D1D81 /* .gitkeep in Resources */,
 				1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */,
 				1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */,
-				1C5EC7EE2AC1EA8F003D1D81 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +243,7 @@
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
+				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
@@ -388,7 +388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Alarm/Info.plist;
+				INFOPLIST_FILE = Alarm/Resource/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -415,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Alarm/Info.plist;
+				INFOPLIST_FILE = Alarm/Resource/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

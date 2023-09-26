@@ -9,6 +9,8 @@ import UIKit
 
 class WeatherViewController: BaseUIViewController {
     
+    weak var coordinator: WeatherViewCoordinator?
+    
     override func setTitle() {
         title = "날씨"
     }
