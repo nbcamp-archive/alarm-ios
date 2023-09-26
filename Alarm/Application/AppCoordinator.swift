@@ -16,14 +16,20 @@ class AppCoordinator: Coordinator {
     let window: UIWindow
     
     init(window: UIWindow) {
-        self.window = window
-        
         self.navigationController = UINavigationController()
         
         self.childCoordinators = [Coordinator]()
+        
+        self.window = window
     }
     
     func start() {
+        let coordinator = MainTabBarCoordinator(navigationController: navigationController)
+        childCoordinators.append(coordinator)
+        coordinator.start()
+
+        navigationController.setNavigationBarHidden(true, animated: true)
+        
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
