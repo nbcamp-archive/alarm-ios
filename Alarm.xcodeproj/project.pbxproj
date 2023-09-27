@@ -27,6 +27,7 @@
 		1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81B2AC32349003D1D81 /* SnapKit */; };
 		1C5EC81F2AC32358003D1D81 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81E2AC32358003D1D81 /* Then */; };
 		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
+		D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
+		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			children = (
 				1C5EC80E2AC2DF49003D1D81 /* StopwatchViewController.swift */,
 				1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */,
+				D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */,
 			);
 			path = Stopwatch;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */,
+				D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */,
 				1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
