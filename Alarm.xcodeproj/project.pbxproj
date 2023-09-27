@@ -29,6 +29,7 @@
 		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
 		1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */; };
 		1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */; };
+		1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA952AC4066700CE864C /* NavigationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
 		1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewCoordinator.swift; sourceTree = "<group>"; };
+		1C77AA952AC4066700CE864C /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			children = (
 				1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */,
 				1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */,
+				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
 			);
 			path = AddAlarm;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC80F2AC2DF49003D1D81 /* StopwatchViewController.swift in Sources */,
+				1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopwatchViewCoordinator.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
