@@ -31,6 +31,7 @@
 		1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */; };
 		1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA952AC4066700CE864C /* NavigationCell.swift */; };
 		1C77AA982AC40A9300CE864C /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA972AC40A9300CE864C /* TextFieldCell.swift */; };
+		1C77AA9A2AC40C3F00CE864C /* SnoozeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewCoordinator.swift; sourceTree = "<group>"; };
 		1C77AA952AC4066700CE864C /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
 		1C77AA972AC40A9300CE864C /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */,
 				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
 				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
+				1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */,
 			);
 			path = AddAlarm;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5EC8092AC2AF71003D1D81 /* AlarmViewController.swift in Sources */,
+				1C77AA9A2AC40C3F00CE864C /* SnoozeCell.swift in Sources */,
 				1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */,
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
