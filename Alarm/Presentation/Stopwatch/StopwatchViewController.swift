@@ -1,15 +1,15 @@
 //
-//  StopwatchViewController.swift
+//  StopWatchViewController.swift
 //  Alarm
 //
-//  Created by Yujin Kim on 2023-09-26.
+//  Created by 이재희 on 2023/09/25.
 //
 
 import UIKit
 
-class StopwatchViewController: BaseUIViewController {
+class StopWatchViewController: BaseUIViewController {
     
-    weak var coordinator: StopwatchViewCoordinator?
+    weak var coordinator: StopWatchViewCoordinator?
     
     override func setTitle() {
         title = "스톱워치"

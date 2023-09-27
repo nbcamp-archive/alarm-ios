@@ -20,8 +20,8 @@
 		1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */; };
 		1C5EC8092AC2AF71003D1D81 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8082AC2AF71003D1D81 /* AlarmViewController.swift */; };
 		1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC80A2AC2AF97003D1D81 /* AlarmViewCoordinator.swift */; };
-		1C5EC80F2AC2DF49003D1D81 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC80E2AC2DF49003D1D81 /* StopwatchViewController.swift */; };
-		1C5EC8112AC2DF80003D1D81 /* StopwatchViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */; };
+		1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC80E2AC2DF49003D1D81 /* StopWatchViewController.swift */; };
+		1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */; };
 		1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */; };
 		1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */; };
 		1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81B2AC32349003D1D81 /* SnapKit */; };
@@ -48,8 +48,8 @@
 		1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8082AC2AF71003D1D81 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		1C5EC80A2AC2AF97003D1D81 /* AlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewCoordinator.swift; sourceTree = "<group>"; };
-		1C5EC80E2AC2DF49003D1D81 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
-		1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewCoordinator.swift; sourceTree = "<group>"; };
+		1C5EC80E2AC2DF49003D1D81 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
 		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 		1C5EC80D2AC2DF39003D1D81 /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				1C5EC80E2AC2DF49003D1D81 /* StopwatchViewController.swift */,
-				1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */,
+				1C5EC80E2AC2DF49003D1D81 /* StopWatchViewController.swift */,
+				1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */,
 				D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */,
 			);
 			path = Stopwatch;
@@ -302,9 +302,9 @@
 				1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */,
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
-				1C5EC80F2AC2DF49003D1D81 /* StopwatchViewController.swift in Sources */,
+				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
-				1C5EC8112AC2DF80003D1D81 /* StopwatchViewCoordinator.swift in Sources */,
+				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  StopwatchViewCoordinator.swift
+//  StopWatchViewCoordinator.swift
 //  Alarm
 //
 //  Created by Yujin Kim on 2023-09-26.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StopwatchViewCoordinator: Coordinator {
+class StopWatchViewCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
@@ -21,7 +21,7 @@ class StopwatchViewCoordinator: Coordinator {
     
     func start() {
         let storyboard = UIStoryboard(name: "StopWatchPage", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewControllerID") as! StopwatchViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewControllerID") as! StopWatchViewController
         
         viewController.coordinator = self
         
