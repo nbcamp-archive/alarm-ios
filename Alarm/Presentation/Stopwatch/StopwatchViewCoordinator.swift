@@ -20,7 +20,9 @@ class StopwatchViewCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = StopwatchViewController()
+        let storyboard = UIStoryboard(name: "StopWatchPage", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewControllerID") as! StopwatchViewController
+        
         viewController.coordinator = self
         
         navigationController.pushViewController(viewController, animated: true)
