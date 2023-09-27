@@ -33,6 +33,7 @@
 		D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */; };
 		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
 		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
+		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
 		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */,
 				D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */,
 				D262CFFD2AC3CD87001413AB /* TimerModel.swift */,
+				D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
+				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
