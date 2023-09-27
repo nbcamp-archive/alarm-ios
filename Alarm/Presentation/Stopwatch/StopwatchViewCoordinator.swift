@@ -21,7 +21,7 @@ class StopWatchViewCoordinator: Coordinator {
     
     func start() {
         let storyboard = UIStoryboard(name: "StopWatchPage", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "StopWatchViewControllerID") as! StopWatchViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "StopWatchPage") as! StopWatchViewController
         
         viewController.coordinator = self
         
