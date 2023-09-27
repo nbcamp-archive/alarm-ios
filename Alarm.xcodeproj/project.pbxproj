@@ -32,6 +32,7 @@
 		D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */; };
 		D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */; };
 		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
+		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
+		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */,
 				1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */,
 				D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */,
+				D262CFFD2AC3CD87001413AB /* TimerModel.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
+				D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */,
 				1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */,
