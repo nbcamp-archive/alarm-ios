@@ -30,6 +30,7 @@
 		1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */; };
 		1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */; };
 		1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA952AC4066700CE864C /* NavigationCell.swift */; };
+		1C77AA982AC40A9300CE864C /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA972AC40A9300CE864C /* TextFieldCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewCoordinator.swift; sourceTree = "<group>"; };
 		1C77AA952AC4066700CE864C /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
+		1C77AA972AC40A9300CE864C /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */,
 				1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */,
 				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
+				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
 			);
 			path = AddAlarm;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
+				1C77AA982AC40A9300CE864C /* TextFieldCell.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
 				1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */,
