@@ -29,6 +29,8 @@
 		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
 		D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */; };
 		D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF52AC3C755001413AB /* StopWatch.swift */; };
+		D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */; };
+		D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
 		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
 		D262CFF52AC3C755001413AB /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				1C5EC7E92AC1EA8F003D1D81 /* .gitkeep */,
+				D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */,
+				D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				1C5EC8092AC2AF71003D1D81 /* AlarmViewController.swift in Sources */,
 				1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */,
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
+				D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
@@ -312,6 +319,7 @@
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
+				D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,

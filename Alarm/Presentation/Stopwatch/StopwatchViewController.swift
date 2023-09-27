@@ -40,11 +40,11 @@ class StopWatchViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        resetView.circleView = true
-//        resetButton.circleButton = true
-//
-//        startView.circleView = true
-//        startButton.circleButton = true
+        resetView.circleView = true
+        resetButton.circleButton = true
+
+        startView.circleView = true
+        startButton.circleButton = true
         
         switchButtonsAppearance(state: stopWatch.state)
     }
