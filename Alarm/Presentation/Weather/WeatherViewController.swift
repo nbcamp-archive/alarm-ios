@@ -10,71 +10,102 @@ import SnapKit
 
 class WeatherViewController: BaseUIViewController {
     
+
+    
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
+    
+    let todaysWeatherContainer = {
+        let container = UIStackView()
+        container.axis = .vertical
+        return container
+    }()
+    
+    let locationBox = {
+        let box = UIStackView()
+        box.axis = .vertical
+        return box
+    }()
+    
     
     let cityNameLabel : UILabel = {
         let label = UILabel()
         label.text = "cityNameLabel"
-        label.textAlignment = .center
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
+        return label
+    }()
+    
+    let dateLabel : UILabel = {
+        let label = UILabel()
+        //오늘 날짜 들어갈 수 있게 조정
+        label.text = ""
+        label.textAlignment = .left
+        label.textColor = UIColor.systemGray
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
-    let weatherLabel : UILabel = {
+    
+    
+    let mainInfoBox = {
+        let box = UIStackView()
+        return box
+    }()
+    
+    let weatherImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "cludy")
+        
+        return image
+    }()
+    
+    
+    let mainInfoInsideRigthBox = {
+        let box = UIStackView()
+        box.axis = .vertical
+        return box
+    }()
+    
+    let temprigthInsideStackView = {
+        let box = UIStackView()
+        box.axis = .horizontal
+        return box
+    }()
+    
+    let tempTodayLabel : UILabel = {
+        let label = UILabel()
+        label.text = "온도"
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
+//         label.backgroundColor = UIColor.systemBlue
+        return label
+    }()
+    
+    
+    let tempDegree : UILabel = {
+        let label = UILabel()
+        label.text = "°C"
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+//        label.backgroundColor = UIColor.systemGreen
+//        label.textAlignment = .left
+        return label
+    }()
+    
+    let weatherTodayLabel : UILabel = {
         let label = UILabel()
         label.text = "weatherLabel"
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 40, weight: .medium)
-        return label
-    }()
-    
-    let weatherTitle: UILabel = {
-        let label = UILabel()
-        label.text = "오늘의 날씨"
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+//        label.backgroundColor = UIColor.red
         return label
     }()
+ 
     
-    let bottomBox: UIStackView = {
-       let view = UIStackView()
-        view.axis = .vertical
-        return view
-    }()
-    
-    var tempMax: UILabel = {
-        let label = UILabel()
-//        label.text = ""
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-       return label
-    }()
-    
-    var tempMin: UILabel = {
-        let label = UILabel()
-//        label.text = ""
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-       return label
-    }()
-    
-    
-    var rainFall: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
-    }()
-    
-    var windSpeed: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
+    let detailInfoBox : DetailInfoView = {
+        let box = DetailInfoView()
+          return box
     }()
 
-    var humidity: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        return label
-    }()
+   
     
     weak var coordinator: WeatherViewCoordinator?
     
@@ -87,48 +118,99 @@ class WeatherViewController: BaseUIViewController {
         
         setupUI()
         callWeather()
+        dateTody()
     }
     
+    func dateTody(){
+        let dateFomatter = DateFormatter()
+        dateFomatter.dateFormat = "E, MMM d"
+        
+        let currentDate = Date()
+        let formattedDate = dateFomatter.string(from: currentDate)
+        dateLabel.text = formattedDate
+    }
     
     func setupUI(){
-        self.view.addSubview(cityNameLabel)
-        self.view.addSubview(weatherLabel)
-        self.view.addSubview(weatherTitle)
-        self.view.addSubview(bottomBox)
-        bottomBox.addArrangedSubview(tempMax)
-        bottomBox.addArrangedSubview(tempMin)
-        bottomBox.addArrangedSubview(rainFall)
-        bottomBox.addArrangedSubview(windSpeed)
-        bottomBox.addArrangedSubview(humidity)
+        
+        self.view.addSubview(todaysWeatherContainer)
+        todaysWeatherContainer.addArrangedSubview(locationBox)
+        todaysWeatherContainer.addArrangedSubview(mainInfoBox)
+        todaysWeatherContainer.addArrangedSubview(detailInfoBox)
+        todaysWeatherContainer.snp.makeConstraints { make in
+            //            make.height.equalToSuperview().dividedBy(10)
+        }
+        
+      
+        locationBox.addArrangedSubview(cityNameLabel)
+        locationBox.addArrangedSubview(dateLabel)
+        
+      
+        mainInfoBox.addArrangedSubview(weatherImage)
+        mainInfoBox.addArrangedSubview(mainInfoInsideRigthBox)
+     
+        
+        mainInfoInsideRigthBox.addArrangedSubview(temprigthInsideStackView)
+        mainInfoInsideRigthBox.addArrangedSubview(weatherTodayLabel)
+        
+        temprigthInsideStackView.addArrangedSubview(tempTodayLabel)
+        temprigthInsideStackView.addArrangedSubview(tempDegree)
+      
+//        detailInfoBox.addArrangedSubview(tempBackgroundBox)
+//        detailInfoBox.addArrangedSubview(windBackgroundBox)
+//        detailInfoBox.addArrangedSubview(humidityBackgroundBox)
+        
+//        todaysWeatherContainer.layer.borderWidth = 1
+        todaysWeatherContainer.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
+            make.left.equalTo(view.snp.left).offset(30)
+            make.right.equalTo(view.snp.right).offset(-30)
+        }
+        
+        //MARK: LocationArea
+//        locationBox.layer.borderWidth = 1
+        locationBox.snp.makeConstraints { make in
+            make.height.equalToSuperview().dividedBy(5) //높이값 조절
+           }
+        
+        //MARK: MainInfoArea
+        //        mainInfoBox.layer.borderColor = UIColor.blue.cgColor
+        //        mainInfoBox.layer.borderWidth = 1
+//        mainInfoBox.distribution = .fillProportionally
+//        mainInfoBox.backgroundColor = UIColor.systemYellow
+        mainInfoBox.snp.makeConstraints { make in
+            make.height.equalToSuperview().dividedBy(3) //높이값 통일
+        }
+        
+        //        weatherImage.layer.borderWidth = 1
+        weatherImage.snp.makeConstraints { make in
+            make.width.equalTo(200)
+            make.height.equalToSuperview()
+        }
+        
+        mainInfoInsideRigthBox.distribution = .fillProportionally
+        mainInfoInsideRigthBox.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(25)
+            
+            make.height.equalToSuperview().dividedBy(1.5)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
 
-//        cityNameLabel.backgroundColor = UIColor.black
-        cityNameLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(weatherLabel.snp.top).offset(-20)
-            make.centerX.equalToSuperview()
+        
+        tempTodayLabel.snp.makeConstraints { make in
+            //            make.height.equalTo(40)
+            
+        }
+        tempDegree.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(20)
         }
         
-//        weatherLavel.backgroundColor = UIColor.systemPink
-        weatherLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(weatherTitle.snp.top).offset(-20)
-            make.centerX.equalToSuperview()
+        weatherTodayLabel.snp.makeConstraints { make in
+            //            make.height.equalTo(40)
         }
         
-//        titleLabel.backgroundColor = UIColor.systemPink
-        weatherTitle.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-//            make.width.equalTo(100)
+      
         }
-        
-//        bottomBox.backgroundColor = UIColor.green
-        bottomBox.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(weatherTitle.snp.bottom).offset(20)
-        }
-        
-        rainFall.snp.makeConstraints { make in
-            make.top.equalTo(tempMin.snp.bottom).offset(20)
-        }
-   
     }
-}
+
