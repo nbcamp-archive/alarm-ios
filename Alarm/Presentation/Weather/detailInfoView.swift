@@ -21,8 +21,8 @@ class DetailInfoView : UIView {
     let tempBackgroundBox: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
-        view.distribution = .fillEqually
-        
+        view.distribution = .fillProportionally
+        view.alignment = .center
         return view
     }()
     
@@ -34,6 +34,13 @@ class DetailInfoView : UIView {
    
         label.layer.addBorder([.right], color: UIColor.black, width: 1)
         return label
+    }()
+    
+    var centerBar : UIView = {
+        let bar = UIView()
+        bar.backgroundColor = UIColor.systemGray
+        
+        return bar
     }()
     
     var tempMin: UILabel = {
@@ -53,7 +60,7 @@ class DetailInfoView : UIView {
     
     let windIcon: UIImageView = {
         let icon = UIImageView()
-//        icon.image = UIImage(systemName: "wind")
+        icon.image = UIImage(named: "wind")
 //        icon.backgroundColor = UIColor.systemYellow
         return icon
     }()
@@ -76,7 +83,7 @@ class DetailInfoView : UIView {
     let humidityBackgroundBox: UIStackView = {
         let view = UIStackView()
         view.axis = .horizontal
-//        view.distribution = .
+      
         return view
     }()
     
@@ -84,6 +91,7 @@ class DetailInfoView : UIView {
         let icon = UIImageView()
 //        icon.image = UIImage(systemName: "drop.fill")
 //        icon.backgroundColor = UIColor.systemYellow
+        icon.image = UIImage(named: "humidity")
         return icon
     }()
     
@@ -130,6 +138,7 @@ class DetailInfoView : UIView {
         bodyContainer.addArrangedSubview(humidityBackgroundBox)
         
         tempBackgroundBox.addArrangedSubview(tempMax)
+        tempBackgroundBox.addArrangedSubview(centerBar)
         tempBackgroundBox.addArrangedSubview(tempMin)
         
         windBackgroundBox.addArrangedSubview(windIcon)
@@ -159,6 +168,17 @@ class DetailInfoView : UIView {
             make.height.equalToSuperview().dividedBy(3.5)
             make.top.equalToSuperview()
        }
+   
+        
+        centerBar.snp.makeConstraints { make in
+            make.width.equalTo(1)
+            make.height.equalToSuperview().dividedBy(2)
+// [Bug] centerBar가 Ycenter로 옮겨지지 않는 문제
+//            make.centerY.equalToSuperview()
+//            make.top.equalToSuperview().offset(20)
+            
+        }
+    
         
         windBackgroundBox.backgroundColor = UIColor.systemGray5
         windBackgroundBox.layer.cornerRadius = 10
@@ -180,8 +200,10 @@ class DetailInfoView : UIView {
             make.height.equalToSuperview().dividedBy(3.5)
        }
         
+        //[UI bug] 이미지가 계속 찌그러져서 나오는 문제(height 조정 안되는걸로 보임)
         humidityIcon.snp.makeConstraints { make in
             make.width.equalTo(100)
+//            make.height.equalTo(300)
         }
         
         humidityData.snp.makeConstraints { make in
