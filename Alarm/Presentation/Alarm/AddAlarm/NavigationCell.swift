@@ -32,6 +32,7 @@ class NavigationCell: UITableViewCell {
     
     func setUI() {
         accessoryType = .disclosureIndicator
+        selectionStyle = .none
         
         contentView.addSubview(leadingLabel)
         contentView.clipsToBounds = true

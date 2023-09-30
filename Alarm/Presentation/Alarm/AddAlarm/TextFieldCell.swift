@@ -18,6 +18,7 @@ class TextFieldCell: UITableViewCell {
     })
     
     private lazy var trailingTextField = UITextField().then({
+        $0.textAlignment = .right
         $0.tintColor = UIColor.black
         $0.borderStyle = .none
         $0.placeholder = "알람"
@@ -37,7 +38,7 @@ class TextFieldCell: UITableViewCell {
     }
     
     func setUI() {
-        accessoryType = .disclosureIndicator
+        selectionStyle = .none
         
         contentView.addSubview(leadingLabel)
         contentView.addSubview(trailingTextField)
@@ -51,7 +52,7 @@ class TextFieldCell: UITableViewCell {
         })
         
         trailingTextField.snp.makeConstraints({ constraint in
-            constraint.trailing.equalToSuperview().offset(8)
+            constraint.trailing.equalToSuperview().offset(-8)
             constraint.centerY.equalTo(leadingLabel)
         })
     }
