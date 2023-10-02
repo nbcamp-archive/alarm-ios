@@ -30,6 +30,10 @@ class TimerViewController: BaseUIViewController {
     
     @IBOutlet weak var timePickerView: UIPickerView!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var bellImageView: UIImageView!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    
     @IBOutlet weak var cancelView: UIView!
     @IBOutlet weak var startView: UIView!
     
@@ -51,7 +55,7 @@ class TimerViewController: BaseUIViewController {
         startView.circleView = true
         startButton.circleButton = true
         
-        switchButtonsAppearance(state: timerModel.state)
+        setupUI(state: timerModel.state)
         
         timePickerView.delegate = self
         timePickerView.dataSource = self
@@ -61,7 +65,7 @@ class TimerViewController: BaseUIViewController {
     
     //MARK: - Appearance
     
-    private func switchButtonsAppearance(state: TimerModel.State ){
+    private func setupUI(state: TimerModel.State ){
         switch state {
         case .running:
             startButton.setTitle("일시 정지", for: .normal)
@@ -107,6 +111,11 @@ class TimerViewController: BaseUIViewController {
         return [hour, minuteAndSecond, minuteAndSecond]
     }
     
+    func resetTimePickerView() {
+        timePickerView.selectRow(0, inComponent: 0, animated: false)
+        timePickerView.selectRow(0, inComponent: 1, animated: false)
+        timePickerView.selectRow(0, inComponent: 2, animated: false)
+    }
     
     
     //MARK: - Actions
@@ -120,23 +129,22 @@ class TimerViewController: BaseUIViewController {
             let totalTimeInSeconds = TimeInterval(selectedHours * 3600 + selectedMinutes * 60 + selectedSeconds)
             
             timerModel.start(withInitialTime: totalTimeInSeconds, alarmSound: "alarm_sound.mp3")
+            timePickerView.isHidden = true
         } else if timerModel.state == .running {
             timerModel.pause()
         } else if timerModel.state == .paused {
             timerModel.resume()
         }
         
-        switchButtonsAppearance(state: timerModel.state)
+        setupUI(state: timerModel.state)
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         timerModel.stop()
+        resetTimePickerView()
+        timePickerView.isHidden = false
         
-        timePickerView.selectRow(0, inComponent: 0, animated: false)
-        timePickerView.selectRow(0, inComponent: 1, animated: false)
-        timePickerView.selectRow(0, inComponent: 2, animated: false)
-        
-        switchButtonsAppearance(state: .default)
+        setupUI(state: .default)
 
     }
     
