@@ -27,6 +27,9 @@
 		1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81B2AC32349003D1D81 /* SnapKit */; };
 		1C5EC81F2AC32358003D1D81 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81E2AC32358003D1D81 /* Then */; };
 		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
+		96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B772AC3D3B000C332F4 /* weatherAPI.swift */; };
+		96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B792AC423C700C332F4 /* detailInfoView.swift */; };
+		968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
+		96330B772AC3D3B000C332F4 /* weatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAPI.swift; sourceTree = "<group>"; };
+		96330B792AC423C700C332F4 /* detailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailInfoView.swift; sourceTree = "<group>"; };
+		968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				1C5EC8002AC2A5EE003D1D81 /* WeatherViewController.swift */,
+				96330B772AC3D3B000C332F4 /* weatherAPI.swift */,
 				1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */,
+				96330B792AC423C700C332F4 /* detailInfoView.swift */,
+				968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -299,12 +308,15 @@
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC80F2AC2DF49003D1D81 /* StopwatchViewController.swift in Sources */,
+				968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */,
+				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopwatchViewCoordinator.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
+				96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */,
