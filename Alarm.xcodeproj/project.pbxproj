@@ -11,6 +11,8 @@
 		1C29A7E72ACA79C900F0012C /* AlarmNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */; };
 		1C29A7E82ACA79C900F0012C /* AlarmNotification.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C29A7EE2ACA7A6800F0012C /* ANAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */; };
+		1C29A7F82ACAEA3A00F0012C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */; };
+		1C29A7FB2ACAF07700F0012C /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7FA2ACAF07700F0012C /* Alarm.swift */; };
 		1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */; };
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
@@ -79,6 +81,8 @@
 		1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlarmNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C29A7E32ACA79C900F0012C /* AlarmNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmNotification.h; sourceTree = "<group>"; };
 		1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANAuthenticator.swift; sourceTree = "<group>"; };
+		1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		1C29A7FA2ACAF07700F0012C /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5EC7D72AC1D5D2003D1D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -159,6 +163,22 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		1C29A7F62ACAEA2700F0012C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		1C29A7F92ACAF04F00F0012C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7FA2ACAF07700F0012C /* Alarm.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		1C5EC7BF2AC1D5D1003D1D81 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +200,8 @@
 		1C5EC7CA2AC1D5D1003D1D81 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C29A7F92ACAF04F00F0012C /* Data */,
+				1C29A7F62ACAEA2700F0012C /* Utility */,
 				1C5EC7F22AC1EE36003D1D81 /* Presentation */,
 				1C5EC7E52AC1EA8F003D1D81 /* Global */,
 				1C5EC7E42AC1E830003D1D81 /* Resource */,
@@ -492,7 +514,9 @@
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
+				1C29A7FB2ACAF07700F0012C /* Alarm.swift in Sources */,
 				D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */,
+				1C29A7F82ACAEA3A00F0012C /* UserDefaultsManager.swift in Sources */,
 				1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */,
