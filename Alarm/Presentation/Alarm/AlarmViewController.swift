@@ -27,6 +27,8 @@ class AlarmViewController: BaseUIViewController {
         Alarm(time: "12:10 PM", label: "점심 알람")
     ]
     
+    var isEditingMode = false
+    
     // 테이블 뷰
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -59,10 +61,14 @@ class AlarmViewController: BaseUIViewController {
         
         // 편집모드 버튼 추가
         let editButton = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editButtonTapped))
-            navigationItem.leftBarButtonItem = editButton
+        navigationItem.leftBarButtonItem = editButton
     }
     
     @objc func addAlarmButtonTapped() {
+        // 편집 모드 활성중 실행시 편집 모드 종료
+        if isEditingMode {
+            editButtonTapped()
+        }
         coordinator?.toAddAlarmView()
     }
 }
@@ -79,15 +85,15 @@ extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-                        return 50 // "기타" 라벨 셀의 높이를 조절
-                    }
-                    return 93
+            return 50 // "기타" 라벨 셀의 높이를 조절
+        }
+        return 93
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            // 첫 번째 셀 '기타'는 편집 모드에서 제외
-            return indexPath.row != 0
-        }
+        // 첫 번째 셀 '기타'는 편집 모드에서 제외
+        return indexPath.row != 0
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -143,6 +149,8 @@ extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
             tableView.setEditing(true, animated: true)
             navigationItem.leftBarButtonItem?.title = "완료"
         }
+        // 편집 모드 상태 업데이트
+        isEditingMode = tableView.isEditing
     }
     
     func alarmSwitchValueChanged(isOn: Bool, forAlarm alarm: Alarm) {
