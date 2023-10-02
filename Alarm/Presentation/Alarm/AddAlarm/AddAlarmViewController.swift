@@ -59,14 +59,10 @@ class AddAlarmViewController: BaseUIViewController {
     })
     
     override func setTitle() {
-        super.setTitle()
-        
         navigationItem.title = "알람 추가"
     }
     
     override func setUI() {
-        super.setUI()
-        
         navigationItem.leftBarButtonItem = cancelButtonItem
         navigationItem.rightBarButtonItem = saveButtonItem
         
@@ -76,8 +72,6 @@ class AddAlarmViewController: BaseUIViewController {
     }
     
     override func setLayout() {
-        super.setLayout()
-        
         backgroundView.snp.makeConstraints({ constraint in
             constraint.leading.trailing.top.bottom.equalToSuperview()
         })
@@ -93,15 +87,11 @@ class AddAlarmViewController: BaseUIViewController {
     }
     
     override func setDelegate() {
-        super.setDelegate()
-        
         timeTableView.dataSource = self
         timeTableView.delegate = self
     }
     
     override func addTarget() {
-        super.addTarget()
-        
         cancelButtonItem.target = self
         saveButtonItem.target = self
     }
