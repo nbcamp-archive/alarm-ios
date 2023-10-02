@@ -13,6 +13,8 @@
 		1C29A7EE2ACA7A6800F0012C /* ANAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */; };
 		1C29A7F82ACAEA3A00F0012C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */; };
 		1C29A7FB2ACAF07700F0012C /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7FA2ACAF07700F0012C /* Alarm.swift */; };
+		1C29A7FF2ACAFAAA00F0012C /* daydreaming.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C29A7FD2ACAFAAA00F0012C /* daydreaming.mp3 */; };
+		1C29A8002ACAFAAA00F0012C /* default.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C29A7FE2ACAFAAA00F0012C /* default.mp3 */; };
 		1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */; };
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
@@ -83,6 +85,8 @@
 		1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANAuthenticator.swift; sourceTree = "<group>"; };
 		1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		1C29A7FA2ACAF07700F0012C /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		1C29A7FD2ACAFAAA00F0012C /* daydreaming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = daydreaming.mp3; sourceTree = "<group>"; };
+		1C29A7FE2ACAFAAA00F0012C /* default.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = default.mp3; sourceTree = "<group>"; };
 		1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5EC7D72AC1D5D2003D1D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,6 +183,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		1C29A7FC2ACAF97F00F0012C /* Tone */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7FD2ACAFAAA00F0012C /* daydreaming.mp3 */,
+				1C29A7FE2ACAFAAA00F0012C /* default.mp3 */,
+			);
+			path = Tone;
+			sourceTree = "<group>";
+		};
 		1C5EC7BF2AC1D5D1003D1D81 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +237,7 @@
 		1C5EC7E42AC1E830003D1D81 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1C29A7FC2ACAF97F00F0012C /* Tone */,
 				1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */,
 				1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */,
 				1C5EC7D92AC1D5D2003D1D81 /* Info.plist */,
@@ -469,7 +483,9 @@
 			files = (
 				1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */,
 				D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */,
+				1C29A8002ACAFAAA00F0012C /* default.mp3 in Resources */,
 				D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */,
+				1C29A7FF2ACAFAAA00F0012C /* daydreaming.mp3 in Resources */,
 				1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
