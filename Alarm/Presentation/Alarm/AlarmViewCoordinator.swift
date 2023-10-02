@@ -26,4 +26,9 @@ class AlarmViewCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    func toAddAlarmView() {
+        let coordinator = AddAlarmViewCoordinator(navigationController: navigationController)
+        coordinator.start()
+    }
+    
 }
