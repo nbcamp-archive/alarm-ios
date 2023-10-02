@@ -27,13 +27,6 @@
 		1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81B2AC32349003D1D81 /* SnapKit */; };
 		1C5EC81F2AC32358003D1D81 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81E2AC32358003D1D81 /* Then */; };
 		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
-		D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */; };
-		D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF52AC3C755001413AB /* StopWatch.swift */; };
-		D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */; };
-		D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */; };
-		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
-		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
-		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
 		1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */; };
 		1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */; };
 		1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA952AC4066700CE864C /* NavigationCell.swift */; };
@@ -45,6 +38,14 @@
 		96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B772AC3D3B000C332F4 /* weatherAPI.swift */; };
 		96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B792AC423C700C332F4 /* detailInfoView.swift */; };
 		968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */; };
+		968B03402ACAA9A0008808B8 /* weatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033F2ACAA9A0008808B8 /* weatherIcon.swift */; };
+		D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */; };
+		D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF52AC3C755001413AB /* StopWatch.swift */; };
+		D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */; };
+		D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */; };
+		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
+		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
+		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,13 +70,6 @@
 		1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
-		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
-		D262CFF52AC3C755001413AB /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
-		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
-		D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
-		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
-		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
 		1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewCoordinator.swift; sourceTree = "<group>"; };
 		1C77AA952AC4066700CE864C /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
@@ -87,6 +81,14 @@
 		96330B772AC3D3B000C332F4 /* weatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAPI.swift; sourceTree = "<group>"; };
 		96330B792AC423C700C332F4 /* detailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailInfoView.swift; sourceTree = "<group>"; };
 		968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
+		968B033F2ACAA9A0008808B8 /* weatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherIcon.swift; sourceTree = "<group>"; };
+		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
+		D262CFF52AC3C755001413AB /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
+		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
+		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */,
 				96330B792AC423C700C332F4 /* detailInfoView.swift */,
 				968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */,
+				968B033F2ACAA9A0008808B8 /* weatherIcon.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -367,7 +370,7 @@
 				D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
-				1C5EC80F2AC2DF49003D1D81 /* StopwatchViewController.swift in Sources */,
+				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
 				1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */,
 				968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */,
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
@@ -375,6 +378,7 @@
 				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */,
+				968B03402ACAA9A0008808B8 /* weatherIcon.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,

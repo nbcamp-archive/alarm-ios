@@ -11,17 +11,18 @@ import Alamofire
 extension WeatherViewController {
     
     
-    
+    //컴플리션(클로져) 추가 필요
     func callWeather(){
         AF.request(openWeatherAPI)
-            .responseJSON { response in
+                 .responseJSON { response in
                 switch response.result {
                 case .success(let json):
                     
                     if let jsonDict = json as? [String: Any],
                        let weatherArray = jsonDict["weather"] as? [[String: Any]],
                        let mainDict = jsonDict["main"] as? [String: Any],
-                       let mainWeather = weatherArray.first?["main"] as? String,
+                       let conditionCode = weatherArray.first?["id"] as? Int,
+                        let mainWeather = weatherArray.first?["main"] as? String,
                        let temp = mainDict["temp"] as? Double,
                        let tempMax = mainDict["temp_max"] as? Double,
                        let tempMin = mainDict["temp_min"] as? Double,
@@ -32,6 +33,10 @@ extension WeatherViewController {
                         
                     {
                         DispatchQueue.main.async {
+                            self.testCode.text = String("\(conditionCode)")
+                            self.weatherConditon = conditionCode
+//                            self.weatherConditon = 800
+                            self.firstSwitch()
                             self.cityNameLabel.text = cityName
                             self.weatherTodayLabel.text = mainWeather
                             self.tempTodayLabel.text = String(format: " %.f", temp)

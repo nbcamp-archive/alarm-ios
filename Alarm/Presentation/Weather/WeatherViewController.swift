@@ -8,7 +8,16 @@
 import UIKit
 import SnapKit
 
+
+
+
+
+
 class WeatherViewController: BaseUIViewController {
+    
+   
+    var weatherConditon: Int = 800
+  
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
     
@@ -17,6 +26,20 @@ class WeatherViewController: BaseUIViewController {
         container.axis = .vertical
         return container
     }()
+    
+    let testBox = {
+        let box = UIView()
+        box.layer.borderWidth = 1
+        return box
+        
+    }()
+    
+    let testCode = {
+        let code = UILabel()
+        code.text = "sdfs"
+        return code
+    }()
+    
     
     let locationBox = {
         let box = UIStackView()
@@ -27,7 +50,7 @@ class WeatherViewController: BaseUIViewController {
     
     let cityNameLabel = {
         let label = UILabel()
-        label.text = "cityNameLabel"
+        label.text = ""
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
         return label
@@ -71,7 +94,7 @@ class WeatherViewController: BaseUIViewController {
     
     let tempTodayLabel = {
         let label = UILabel()
-        label.text = "온도"
+        label.text = ""
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
 //         label.backgroundColor = UIColor.systemBlue
@@ -90,7 +113,7 @@ class WeatherViewController: BaseUIViewController {
     
     let weatherTodayLabel = {
         let label = UILabel()
-        label.text = "weatherLabel"
+        label.text = ""
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
 //        label.backgroundColor = UIColor.red
@@ -114,7 +137,13 @@ class WeatherViewController: BaseUIViewController {
         
         setupUI()
         callWeather()
+//        callWeather { condition in
+//            weatherConditon = condition
+//        }
         dateTody()
+//        firstSwitch()
+        
+        print("딱!",weatherConditon)
     }
     
     func dateTody(){
@@ -129,12 +158,14 @@ class WeatherViewController: BaseUIViewController {
     func setupUI(){
         self.view.backgroundColor = UIColor(hex: "#A4CAF5")
         self.view.addSubview(todaysWeatherContainer)
+        
+        self.view.addSubview(testBox)
+        testBox.addSubview(testCode)
+    
+        
         todaysWeatherContainer.addArrangedSubview(locationBox)
         todaysWeatherContainer.addArrangedSubview(mainInfoBox)
         todaysWeatherContainer.addArrangedSubview(detailInfoBox)
-        todaysWeatherContainer.snp.makeConstraints { make in
-       }
-        
       
         locationBox.addArrangedSubview(cityNameLabel)
         locationBox.addArrangedSubview(dateLabel)
@@ -150,11 +181,19 @@ class WeatherViewController: BaseUIViewController {
         temprigthInsideStackView.addArrangedSubview(tempTodayLabel)
         temprigthInsideStackView.addArrangedSubview(tempDegree)
       
-//        detailInfoBox.addArrangedSubview(tempBackgroundBox)
-//        detailInfoBox.addArrangedSubview(windBackgroundBox)
-//        detailInfoBox.addArrangedSubview(humidityBackgroundBox)
+                testBox.snp.makeConstraints { make in
+            make.bottom.equalTo(locationBox.snp.top)
+            make.right.equalToSuperview().offset(-50)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
         
-//        todaysWeatherContainer.layer.borderWidth = 1
+        
+        testCode.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
         todaysWeatherContainer.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
