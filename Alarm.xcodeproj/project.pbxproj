@@ -31,6 +31,9 @@
 		D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF52AC3C755001413AB /* StopWatch.swift */; };
 		D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */; };
 		D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */; };
+		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
+		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
+		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
 		1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */; };
 		1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */; };
 		1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA952AC4066700CE864C /* NavigationCell.swift */; };
@@ -70,6 +73,9 @@
 		D262CFF52AC3C755001413AB /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D262CFF92AC3C9ED001413AB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
+		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
 		1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewCoordinator.swift; sourceTree = "<group>"; };
 		1C77AA952AC4066700CE864C /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
@@ -248,6 +254,9 @@
 			children = (
 				1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */,
 				1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */,
+				D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */,
+				D262CFFD2AC3CD87001413AB /* TimerModel.swift */,
+				D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */,
+				D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */,
 				D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */,
 				1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */,
 			);
@@ -362,6 +372,7 @@
 				968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */,
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
+				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
@@ -372,6 +383,7 @@
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
+				D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */,
 				1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */,
