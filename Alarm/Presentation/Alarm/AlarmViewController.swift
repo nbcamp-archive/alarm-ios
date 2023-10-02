@@ -56,6 +56,10 @@ class AlarmViewController: BaseUIViewController {
         // 알람 추가 버튼
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAlarmButtonTapped))
         navigationItem.rightBarButtonItem = addButton
+        
+        // 편집모드 버튼 추가
+        let editButton = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editButtonTapped))
+            navigationItem.leftBarButtonItem = editButton
     }
     
     @objc func addAlarmButtonTapped() {
@@ -79,6 +83,11 @@ extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                     return 93
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+            // 첫 번째 셀 '기타'는 편집 모드에서 제외
+            return indexPath.row != 0
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -123,6 +132,16 @@ extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
            let indexPath = tableView.indexPath(for: cell) {
             let alarm = alarms[indexPath.row - 1]
             alarmSwitchValueChanged(isOn: sender.isOn, forAlarm: alarm)
+        }
+    }
+    
+    @objc func editButtonTapped() {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            navigationItem.leftBarButtonItem?.title = "편집"
+        } else {
+            tableView.setEditing(true, animated: true)
+            navigationItem.leftBarButtonItem?.title = "완료"
         }
     }
     
