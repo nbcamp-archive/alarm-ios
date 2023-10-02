@@ -93,7 +93,7 @@ extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
             let label = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.width - 32, height: 30))
-            label.text = "Other"
+            label.text = "기타"
             label.font = UIFont.systemFont(ofSize: 18.4, weight: .semibold)
             headerView.addSubview(label)
             return headerView
