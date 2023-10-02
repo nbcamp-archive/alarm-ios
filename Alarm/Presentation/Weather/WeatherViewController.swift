@@ -58,7 +58,6 @@ class WeatherViewController: BaseUIViewController {
     
     let dateLabel = {
         let label = UILabel()
-        //오늘 날짜 들어갈 수 있게 조정
         label.text = ""
         label.textAlignment = .left
         label.textColor = UIColor.systemGray
@@ -69,13 +68,14 @@ class WeatherViewController: BaseUIViewController {
     
     let mainInfoBox = {
         let box = UIStackView()
+        box.alignment = .center
         return box
     }()
     
     let weatherImage = {
         let image = UIImageView()
         image.image = UIImage(named: "cludy")
-        
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -97,7 +97,6 @@ class WeatherViewController: BaseUIViewController {
         label.text = ""
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
-//         label.backgroundColor = UIColor.systemBlue
         return label
     }()
     
@@ -106,8 +105,6 @@ class WeatherViewController: BaseUIViewController {
         let label = UILabel()
         label.text = "°C"
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-//        label.backgroundColor = UIColor.systemGreen
-//        label.textAlignment = .left
         return label
     }()
     
@@ -116,7 +113,6 @@ class WeatherViewController: BaseUIViewController {
         label.text = ""
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
-//        label.backgroundColor = UIColor.red
         return label
     }()
  
@@ -137,13 +133,10 @@ class WeatherViewController: BaseUIViewController {
         
         setupUI()
         callWeather()
-//        callWeather { condition in
-//            weatherConditon = condition
-//        }
         dateTody()
-//        firstSwitch()
+
         
-        print("딱!",weatherConditon)
+//        print("딱!",weatherConditon)
     }
     
     func dateTody(){
@@ -212,8 +205,7 @@ class WeatherViewController: BaseUIViewController {
         }
         
         weatherImage.snp.makeConstraints { make in
-            make.width.equalTo(200)
-            make.height.equalToSuperview()
+            make.width.equalTo(180)
         }
         
         mainInfoInsideRigthBox.distribution = .fillProportionally

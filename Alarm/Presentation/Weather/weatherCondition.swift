@@ -46,7 +46,7 @@ enum Temp {
 
 extension WeatherViewController{
       
-    func firstSwitch(){
+    func changeIconAndBG(){
         let yoroke = Temp(initailValue: weatherConditon)
 
         
@@ -54,18 +54,27 @@ extension WeatherViewController{
             switch tempCase {
             case .snow:
                 testBox.backgroundColor = UIColor.red
+                weatherImage.image = UIImage(named: "snow")
             case .clear:
                 testBox.backgroundColor = UIColor.orange
-            case .thunderstorm:
+                weatherImage.image = UIImage(named: "rain")
+
+            case .thunderstorm: //뇌우
                 testBox.backgroundColor = UIColor.yellow
-            case .drizzle:
+                weatherImage.image = UIImage(named: "thunderstorm")
+            case .drizzle: //가랑비
                 testBox.backgroundColor = UIColor.green
+                weatherImage.image = UIImage(named: "drizzle")
             case .rain:
                 testBox.backgroundColor = UIColor.blue
-            case .atmosphere:
+                weatherImage.image = UIImage(named: "rain")
+            case .atmosphere: //대기질
                 testBox.backgroundColor = UIColor.purple
+                weatherImage.image = UIImage(named: "atmosphere")
             case .clouds:
                 testBox.backgroundColor = UIColor.white
+                weatherImage.image = UIImage(named: "clouds")
+               
             }
         } else {
             testBox.backgroundColor = UIColor.gray

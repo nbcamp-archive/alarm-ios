@@ -38,7 +38,7 @@
 		96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B772AC3D3B000C332F4 /* weatherAPI.swift */; };
 		96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B792AC423C700C332F4 /* detailInfoView.swift */; };
 		968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */; };
-		968B03402ACAA9A0008808B8 /* weatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033F2ACAA9A0008808B8 /* weatherIcon.swift */; };
+		968B03402ACAA9A0008808B8 /* weatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033F2ACAA9A0008808B8 /* weatherCondition.swift */; };
 		D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */; };
 		D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF52AC3C755001413AB /* StopWatch.swift */; };
 		D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */; };
@@ -81,7 +81,7 @@
 		96330B772AC3D3B000C332F4 /* weatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAPI.swift; sourceTree = "<group>"; };
 		96330B792AC423C700C332F4 /* detailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailInfoView.swift; sourceTree = "<group>"; };
 		968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
-		968B033F2ACAA9A0008808B8 /* weatherIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherIcon.swift; sourceTree = "<group>"; };
+		968B033F2ACAA9A0008808B8 /* weatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherCondition.swift; sourceTree = "<group>"; };
 		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
 		D262CFF52AC3C755001413AB /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */,
 				96330B792AC423C700C332F4 /* detailInfoView.swift */,
 				968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */,
-				968B033F2ACAA9A0008808B8 /* weatherIcon.swift */,
+				968B033F2ACAA9A0008808B8 /* weatherCondition.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */,
-				968B03402ACAA9A0008808B8 /* weatherIcon.swift in Sources */,
+				968B03402ACAA9A0008808B8 /* weatherCondition.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,

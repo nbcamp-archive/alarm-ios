@@ -36,7 +36,7 @@ extension WeatherViewController {
                             self.testCode.text = String("\(conditionCode)")
                             self.weatherConditon = conditionCode
 //                            self.weatherConditon = 800
-                            self.firstSwitch()
+                            self.changeIconAndBG()
                             self.cityNameLabel.text = cityName
                             self.weatherTodayLabel.text = mainWeather
                             self.tempTodayLabel.text = String(format: " %.f", temp)
