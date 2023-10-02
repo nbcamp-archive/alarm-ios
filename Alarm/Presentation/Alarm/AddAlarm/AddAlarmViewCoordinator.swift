@@ -11,10 +11,14 @@ class AddAlarmViewCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
+    var stackNavigationController: UINavigationController
+    
     var childCoordinators: [Coordinator]
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        
+        self.stackNavigationController = UINavigationController()
         
         self.childCoordinators = [Coordinator]()
     }
@@ -23,8 +27,14 @@ class AddAlarmViewCoordinator: Coordinator {
         let viewController = AddAlarmViewController()
         viewController.coordinator = self
         
-        navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.present(viewController, animated: true)
+        stackNavigationController = UINavigationController(rootViewController: viewController)
+        navigationController.present(stackNavigationController, animated: true)
+    }
+    
+    func toRepeatView() {
+        let viewController = RepeatViewController()
+        
+        navigationController.pushViewController(viewController, animated: true)
     }
     
 }
