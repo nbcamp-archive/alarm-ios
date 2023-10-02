@@ -7,43 +7,34 @@
 
 import Foundation
 
-struct Tone: Codable, Equatable {
-    let name: String
-    let filename: String
-}
-
 class Alarm: Codable {
     
     let uuid: UUID
     
     var hour: Int
     var minute: Int
+    var dayOfWeekdays: [Int]
+    var label: String
+    var tone: Tone
     var isEnabled: Bool
     var isSnoozeEnabled: Bool
-    var dayOfWeekdays: [Int]
-    var tone: Tone
-    var label: String
+
     
-    init(uuid: UUID, hour: Int, minute: Int, isEnabled: Bool, isSnoozeEnabled: Bool, dayOfWeekdays: [Int], tone: Tone, label: String) {
+    init(uuid: UUID, hour: Int, minute: Int, dayOfWeekdays: [Int],
+         label: String, tone: Tone, isEnabled: Bool, isSnoozeEnabled: Bool) {
         self.uuid = uuid
         self.hour = hour
         self.minute = minute
+        self.dayOfWeekdays = dayOfWeekdays
+        self.label = label
+        self.tone = tone
         self.isEnabled = isEnabled
         self.isSnoozeEnabled = isSnoozeEnabled
-        self.dayOfWeekdays = dayOfWeekdays
-        self.tone = tone
-        self.label = label
     }
     
     convenience init() {
-        self.init(uuid: UUID(),
-                  hour: 0,
-                  minute: 0,
-                  isEnabled: true,
-                  isSnoozeEnabled: false,
-                  dayOfWeekdays: [],
-                  tone: Tone(name: "기본", filename: "default.mp3"),
-                  label: "알람")
+        self.init(uuid: UUID(), hour: 0, minute: 0, dayOfWeekdays: [],
+                  label: "알람", tone: Tone(), isEnabled: true, isSnoozeEnabled: false)
     }
     
 }
