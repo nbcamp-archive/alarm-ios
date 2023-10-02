@@ -60,18 +60,22 @@ class AlarmViewController: BaseUIViewController {
             tableView.estimatedSectionHeaderHeight = 50
     }
     
+//    @objc func addAlarmButtonTapped() {
+//        // 현재 시간 얻기
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "h:mm a"
+//        dateFormatter.amSymbol = "AM"
+//        dateFormatter.pmSymbol = "PM"
+//        let currentTime = dateFormatter.string(from: Date())
+//
+//        // 알람 추가
+//        let newAlarm = Alarm(time: currentTime, label: "새 알람")
+//        alarms.append(newAlarm)
+//        tableView.reloadData()
+//    }
+    
     @objc func addAlarmButtonTapped() {
-        // 현재 시간 얻기
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
-        dateFormatter.amSymbol = "AM"
-        dateFormatter.pmSymbol = "PM"
-        let currentTime = dateFormatter.string(from: Date())
-        
-        // 알람 추가
-        let newAlarm = Alarm(time: currentTime, label: "새 알람")
-        alarms.append(newAlarm)
-        tableView.reloadData()
+        coordinator?.toAddAlarmView()
     }
 }
 
