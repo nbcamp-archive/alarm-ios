@@ -76,6 +76,8 @@ class AddAlarmViewController: BaseUIViewController {
     }
     
     override func setLayout() {
+        super.setLayout()
+        
         backgroundView.snp.makeConstraints({ constraint in
             constraint.leading.trailing.top.bottom.equalToSuperview()
         })
@@ -91,11 +93,15 @@ class AddAlarmViewController: BaseUIViewController {
     }
     
     override func setDelegate() {
+        super.setDelegate()
+        
         timeTableView.dataSource = self
         timeTableView.delegate = self
     }
     
     override func addTarget() {
+        super.addTarget()
+        
         cancelButtonItem.target = self
         saveButtonItem.target = self
     }
@@ -136,11 +142,9 @@ extension AddAlarmViewController: UITableViewDelegate {
             case 0:
                 let viewController = RepeatViewController()
                 navigationController?.pushViewController(viewController, animated: true)
-                print("반복 화면 코디네이터 실행 됨")
             case 2:
                 let viewController = SoundViewController()
                 navigationController?.pushViewController(viewController, animated: true)
-                print("반복 화면 코디네이터 실행 됨")
             default:
                 break
         }
@@ -180,4 +184,5 @@ extension AddAlarmViewController {
     private func saveButtonItemTapped() {
         dismiss(animated: true)
     }
+    
 }
