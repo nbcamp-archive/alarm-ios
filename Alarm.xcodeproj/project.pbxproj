@@ -27,6 +27,14 @@
 		1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81B2AC32349003D1D81 /* SnapKit */; };
 		1C5EC81F2AC32358003D1D81 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC81E2AC32358003D1D81 /* Then */; };
 		1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 1C5EC8212AC32377003D1D81 /* Alamofire */; };
+		1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */; };
+		1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */; };
+		1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA952AC4066700CE864C /* NavigationCell.swift */; };
+		1C77AA982AC40A9300CE864C /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA972AC40A9300CE864C /* TextFieldCell.swift */; };
+		1C77AA9A2AC40C3F00CE864C /* SnoozeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */; };
+		1C77AA9C2AC41B0B00CE864C /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */; };
+		1C77AA9E2AC41D1600CE864C /* RepeatViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */; };
+		1C77AAA12AC42C4F00CE864C /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */; };
 		96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B772AC3D3B000C332F4 /* weatherAPI.swift */; };
 		96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B792AC423C700C332F4 /* detailInfoView.swift */; };
 		968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */; };
@@ -54,6 +62,14 @@
 		1C5EC8102AC2DF80003D1D81 /* StopwatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
+		1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
+		1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewCoordinator.swift; sourceTree = "<group>"; };
+		1C77AA952AC4066700CE864C /* NavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCell.swift; sourceTree = "<group>"; };
+		1C77AA972AC40A9300CE864C /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnoozeCell.swift; sourceTree = "<group>"; };
+		1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
+		1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewCoordinator.swift; sourceTree = "<group>"; };
+		1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 		96330B772AC3D3B000C332F4 /* weatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAPI.swift; sourceTree = "<group>"; };
 		96330B792AC423C700C332F4 /* detailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailInfoView.swift; sourceTree = "<group>"; };
 		968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
@@ -199,6 +215,7 @@
 		1C5EC8072AC2AF5C003D1D81 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C77AA902AC3EB5100CE864C /* AddAlarm */,
 				1C5EC8082AC2AF71003D1D81 /* AlarmViewController.swift */,
 				1C5EC80A2AC2AF97003D1D81 /* AlarmViewCoordinator.swift */,
 			);
@@ -221,6 +238,21 @@
 				1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		1C77AA902AC3EB5100CE864C /* AddAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */,
+				1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */,
+				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
+				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
+				1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */,
+				1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */,
+				1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */,
+				1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */,
+			);
+			path = AddAlarm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,11 +335,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C77AA9C2AC41B0B00CE864C /* RepeatViewController.swift in Sources */,
 				1C5EC8092AC2AF71003D1D81 /* AlarmViewController.swift in Sources */,
+				1C77AA9E2AC41D1600CE864C /* RepeatViewCoordinator.swift in Sources */,
+				1C77AA9A2AC40C3F00CE864C /* SnoozeCell.swift in Sources */,
 				1C5EC7F82AC28FC9003D1D81 /* AppCoordinator.swift in Sources */,
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
 				1C5EC80F2AC2DF49003D1D81 /* StopwatchViewController.swift in Sources */,
+				1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */,
 				968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */,
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
@@ -315,12 +351,16 @@
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
+				1C77AA982AC40A9300CE864C /* TextFieldCell.swift in Sources */,
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
+				1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
+				1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */,
 				1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */,
 				1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */,
+				1C77AAA12AC42C4F00CE864C /* SoundViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
