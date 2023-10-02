@@ -1,13 +1,13 @@
 //
-//  AlarmViewCoordinator.swift
+//  RepeatViewCoordinator.swift
 //  Alarm
 //
-//  Created by Yujin Kim on 2023-09-26.
+//  Created by Yujin Kim on 2023-09-27.
 //
 
 import UIKit
 
-class AlarmViewCoordinator: Coordinator {
+class RepeatViewCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
@@ -20,15 +20,9 @@ class AlarmViewCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = AlarmViewController()
-        viewController.coordinator = self
+        let viewController = RepeatViewController()
         
         navigationController.pushViewController(viewController, animated: true)
-    }
-    
-    func toAddAlarmView() {
-        let coordinator = AddAlarmViewCoordinator(navigationController: navigationController)
-        coordinator.start()
     }
     
 }
