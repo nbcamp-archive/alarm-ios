@@ -35,8 +35,27 @@ class AddAlarmViewController: BaseUIViewController {
         $0.datePickerMode = .time
     })
     
-    private lazy var timeTableView = UITableView().then({
-        $0.rowHeight = 60
+    private lazy var repeatCell = NavigationCell(style: .default, reuseIdentifier: "RepeatCell").then({
+        $0.configure(with: "반복")
+    })
+    
+    private lazy var textFieldCell = TextFieldCell(style: .default, reuseIdentifier: "TextFieldCell").then({
+        $0.configure(with: "레이블")
+    })
+    
+    private lazy var soundCell = NavigationCell(style: .default, reuseIdentifier: "SoundCell").then({
+        $0.configure(with: "사운드")
+    })
+    
+    private lazy var snoozeCell = SnoozeCell(style: .default, reuseIdentifier: "SnoozeCell").then({
+        $0.configure(with: "다시 알림")
+    })
+    
+    private lazy var timeTableView = UITableView(frame: .zero, style: .insetGrouped).then({
+        $0.isScrollEnabled = false
+        $0.backgroundView = .none
+        $0.backgroundColor = .clear
+        $0.rowHeight = 44
     })
     
     override func setTitle() {
@@ -53,6 +72,7 @@ class AddAlarmViewController: BaseUIViewController {
         
         attachBackgroundView()
         view.addSubview(timePicker)
+        view.addSubview(timeTableView)
     }
     
     override func setLayout() {
@@ -60,17 +80,70 @@ class AddAlarmViewController: BaseUIViewController {
             constraint.leading.trailing.top.bottom.equalToSuperview()
         })
         timePicker.snp.makeConstraints({ constraint in
+            constraint.top.equalTo(view.safeAreaLayoutGuide)
             constraint.centerX.equalToSuperview()
+        })
+        timeTableView.snp.makeConstraints({ constraint in
+            constraint.leading.trailing.equalToSuperview()
+            constraint.top.equalTo(timePicker.snp.bottom)
+            constraint.bottom.equalTo(view.safeAreaLayoutGuide)
         })
     }
     
     override func setDelegate() {
-        
+        timeTableView.dataSource = self
+        timeTableView.delegate = self
     }
     
     override func addTarget() {
         cancelButtonItem.target = self
         saveButtonItem.target = self
+    }
+    
+}
+// MARK: - UITableView DataSource
+extension AddAlarmViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = repeatCell
+            return cell
+        case 1:
+            let cell = textFieldCell
+            return cell
+        case 2:
+            let cell = soundCell
+            return cell
+        case 3:
+            let cell = snoozeCell
+            return cell
+        default:
+            fatalError("해당하는 내용이 없습니다.")
+        }
+    }
+    
+}
+// MARK: - UITableView Delegate
+extension AddAlarmViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+            case 0:
+                let viewController = RepeatViewController()
+                navigationController?.pushViewController(viewController, animated: true)
+                print("반복 화면 코디네이터 실행 됨")
+            case 2:
+                let viewController = SoundViewController()
+                navigationController?.pushViewController(viewController, animated: true)
+                print("반복 화면 코디네이터 실행 됨")
+            default:
+                break
+        }
     }
     
 }
@@ -81,7 +154,7 @@ extension AddAlarmViewController {
         let style: UIBlurEffect.Style
         
         if #available(iOS 13.0, *) {
-            style = .systemMaterial
+            style = .systemThinMaterial
         } else {
             style = .light
         }
