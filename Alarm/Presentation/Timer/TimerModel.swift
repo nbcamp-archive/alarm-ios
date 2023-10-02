@@ -21,8 +21,6 @@ final class TimerModel: NSObject {
     private enum PropertySaveKeys {
         static let state = "Timer_State"
         static let initialTime = "Timer_InitialTime"
-        static let endTime = "Timer_EndTime"
-        static let pauseTime = "Timer_PauseTime"
         static let alarmSound = "Timer_AlarmSound"
     }
     
@@ -30,10 +28,10 @@ final class TimerModel: NSObject {
     
     private(set) var state: State = .default
     private(set) var initialTime: TimeInterval = 0
-    private(set) var endTime: TimeInterval = 0
-    private(set) var pauseTime: TimeInterval = 0
     private(set) var alarmSound: String?
     private var timer: Timer?
+    private var backgroundTime: TimeInterval = 0
+    private(set) var endTime: Date?
     
     private var alarmPlayer: AVAudioPlayer?
     
@@ -44,34 +42,28 @@ final class TimerModel: NSObject {
         
         setup()
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     //MARK: - Timer Control
     
-    func start(withInitialTime initialTime: TimeInterval, endTime: TimeInterval, alarmSound: String?) {
+    private func calculateEndTime(from initialTime: TimeInterval) -> Date {
+        let currentDate = Date()
+        let endTime = currentDate.addingTimeInterval(initialTime)
+        return endTime
+    }
+    
+    func start(withInitialTime initialTime: TimeInterval, alarmSound: String?) {
         guard state != .running else {
             return
         }
         
         self.initialTime = initialTime
-        self.endTime = endTime
         self.alarmSound = alarmSound
-        
-        if let soundName = alarmSound, let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
-            do {
-                alarmPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            } catch {
-                alarmPlayer = nil
-            }
-        }
         
         state = .running
         
-        if pauseTime > 0 {
-            let elapsedTimeSincePause = Date().timeIntervalSinceReferenceDate - pauseTime
-            self.endTime -= elapsedTimeSincePause
-            pauseTime = 0
-        }
+        endTime = calculateEndTime(from: initialTime)
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
@@ -83,8 +75,6 @@ final class TimerModel: NSObject {
         
         timer?.invalidate()
         state = .paused
-        
-        pauseTime = Date().timeIntervalSinceReferenceDate
     }
     
     func resume() {
@@ -94,10 +84,8 @@ final class TimerModel: NSObject {
         
         state = .running
         
-        if pauseTime > 0 {
-            let elapsedTimeSincePause = Date().timeIntervalSinceReferenceDate - pauseTime
-            endTime -= elapsedTimeSincePause
-            pauseTime = 0
+        if initialTime > 0 {
+            endTime = calculateEndTime(from: initialTime)
         }
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -105,17 +93,30 @@ final class TimerModel: NSObject {
     
     func stop() {
         timer?.invalidate()
+        timer = nil
         state = .default
-        
-        pauseTime = 0
+        print("---------------timer stopped---------------")
     }
     
     @objc private func updateTimer() {
-        if endTime <= 0 {
+        if initialTime <= 0 {
             stop()
-            playAlarmSound()
+            //playAlarmSound()
         } else {
-            endTime -= 1
+            initialTime -= 1
+        }
+    }
+    
+    @objc private func appWillEnterForeground() {
+        if state == .running {
+            let elapsedTimeInBackground = Date().timeIntervalSinceReferenceDate - backgroundTime
+            initialTime -= elapsedTimeInBackground
+            if initialTime <= 0 {
+                initialTime = 0
+                stop()
+            } else {
+                endTime = calculateEndTime(from: initialTime)
+            }
         }
     }
     
@@ -135,14 +136,10 @@ final class TimerModel: NSObject {
     private func setup(){
         if let savedState = UserDefaults.standard.value(forKey: PropertySaveKeys.state) as? String,
            let savedInitialTime = UserDefaults.standard.value(forKey: PropertySaveKeys.initialTime) as? TimeInterval,
-           let savedEndTime = UserDefaults.standard.value(forKey: PropertySaveKeys.endTime) as? TimeInterval,
-           let savedPauseTime = UserDefaults.standard.value(forKey: PropertySaveKeys.pauseTime) as? TimeInterval,
            let savedAlarmSound = UserDefaults.standard.value(forKey: PropertySaveKeys.alarmSound) as? String {
             
             state = savedState == "running" ? .running : .default
             initialTime = savedInitialTime
-            endTime = savedEndTime
-            pauseTime = savedPauseTime
             alarmSound = savedAlarmSound
         }
     }
@@ -150,8 +147,8 @@ final class TimerModel: NSObject {
     @objc private func save(){
         UserDefaults.standard.set(state == .running ? "running" : "stopped", forKey: PropertySaveKeys.state)
         UserDefaults.standard.set(initialTime, forKey: PropertySaveKeys.initialTime)
-        UserDefaults.standard.set(endTime, forKey: PropertySaveKeys.endTime)
-        UserDefaults.standard.set(pauseTime, forKey: PropertySaveKeys.pauseTime)
         UserDefaults.standard.set(alarmSound, forKey: PropertySaveKeys.alarmSound)
+        
+        backgroundTime = Date().timeIntervalSinceReferenceDate
     }
 }

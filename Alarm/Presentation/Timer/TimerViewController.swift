@@ -18,7 +18,6 @@ class TimerViewController: BaseUIViewController {
     //MARK: - Properties
     
     private let timerModel = TimerModel()
-    private weak var timer: Timer?
     
     var time: [[Int]]{
         get{
@@ -70,11 +69,13 @@ class TimerViewController: BaseUIViewController {
             startButton.setTitleColor(UIColor(named: "StopText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StopBackground")
             cancelButton.alpha = 1
+            print(formatEndTime())
         case .paused:
             startButton.setTitle("재개", for: .normal)
             startButton.backgroundColor = UIColor(named: "StartBackground")
             startButton.setTitleColor(UIColor(named: "StartText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StartBackground")
+            print(formatEndTime())
         case .default:
             startButton.setTitle("시작", for: .normal)
             startButton.backgroundColor = UIColor(named: "StartBackground")
@@ -82,6 +83,13 @@ class TimerViewController: BaseUIViewController {
             startView.backgroundColor = UIColor(named: "StartBackground")
             cancelButton.alpha = 0.6
         }
+    }
+    
+    private func formatEndTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "a hh:mm"
+        return dateFormatter.string(from: timerModel.endTime!)
     }
     
     func setTime() -> [[Int]]{
@@ -104,9 +112,32 @@ class TimerViewController: BaseUIViewController {
     //MARK: - Actions
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
+        if timerModel.state == .default {
+            let selectedHours = timePickerView.selectedRow(inComponent: 0)
+            let selectedMinutes = timePickerView.selectedRow(inComponent: 1)
+            let selectedSeconds = timePickerView.selectedRow(inComponent: 2)
+            
+            let totalTimeInSeconds = TimeInterval(selectedHours * 3600 + selectedMinutes * 60 + selectedSeconds)
+            
+            timerModel.start(withInitialTime: totalTimeInSeconds, alarmSound: "alarm_sound.mp3")
+        } else if timerModel.state == .running {
+            timerModel.pause()
+        } else if timerModel.state == .paused {
+            timerModel.resume()
+        }
+        
+        switchButtonsAppearance(state: timerModel.state)
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        timerModel.stop()
+        
+        timePickerView.selectRow(0, inComponent: 0, animated: false)
+        timePickerView.selectRow(0, inComponent: 1, animated: false)
+        timePickerView.selectRow(0, inComponent: 2, animated: false)
+        
+        switchButtonsAppearance(state: .default)
+
     }
     
 }
