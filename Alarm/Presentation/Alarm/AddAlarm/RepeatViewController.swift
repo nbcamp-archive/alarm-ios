@@ -14,24 +14,26 @@ protocol RepeatViewControllerDelegate: AnyObject {
 }
 
 class RepeatViewController: BaseUIViewController {
+    
     weak var delegate: RepeatViewControllerDelegate?
-    
-    private lazy var backgroundView = UIVisualEffectView()
-    
-    override func setTitle() {
-        title = "반복"
-    }
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        return tableView
-    }()
     
     private var selectedDays: [String] = []
     private let cellIdentifier = "7daysCell"
     private let daysOfWeek = ["월요일마다", "화요일마다", "수요일마다", "목요일마다", "금요일마다", "토요일마다", "일요일마다"]
     
+    private lazy var backgroundView = UIVisualEffectView()
+    
+    private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped).then({
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .clear
+    })
+    
+    override func setTitle() {
+        title = "반복"
+    }
+    
     override func setUI() {
+        navigationController?.navigationBar.tintColor = UIColor.black
         attachBackgroundView()
         
         view.addSubview(tableView)
@@ -45,9 +47,9 @@ class RepeatViewController: BaseUIViewController {
         backgroundView.snp.makeConstraints({ constraint in
             constraint.leading.trailing.top.bottom.equalToSuperview()
         })
-        
         tableView.snp.makeConstraints { constraint in
-            constraint.leading.trailing.top.bottom.equalToSuperview()
+            constraint.top.equalToSuperview().offset(32)
+            constraint.leading.trailing.bottom.equalToSuperview()
         }
     }
     
