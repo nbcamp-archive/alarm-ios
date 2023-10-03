@@ -192,6 +192,19 @@ extension TimerViewController: UIPickerViewDelegate{
         }
     }
 
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedHours = timePickerView.selectedRow(inComponent: 0)
+        let selectedMinutes = timePickerView.selectedRow(inComponent: 1)
+        let selectedSeconds = timePickerView.selectedRow(inComponent: 2)
+
+        if selectedHours == 0 && selectedMinutes == 0 && selectedSeconds == 0 {
+            startButton.isEnabled = false
+            startButton.alpha = 0.6
+        } else {
+            startButton.isEnabled = true
+            startButton.alpha = 1.0
+        }
+    }
 
 }
 
