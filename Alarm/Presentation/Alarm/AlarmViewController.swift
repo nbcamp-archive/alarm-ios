@@ -27,6 +27,8 @@ class AlarmViewController: BaseUIViewController {
         Alarm(time: "12:10 PM", label: "점심 알람")
     ]
     
+    var isEditingMode = false
+    
     // 테이블 뷰
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -44,6 +46,8 @@ class AlarmViewController: BaseUIViewController {
         
         view.addSubview(tableView)
         
+        tableView.separatorStyle = .singleLine
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -51,104 +55,109 @@ class AlarmViewController: BaseUIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // 알람 추가 버튼
+        // 알람 추가
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAlarmButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
-        // 테이블 뷰 헤더
-            tableView.sectionHeaderHeight = UITableView.automaticDimension
-            tableView.estimatedSectionHeaderHeight = 50
+        // 편집모드 버튼
+        let editButton = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editButtonTapped))
+        navigationItem.leftBarButtonItem = editButton
     }
     
-//    @objc func addAlarmButtonTapped() {
-//        // 현재 시간 얻기
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "h:mm a"
-//        dateFormatter.amSymbol = "AM"
-//        dateFormatter.pmSymbol = "PM"
-//        let currentTime = dateFormatter.string(from: Date())
-//
-//        // 알람 추가
-//        let newAlarm = Alarm(time: currentTime, label: "새 알람")
-//        alarms.append(newAlarm)
-//        tableView.reloadData()
-//    }
-    
     @objc func addAlarmButtonTapped() {
+        // 편집 모드 활성중 실행시 편집 모드 종료
+        if isEditingMode {
+            editButtonTapped()
+        }
         coordinator?.toAddAlarmView()
     }
 }
 
 extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alarms.count
+        return alarms.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 50
+        }
         return 93
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
-            let label = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.width - 32, height: 30))
-            label.text = "Other"
-            label.font = UIFont.systemFont(ofSize: 18.4, weight: .semibold)
-            headerView.addSubview(label)
-            return headerView
-        }
-        return nil
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 30 : 0 // 첫 번째 섹션에만 헤더가 표시되도록 설정
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // 첫 번째 셀 '기타'는 편집 모드에서 제외
+        return indexPath.row != 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "AlarmCell")
-        let alarm = alarms[indexPath.row]
-        
-        // 시간 부분 폰트 설정
+        if indexPath.row == 0 {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "HeaderCell")
+            cell.textLabel?.text = "기타"
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 18.4, weight: .bold)
+            return cell
+        } else {
+            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "AlarmCell")
+            let alarm = alarms[indexPath.row - 1]
+            
+            // 시간 부분 폰트 설정
             let timeText = NSMutableAttributedString(string: alarm.time)
             timeText.addAttribute(.font, value: UIFont(name: "SFProDisplay-Light", size: 40) ?? UIFont.systemFont(ofSize: 40), range: NSRange(location: 0, length: 5))
             
-        // "오전" 또는 "오후" 부분 폰트 설정
+            // "오전" 또는 "오후" 부분 폰트 설정
             let amPmRange = (alarm.time as NSString).range(of: "AM,PM")
             if amPmRange.location != NSNotFound {
                 timeText.addAttribute(.font, value: UIFont(name: "SFProDisplay-Light", size: 20) ?? UIFont.systemFont(ofSize: 20), range: amPmRange)
             }
             
             cell.textLabel?.attributedText = timeText
-        
-        cell.detailTextLabel?.text = alarm.label
-        cell.detailTextLabel?.frame = CGRect(x: 0, y: 0, width: 37, height: 16)
-//            cell.detailTextLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+            
+            cell.detailTextLabel?.text = alarm.label
+            cell.detailTextLabel?.frame = CGRect(x: 0, y: 0, width: 37, height: 16)
             cell.detailTextLabel?.font = UIFont(name: "SFProText-Regular", size: 13.8)
-        
-        cell.selectionStyle = .none
-        
-        // 토글 스위치 추가
-        let switchView = UISwitch()
-        switchView.isOn = false // 꺼진 상태로 설정
-        switchView.addTarget(self, action: #selector(toggleSwitch(_:)), for: .valueChanged)
-        cell.accessoryView = switchView // 셀에 토글 스위치 추가
-        
-        return cell
+            
+            cell.selectionStyle = .none
+            
+            // 토글 스위치 추가
+            let switchView = UISwitch()
+            switchView.isOn = false // 꺼진 상태로 설정
+            switchView.addTarget(self, action: #selector(toggleSwitch(_:)), for: .valueChanged)
+            cell.accessoryView = switchView // 셀에 토글 스위치 추가
+            
+            return cell
+        }
     }
     
     @objc func toggleSwitch(_ sender: UISwitch) {
         if let cell = sender.superview as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
-            let alarm = alarms[indexPath.row]
+            let alarm = alarms[indexPath.row - 1]
             alarmSwitchValueChanged(isOn: sender.isOn, forAlarm: alarm)
         }
     }
     
-    func alarmSwitchValueChanged(isOn: Bool, forAlarm alarm: Alarm) {
-
-        if isOn {
+    @objc func editButtonTapped() {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            navigationItem.leftBarButtonItem?.title = "편집"
         } else {
+            tableView.setEditing(true, animated: true)
+            navigationItem.leftBarButtonItem?.title = "완료"
+        }
+        // 편집 모드 상태 업데이트
+        isEditingMode = tableView.isEditing
+    }
+    
+    func alarmSwitchValueChanged(isOn: Bool, forAlarm alarm: Alarm) {
+        if isOn {
+            // 스위치가 켜진 경우의 동작
+        } else {
+            // 스위치가 꺼진 경우의 동작
         }
     }
 }

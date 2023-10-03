@@ -9,8 +9,8 @@ import SnapKit
 import Then
 import UIKit
 
-class AddAlarmViewController: BaseUIViewController {
-    
+class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate, SoundViewControllerDelegate {
+
     weak var coordinator: AddAlarmViewCoordinator?
     
     private lazy var backgroundView = UIVisualEffectView()
@@ -35,8 +35,19 @@ class AddAlarmViewController: BaseUIViewController {
         $0.datePickerMode = .time
     })
     
+    private lazy var repeatLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        return label
+    }()
+    
     private lazy var repeatCell = NavigationCell(style: .default, reuseIdentifier: "RepeatCell").then({
+        $0.addSubview(repeatLabel)
         $0.configure(with: "반복")
+        repeatLabel.snp.makeConstraints({ constraint in
+            constraint.centerY.equalToSuperview()
+            constraint.trailing.equalToSuperview().inset(35)
+        })
     })
     
     private lazy var textFieldCell = TextFieldCell(style: .default, reuseIdentifier: "TextFieldCell").then({
@@ -57,6 +68,29 @@ class AddAlarmViewController: BaseUIViewController {
         $0.backgroundColor = .clear
         $0.rowHeight = 44
     })
+    
+    func didSelectSound(soundName: String) {
+            soundCell.configure(with: "사운드 \(soundName)")
+        }
+    
+    func didSelectDays(_ selectedDays: [String]) {
+        let sortedSelectedDays = selectedDays.sorted { (day1, day2) in
+                let dayOrder = ["월요일마다", "화요일마다", "수요일마다", "목요일마다", "금요일마다", "토요일마다", "일요일마다"]
+                guard let index1 = dayOrder.firstIndex(of: day1), let index2 = dayOrder.firstIndex(of: day2) else {
+                    return false
+                }
+                return index1 < index2
+            }
+            
+            let abbreviatedDays = sortedSelectedDays.map { day in
+                String(day.prefix(1))
+            }
+            repeatLabel.text = abbreviatedDays.joined(separator: ", ")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
     override func setTitle() {
         navigationItem.title = "알람 추가"
@@ -96,10 +130,39 @@ class AddAlarmViewController: BaseUIViewController {
         saveButtonItem.target = self
     }
     
-}
-// MARK: - UITableView DataSource
-extension AddAlarmViewController: UITableViewDataSource {
+    private func attachBackgroundView() {
+        let style: UIBlurEffect.Style
+        
+        if #available(iOS 13.0, *) {
+            style = .systemThinMaterial
+        } else {
+            style = .light
+        }
+        
+        let effect = UIBlurEffect(style: style)
+        backgroundView.effect = effect
+        
+        view.backgroundColor = .clear
+        view.insertSubview(backgroundView, at: 0)
+    }
     
+    // "반복" 셀이 선택될 때
+    private func showRepeatViewController() {
+        let repeatViewController = RepeatViewController()
+        repeatViewController.delegate = self
+        navigationController?.pushViewController(repeatViewController, animated: true)
+    }
+
+    @objc private func cancelButtonItemTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc private func saveButtonItemTapped() {
+        dismiss(animated: true)
+    }
+}
+
+extension AddAlarmViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -122,57 +185,19 @@ extension AddAlarmViewController: UITableViewDataSource {
             fatalError("해당하는 내용이 없습니다.")
         }
     }
-    
-}
-// MARK: - UITableView Delegate
-extension AddAlarmViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-            case 0:
-                let viewController = RepeatViewController()
-                navigationController?.pushViewController(viewController, animated: true)
-            case 2:
-                let viewController = SoundViewController()
-                navigationController?.pushViewController(viewController, animated: true)
-            default:
-                break
-        }
-    }
-    
-}
-// MARK: - 커스텀 메서드
-extension AddAlarmViewController {
-    
-    private func attachBackgroundView() {
-        let style: UIBlurEffect.Style
-        
-        if #available(iOS 13.0, *) {
-            style = .systemThinMaterial
-        } else {
-            style = .light
-        }
-        
-        let effect = UIBlurEffect(style: style)
-        backgroundView.effect = effect
-        
-        view.backgroundColor = .clear
-        view.insertSubview(backgroundView, at: 0)
-    }
-    
 }
 
-// MARK: - 액션 메서드
-extension AddAlarmViewController {
-    
-    @objc
-    private func cancelButtonItemTapped() {
-        dismiss(animated: true)
+extension AddAlarmViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            showRepeatViewController()
+        case 2:
+            let soundViewController = SoundViewController()
+            soundViewController.delegate = self
+            navigationController?.pushViewController(soundViewController, animated: true)
+        default:
+            break
+        }
     }
-    
-    @objc
-    private func saveButtonItemTapped() {
-        dismiss(animated: true)
-    }
-    
 }
