@@ -45,7 +45,6 @@
 		1C77AA9C2AC41B0B00CE864C /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */; };
 		1C77AA9E2AC41D1600CE864C /* RepeatViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */; };
 		1C77AAA12AC42C4F00CE864C /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */; };
-		6A3F3F412ACBEF2D00026BC9 /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3F3F402ACBEF2D00026BC9 /* AlarmModel.swift */; };
 		96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B772AC3D3B000C332F4 /* weatherAPI.swift */; };
 		96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96330B792AC423C700C332F4 /* detailInfoView.swift */; };
 		968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */; };
@@ -121,7 +120,6 @@
 		1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
 		1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewCoordinator.swift; sourceTree = "<group>"; };
 		1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
-		6A3F3F402ACBEF2D00026BC9 /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
 		96330B772AC3D3B000C332F4 /* weatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherAPI.swift; sourceTree = "<group>"; };
 		96330B792AC423C700C332F4 /* detailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailInfoView.swift; sourceTree = "<group>"; };
 		968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
@@ -345,7 +343,6 @@
 			children = (
 				1C77AA902AC3EB5100CE864C /* AddAlarm */,
 				1C5EC8082AC2AF71003D1D81 /* AlarmViewController.swift */,
-				6A3F3F402ACBEF2D00026BC9 /* AlarmModel.swift */,
 				1C5EC80A2AC2AF97003D1D81 /* AlarmViewCoordinator.swift */,
 			);
 			path = Alarm;
@@ -558,7 +555,6 @@
 				1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */,
 				1C5EC7E32AC1E77E003D1D81 /* SceneDelegate.swift in Sources */,
 				1C77AAA12AC42C4F00CE864C /* SoundViewController.swift in Sources */,
-				6A3F3F412ACBEF2D00026BC9 /* AlarmModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
