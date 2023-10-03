@@ -18,6 +18,7 @@ class TimerViewController: BaseUIViewController {
     //MARK: - Properties
     
     private let timerModel = TimerModel()
+    private(set) var circularSlider: CircularSliderView!
     
     var time: [[Int]]{
         get{
@@ -27,6 +28,9 @@ class TimerViewController: BaseUIViewController {
     
     
     //MARK: - Outlets
+    
+    
+    @IBOutlet weak var timerView: UIView!
     
     @IBOutlet weak var timePickerView: UIPickerView!
     
@@ -49,6 +53,8 @@ class TimerViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addCircle()
 
         cancelView.circleView = true
         cancelButton.circleButton = true
@@ -83,6 +89,7 @@ class TimerViewController: BaseUIViewController {
             timerLabel.isHidden = false
             endTimeStackView.isHidden = false
             endTimeStackView.tintColor = .darkGray
+            circularSlider.isHidden = false
             
         case .paused:
             startButton.setTitle("재개", for: .normal)
@@ -98,11 +105,26 @@ class TimerViewController: BaseUIViewController {
             startButton.setTitleColor(UIColor(named: "StartText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StartBackground")
             cancelButton.alpha = 0.6
+            circularSlider.cancelCountdownAnimation()
             
             timePickerView.isHidden = false
             timerLabel.isHidden = true
             endTimeStackView.isHidden = true
+            circularSlider.isHidden = true
         }
+    }
+    
+    private func addCircle() {
+        circularSlider = CircularSliderView()
+        timerView.addSubview(circularSlider)
+        
+        circularSlider.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            circularSlider.topAnchor.constraint(equalTo: timerView.centerYAnchor, constant: 20),
+            circularSlider.leadingAnchor.constraint(equalTo: timerView.centerXAnchor),
+            circularSlider.trailingAnchor.constraint(equalTo: timerView.trailingAnchor),
+            circularSlider.bottomAnchor.constraint(equalTo: timerView.bottomAnchor)
+        ])
     }
     
     private func formatEndTime() -> String {
@@ -154,12 +176,16 @@ class TimerViewController: BaseUIViewController {
             let selectedSeconds = timePickerView.selectedRow(inComponent: 2)
             
             let totalTimeInSeconds = TimeInterval(selectedHours * 3600 + selectedMinutes * 60 + selectedSeconds)
+            circularSlider.setCoundownTime(seconds: Int(totalTimeInSeconds))
+            circularSlider.startCountdownAnimation()
             
             timerModel.start(withInitialTime: totalTimeInSeconds, alarmSound: "alarm_sound.mp3")
         } else if timerModel.state == .running {
             timerModel.pause()
+            circularSlider.pauseCountdownAnimation()
         } else if timerModel.state == .paused {
             timerModel.resume()
+            circularSlider.resumeCountdownAnimation()
         }
         
         setupUI(state: timerModel.state)
