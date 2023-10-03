@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C328A242ACC383C00516D2A /* CAAnimationGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */; };
 		1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */; };
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAnimationGradientLayer.swift; sourceTree = "<group>"; };
 		1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5EC7D72AC1D5D2003D1D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				96330B792AC423C700C332F4 /* detailInfoView.swift */,
 				968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */,
 				968B033F2ACAA9A0008808B8 /* weatherCondition.swift */,
+				1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
 				D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */,
 				1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */,
+				1C328A242ACC383C00516D2A /* CAAnimationGradientLayer.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */,
 				1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */,
