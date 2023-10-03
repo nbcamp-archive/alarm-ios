@@ -158,6 +158,18 @@ class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate
     }
     
     @objc private func saveButtonItemTapped() {
+        let time = timePicker.date
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: time)
+        let minute = calendar.component(.minute, from: time)
+        let trailingText = textFieldCell.trailingTextField.text ?? "알람"
+        let dummyAlarm = Alarm(uuid: UUID(), hour: hour, minute: minute, dayOfWeekdays: [1],
+                               label: trailingText, tone: Tone(name: "기본", filename: "default.mp3"), isEnabled: true, isSnoozeEnabled: true)
+        print("시간: \(hour), 분: \(minute), 레이블: \(trailingText)")
+        UserDefaultsManager.save(dummyAlarm, forKey: UserDefaultsManager.alarmGroupKey)
+        AlarmScheduler.registAlarm()
+        AlarmScheduler.checkScheduledAlarms()
+        UserDefaultsManager.printAlarmGroup()
         dismiss(animated: true)
     }
 }
