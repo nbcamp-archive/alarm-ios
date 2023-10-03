@@ -8,6 +8,11 @@
 import UIKit
 import AVFoundation
 
+extension Notification.Name {
+    static let timerValueChanged = Notification.Name("TimerValueChanged")
+    static let timerStopped = Notification.Name("TimerStopped")
+}
+
 final class TimerModel: NSObject {
     
     //MARK: - Constants
@@ -66,6 +71,8 @@ final class TimerModel: NSObject {
         endTime = calculateEndTime(from: initialTime)
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        NotificationCenter.default.post(name: .timerValueChanged, object: self)
     }
     
     func pause() {
@@ -101,9 +108,11 @@ final class TimerModel: NSObject {
     @objc private func updateTimer() {
         if initialTime <= 0 {
             stop()
+            NotificationCenter.default.post(name: .timerStopped, object: self)
             //playAlarmSound()
         } else {
             initialTime -= 1
+            NotificationCenter.default.post(name: .timerValueChanged, object: self)
         }
     }
     
@@ -118,6 +127,7 @@ final class TimerModel: NSObject {
                 endTime = calculateEndTime(from: initialTime)
             }
         }
+        NotificationCenter.default.post(name: .timerValueChanged, object: self)
     }
     
     private func playAlarmSound() {

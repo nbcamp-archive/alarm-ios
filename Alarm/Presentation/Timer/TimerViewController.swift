@@ -33,6 +33,7 @@ class TimerViewController: BaseUIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var bellImageView: UIImageView!
     @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var endTimeStackView: UIStackView!
     
     @IBOutlet weak var cancelView: UIView!
     @IBOutlet weak var startView: UIView!
@@ -61,6 +62,10 @@ class TimerViewController: BaseUIViewController {
         timePickerView.dataSource = self
         
         timePickerView.setPickerLabelsWith(labels: ["시간","분","초"])
+        
+        //FIXME: Notification 말고 델리게이트 방식 고려해보기
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimerLabel), name: .timerValueChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeStateToDefault), name: .timerStopped, object: nil)
     }
     
     //MARK: - Appearance
@@ -73,19 +78,30 @@ class TimerViewController: BaseUIViewController {
             startButton.setTitleColor(UIColor(named: "StopText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StopBackground")
             cancelButton.alpha = 1
-            print(formatEndTime())
+            
+            timePickerView.isHidden = true
+            timerLabel.isHidden = false
+            endTimeStackView.isHidden = false
+            endTimeStackView.tintColor = .darkGray
+            
         case .paused:
             startButton.setTitle("재개", for: .normal)
             startButton.backgroundColor = UIColor(named: "StartBackground")
             startButton.setTitleColor(UIColor(named: "StartText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StartBackground")
-            print(formatEndTime())
+            
+            endTimeStackView.tintColor = .lightGray
+            
         case .default:
             startButton.setTitle("시작", for: .normal)
             startButton.backgroundColor = UIColor(named: "StartBackground")
             startButton.setTitleColor(UIColor(named: "StartText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StartBackground")
             cancelButton.alpha = 0.6
+            
+            timePickerView.isHidden = false
+            timerLabel.isHidden = true
+            endTimeStackView.isHidden = true
         }
     }
     
@@ -117,6 +133,17 @@ class TimerViewController: BaseUIViewController {
         timePickerView.selectRow(0, inComponent: 2, animated: false)
     }
     
+    @objc private func updateTimerLabel() {
+        let minutes = Int(timerModel.initialTime) / 60
+        let seconds = Int(timerModel.initialTime) % 60
+        timerLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        timerLabel.font = .monospacedDigitSystemFont(ofSize: 70, weight: .thin)
+        endTimeLabel.text = formatEndTime()
+    }
+    
+    @objc private func changeStateToDefault() {
+        setupUI(state: timerModel.state)
+    }
     
     //MARK: - Actions
     
@@ -129,7 +156,6 @@ class TimerViewController: BaseUIViewController {
             let totalTimeInSeconds = TimeInterval(selectedHours * 3600 + selectedMinutes * 60 + selectedSeconds)
             
             timerModel.start(withInitialTime: totalTimeInSeconds, alarmSound: "alarm_sound.mp3")
-            timePickerView.isHidden = true
         } else if timerModel.state == .running {
             timerModel.pause()
         } else if timerModel.state == .paused {
@@ -143,6 +169,8 @@ class TimerViewController: BaseUIViewController {
         timerModel.stop()
         resetTimePickerView()
         timePickerView.isHidden = false
+        timerLabel.isHidden = true
+        endTimeStackView.isHidden = true
         
         setupUI(state: .default)
 

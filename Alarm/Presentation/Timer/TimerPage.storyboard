@@ -23,7 +23,7 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQf-dX-kyA">
                                         <rect key="frame" x="0.0" y="57" width="330" height="216"/>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23:59" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVu-1I-pXJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVu-1I-pXJ">
                                         <rect key="frame" x="0.0" y="105" width="330" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="33s-bV-ErU"/>
@@ -42,7 +42,7 @@
                                                     <constraint firstAttribute="width" constant="20" id="zl0-t7-t4L"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오후 12:22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbr-8F-WbB">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbr-8F-WbB">
                                                 <rect key="frame" x="20" y="0.0" width="85" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="88i-xB-KjJ"/>
@@ -222,6 +222,7 @@
                         <outlet property="cancelButton" destination="QY9-RR-d5m" id="dak-2L-EK9"/>
                         <outlet property="cancelView" destination="sGg-IP-HT0" id="Odj-fB-l2D"/>
                         <outlet property="endTimeLabel" destination="Cbr-8F-WbB" id="BWo-03-0a2"/>
+                        <outlet property="endTimeStackView" destination="CDt-B7-qdv" id="LEV-bv-6Ys"/>
                         <outlet property="ringtoneLabel" destination="oH9-MJ-eMa" id="c07-d7-PoV"/>
                         <outlet property="startButton" destination="uXv-fQ-U14" id="foh-3G-pTC"/>
                         <outlet property="startView" destination="Rbp-Ln-i9D" id="Kw4-zY-UEH"/>
