@@ -16,6 +16,7 @@
 		1C29A7FF2ACAFAAA00F0012C /* daydreaming.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C29A7FD2ACAFAAA00F0012C /* daydreaming.mp3 */; };
 		1C29A8002ACAFAAA00F0012C /* default.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C29A7FE2ACAFAAA00F0012C /* default.mp3 */; };
 		1C29A8052ACAFDBE00F0012C /* Tone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A8042ACAFDBE00F0012C /* Tone.swift */; };
+		1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */; };
 		1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */; };
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
@@ -89,6 +90,7 @@
 		1C29A7FD2ACAFAAA00F0012C /* daydreaming.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = daydreaming.mp3; sourceTree = "<group>"; };
 		1C29A7FE2ACAFAAA00F0012C /* default.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = default.mp3; sourceTree = "<group>"; };
 		1C29A8042ACAFDBE00F0012C /* Tone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tone.swift; sourceTree = "<group>"; };
+		1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
 		1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5EC7D72AC1D5D2003D1D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */,
+				1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
 				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
+				1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
