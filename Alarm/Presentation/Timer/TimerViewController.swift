@@ -167,7 +167,7 @@ class TimerViewController: BaseUIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         timerModel.stop()
-        resetTimePickerView()
+        //resetTimePickerView()
         timePickerView.isHidden = false
         timerLabel.isHidden = true
         endTimeStackView.isHidden = true
