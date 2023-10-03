@@ -10,6 +10,7 @@ import Foundation
 class UserDefaultsManager {
     
     static let defaults = UserDefaults.standard
+    static let alarmGroupKey = "AlarmGroup"
     
     private init() {}
     
@@ -21,6 +22,8 @@ class UserDefaultsManager {
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(existingObject) {
             defaults.set(data, forKey: key)
+            
+            AlarmScheduler.scheduleAlarms()
         } else {
             print("UserDefaultsManager: 저장하는 것을 실패했습니다.")
         }
@@ -35,6 +38,19 @@ class UserDefaultsManager {
         } else {
             return []
         }
+    }
+    
+    static func printAlarmGroup() {
+        let alarms: [Alarm] = load(forKey: alarmGroupKey)
+        for alarm in alarms {
+            print("Alarm: \(alarm.label), Time: \(alarm.hour):\(alarm.minute)")
+        }
+    }
+    
+    static func resetUserDefaults() {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
     }
     
 }
