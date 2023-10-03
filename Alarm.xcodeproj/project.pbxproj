@@ -200,6 +200,16 @@
 			path = Tone;
 			sourceTree = "<group>";
 		};
+		1C328A1E2ACBFD2B00516D2A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
+				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
+				1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		1C5EC7BF2AC1D5D1003D1D81 = {
 			isa = PBXGroup;
 			children = (
@@ -367,11 +377,9 @@
 		1C77AA902AC3EB5100CE864C /* AddAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C328A1E2ACBFD2B00516D2A /* Component */,
 				1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */,
 				1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */,
-				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
-				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
-				1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */,
 				1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */,
 				1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */,
 				1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */,
