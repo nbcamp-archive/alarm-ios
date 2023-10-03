@@ -167,7 +167,7 @@ class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate
                                label: trailingText, tone: Tone(name: "기본", filename: "default.mp3"), isEnabled: true, isSnoozeEnabled: true)
         print("시간: \(hour), 분: \(minute), 레이블: \(trailingText)")
         UserDefaultsManager.save(dummyAlarm, forKey: UserDefaultsManager.alarmGroupKey)
-        AlarmScheduler.registAlarm()
+        AlarmScheduler.registAlarms()
         AlarmScheduler.checkScheduledAlarms()
         UserDefaultsManager.printAlarmGroup()
         dismiss(animated: true)

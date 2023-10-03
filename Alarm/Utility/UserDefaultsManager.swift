@@ -22,8 +22,6 @@ class UserDefaultsManager {
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(existingObject) {
             defaults.set(data, forKey: key)
-            
-            AlarmScheduler.scheduleAlarms()
         } else {
             print("UserDefaultsManager: 저장하는 것을 실패했습니다.")
         }
