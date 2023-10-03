@@ -55,11 +55,11 @@ class AlarmViewController: BaseUIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // 알람 추가 버튼
+        // 알람 추가
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAlarmButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
-        // 편집모드 버튼 추가
+        // 편집모드 버튼
         let editButton = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editButtonTapped))
         navigationItem.leftBarButtonItem = editButton
     }
@@ -76,16 +76,16 @@ class AlarmViewController: BaseUIViewController {
 extension AlarmViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 // 첫 번째 섹션만 사용
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return alarms.count + 1 // 알람 수에 1을 더해서 "기타" 라벨 셀을 추가
+        return alarms.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 50 // "기타" 라벨 셀의 높이를 조절
+            return 50
         }
         return 93
     }
