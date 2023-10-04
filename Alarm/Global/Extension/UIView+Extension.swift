@@ -21,4 +21,32 @@ extension UIView {
             return false
         }
     }
+    
+    @IBInspectable var semiTransparentWhiteBackground: Bool {
+        get {
+            return false
+        }
+        set {
+            if newValue {
+                let whiteColor = UIColor.white
+                self.layer.backgroundColor = whiteColor.withAlphaComponent(0.3).cgColor
+                self.layer.borderColor = whiteColor.withAlphaComponent(0.3).cgColor
+                self.layer.borderWidth = 2
+            } else {
+                self.layer.backgroundColor = nil
+                self.layer.borderColor = nil
+                self.layer.borderWidth = 0
+            }
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+    
 }
