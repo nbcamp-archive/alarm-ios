@@ -11,8 +11,8 @@ class Alarm: Codable {
     
     let uuid: UUID
     
-    var hour: Int
-    var minute: Int
+    var hour: String
+    var minute: String
     var dayOfWeekdays: [Int]
     var label: String
     var tone: Tone
@@ -20,7 +20,7 @@ class Alarm: Codable {
     var isSnoozeEnabled: Bool
 
     
-    init(uuid: UUID, hour: Int, minute: Int, dayOfWeekdays: [Int],
+    init(uuid: UUID, hour: String, minute: String, dayOfWeekdays: [Int],
          label: String, tone: Tone, isEnabled: Bool, isSnoozeEnabled: Bool) {
         self.uuid = uuid
         self.hour = hour
@@ -33,7 +33,7 @@ class Alarm: Codable {
     }
     
     convenience init() {
-        self.init(uuid: UUID(), hour: 0, minute: 0, dayOfWeekdays: [],
+        self.init(uuid: UUID(), hour: "00", minute: "00", dayOfWeekdays: [],
                   label: "알람", tone: Tone(), isEnabled: true, isSnoozeEnabled: false)
     }
     

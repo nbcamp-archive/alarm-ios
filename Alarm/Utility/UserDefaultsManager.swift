@@ -38,6 +38,21 @@ class UserDefaultsManager {
         }
     }
     
+    static func updateAlarm(_ updatedObject: Alarm, forKey key: String) {
+        var existingObject: [Alarm] = load(forKey: key)
+        
+        if let index = existingObject.firstIndex(where: { $0.uuid == updatedObject.uuid }) {
+            existingObject[index] = updatedObject
+            
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(existingObject) {
+                defaults.set(data, forKey: key)
+            } else {
+                print("UserDefaultsManager : 업데이트를 실패했습니다.")
+            }
+        }
+    }
+    
     static func printAlarmGroup() {
         let alarms: [Alarm] = load(forKey: alarmGroupKey)
         for alarm in alarms {

@@ -13,6 +13,9 @@ class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate
 
     weak var coordinator: AddAlarmViewCoordinator?
     
+    private var selectedSoundName: String = "전파 탐지기(기본)"
+    private var selectedSoundFileName: String = "default.caf"
+    
     private lazy var backgroundView = UIVisualEffectView()
     
     private lazy var cancelButtonItem = UIBarButtonItem().then({
@@ -71,7 +74,17 @@ class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate
     
     func didSelectSound(soundName: String) {
             soundCell.configure(with: "사운드 \(soundName)")
+        switch soundName {
+        case "전파 탐지기(기본)":
+            selectedSoundName = soundName
+            selectedSoundFileName = "default.caf"
+        case "공상음":
+            selectedSoundName = soundName
+            selectedSoundFileName = "daydreaming.caf"
+        default:
+            break
         }
+    }
     
     func didSelectDays(_ selectedDays: [String]) {
         let sortedSelectedDays = selectedDays.sorted { (day1, day2) in
@@ -160,16 +173,24 @@ class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate
     @objc private func saveButtonItemTapped() {
         let time = timePicker.date
         let calendar = Calendar.current
+        
         let hour = calendar.component(.hour, from: time)
         let minute = calendar.component(.minute, from: time)
+        let hourString = String(format: "%02d", hour)
+        let minuteString = String(format: "%02d", minute)
+        
         let trailingText = textFieldCell.trailingTextField.text ?? "알람"
-        let dummyAlarm = Alarm(uuid: UUID(), hour: hour, minute: minute, dayOfWeekdays: [1],
-                               label: trailingText, tone: Tone(name: "기본", filename: "default.mp3"), isEnabled: true, isSnoozeEnabled: true)
-        print("시간: \(hour), 분: \(minute), 레이블: \(trailingText)")
-        UserDefaultsManager.save(dummyAlarm, forKey: UserDefaultsManager.alarmGroupKey)
+        
+        let currentTone = Tone(name: selectedSoundName, filename: selectedSoundFileName)
+        
+        let alarm = Alarm(uuid: UUID(), hour: hourString, minute: minuteString, dayOfWeekdays: [1],
+                               label: trailingText, tone: currentTone, isEnabled: true, isSnoozeEnabled: true)
+        
+        UserDefaultsManager.save(alarm, forKey: UserDefaultsManager.alarmGroupKey)
         AlarmScheduler.registAlarms()
         AlarmScheduler.checkScheduledAlarms()
         UserDefaultsManager.printAlarmGroup()
+        print("시간: \(hour), 분: \(minute), 레이블: \(trailingText), 레이블: \(currentTone.filename)")
         dismiss(animated: true)
     }
 }

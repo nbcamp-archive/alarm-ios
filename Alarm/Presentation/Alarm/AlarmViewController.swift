@@ -46,7 +46,6 @@ class AlarmViewController: BaseUIViewController {
 
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
         
-        print(alarmGroup.count)
         tableView.reloadData()
     }
     
@@ -176,7 +175,8 @@ extension AlarmViewController {
             let alarm = alarmGroup[indexPath.row - 1]
             alarm.isEnabled = control.isOn
             
-            UserDefaultsManager.save(alarmGroup, forKey: UserDefaultsManager.alarmGroupKey)
+            UserDefaultsManager.updateAlarm(alarm, forKey: "AlarmGroup")
+            AlarmScheduler.registAlarms()
         }
     }
     

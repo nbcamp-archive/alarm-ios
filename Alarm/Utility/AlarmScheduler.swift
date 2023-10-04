@@ -21,15 +21,15 @@ class AlarmScheduler {
             if alarm.isEnabled {
                 for dayOfWeek in alarm.dayOfWeekdays {
                     var dateComponents = DateComponents()
-                    dateComponents.hour = alarm.hour
-                    dateComponents.minute = alarm.minute
+                    dateComponents.hour = Int(alarm.hour) ?? 00
+                    dateComponents.minute = Int(alarm.minute) ?? 00
                     
                     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                     
                     let content = UNMutableNotificationContent()
                     content.title = "알람"
                     content.body = alarm.label
-                    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "daydreaming.caf"))
+                    content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: alarm.tone.filename))
                     
                     let requestIdentifier = "\(alarm.uuid.uuidString)-\(dayOfWeek)"
                     let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
