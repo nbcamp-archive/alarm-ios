@@ -93,7 +93,7 @@ class DetailInfoView : UIView {
     
     let humidityIcon = {
         let icon = UIImageView()
-        icon.image = UIImage(named: "humidity")
+        icon.image = UIImage(named: "humidity") 
         icon.contentMode  = .scaleAspectFill
         
         return icon

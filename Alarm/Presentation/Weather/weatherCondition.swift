@@ -41,44 +41,67 @@ enum Temp {
     case clear
     case clouds
     
-
+    
 }
 
 extension WeatherViewController{
-      
-    func changeIconAndBG(){
-        let yoroke = Temp(initailValue: weatherConditon)
+    
 
+    
+    func changeIconAndBG(){
         
+//        let bringAnimationBG = CAAnimationGradientLayer()
+        
+        let yoroke = Temp(initailValue: weatherConditon)
         if let tempCase = yoroke{
             switch tempCase {
+                
+              
             case .snow:
-                testBox.backgroundColor = UIColor.red
                 weatherImage.image = UIImage(named: "snow")
+                
             case .clear:
-                testBox.backgroundColor = UIColor.orange
-                weatherImage.image = UIImage(named: "rain")
-
+                weatherImage.image = UIImage(named: "clear")
+//                bringAnimationBG.animateGradient(hex: "d62828") //red
+                  HEX = "d62828" //red
+                
+        
+                //hex 값 print 찍어보기
+                
+                
+                //hex값을 넣어줌
+                
+//                backgroundView.layer.sublayers?.first as? CAAnimationGradientLayer
+//                if let gradientLayer = backgroundView.layer.sublayers? .first as? CAAnimationGradientLayer{
+//                    gradientLayer.cusotmHex = "FFFFF"
+//                    print("Hex값 바꼇음", gradientLayer.cusotmHex)
+//
+//
+//                }
+                
+                
+                
+                
+                
             case .thunderstorm: //뇌우
-                testBox.backgroundColor = UIColor.yellow
                 weatherImage.image = UIImage(named: "thunderstorm")
+                HEX = "023047" //navi
             case .drizzle: //가랑비
-                testBox.backgroundColor = UIColor.green
                 weatherImage.image = UIImage(named: "drizzle")
             case .rain:
-                testBox.backgroundColor = UIColor.blue
                 weatherImage.image = UIImage(named: "rain")
-            case .atmosphere: //대기질
-                testBox.backgroundColor = UIColor.purple
+                //                animationLayer.cusotmHex = "80ed99"
+                //                animationLayer.animateGradient()
+                //                print("배경 Red!", animationLayer.cusotmHex)
+            case .atmosphere:
                 weatherImage.image = UIImage(named: "atmosphere")
             case .clouds:
-                testBox.backgroundColor = UIColor.white
                 weatherImage.image = UIImage(named: "clouds")
-               
             }
         } else {
-            testBox.backgroundColor = UIColor.gray
+            print("아이콘 없다 ... ")
         }
+        
     }
 }
 

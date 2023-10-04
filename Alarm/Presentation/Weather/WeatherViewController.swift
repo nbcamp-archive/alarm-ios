@@ -9,35 +9,33 @@ import UIKit
 import SnapKit
 
 
-
-
-
-
 class WeatherViewController: BaseUIViewController {
     
-   
+    
     var weatherConditon: Int = 800
-  
+    
+    //기본값에서 바뀌지 않는 문제
+    var HEX: String = "a2d2ff" //skyblue
+    
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
+    
+    
+    lazy var backgroundView = {
+        let view = UIView()
+        let gradientBG = CAAnimationGradientLayer()
+        gradientBG.frame = self.view.bounds
+        gradientBG.startPoint = CGPoint(x: 0, y: 0)
+        gradientBG.endPoint = CGPoint(x: 1, y: 1)
+        gradientBG.drawsAsynchronously = true
+        view.layer.addSublayer(gradientBG)
+        return view
+    }()
     
     let todaysWeatherContainer = {
         let container = UIStackView()
         container.axis = .vertical
         return container
-    }()
-    
-    let testBox = {
-        let box = UIView()
-        box.layer.borderWidth = 1
-        return box
-        
-    }()
-    
-    let testCode = {
-        let code = UILabel()
-        code.text = "sdfs"
-        return code
     }()
     
     
@@ -89,13 +87,17 @@ class WeatherViewController: BaseUIViewController {
     let temprigthInsideStackView = {
         let box = UIStackView()
         box.axis = .horizontal
+        box.alignment = .firstBaseline
+        box.distribution = .fillEqually
+        box.spacing = 0
+        
         return box
     }()
     
     let tempTodayLabel = {
         let label = UILabel()
         label.text = ""
-        label.textAlignment = .center
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
         return label
     }()
@@ -104,6 +106,7 @@ class WeatherViewController: BaseUIViewController {
     let tempDegree  = {
         let label = UILabel()
         label.text = "°C"
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
@@ -130,13 +133,60 @@ class WeatherViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupUI()
-        callWeather()
-        dateTody()
 
+//MARK: Memo
+//        callweather2(completeHandeler: 3)
+//
+//        callWeather(completionHandler: { result in  })
+//
+//        callWeather { <#Bool#> in
+//            <#code#>
+//        }
         
-//        print("딱!",weatherConditon)
+        loadingScreen()
+  
+        callWeather { result in
+            if result {
+               print("API 호출 성공")
+                //숨겨지지않음
+                self.hiddenLoadingScreen()
+            }
+            
+            self.setupUI()
+            self.dateTody()
+            self.changeIconAndBG()
+            //loadingScreen off 필요
+        }
+
+    }
+    
+    func loadingScreen()->UILabel{
+        
+        let titleLabel = {
+            let label = UILabel()
+            label.text = "Loading ..."
+            label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+            label.textAlignment = .center
+            return label
+        }()
+        
+        self.view.addSubview(titleLabel)
+        titleLabel.isHidden = false
+//        titleLabel.backgroundColor = UIColor.red
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(300)
+            make.height.equalTo(100)
+
+        }
+        return titleLabel
+    }
+    
+    func hiddenLoadingScreen(){
+        let loadingScreen = loadingScreen()
+        loadingScreen.isHidden = true
     }
     
     func dateTody(){
@@ -149,13 +199,23 @@ class WeatherViewController: BaseUIViewController {
     }
     
     func setupUI(){
-        self.view.backgroundColor = UIColor(hex: "#A4CAF5")
-        self.view.addSubview(todaysWeatherContainer)
         
-        self.view.addSubview(testBox)
-        testBox.addSubview(testCode)
-    
+        //gradient Background color
+        let gradientLayer = CAAnimationGradientLayer() //에메랄드
+//        gradientLayer.frame = view.bounds
+//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+//        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+//        gradientLayer.drawsAsynchronously = true
+        //gradientLayer가 계속 위로 쌓이고있음
+        //인스턴스를 생성해서, subLayer로 넣은 후에
+        // weatherImage.image를 변경한 것처럼 처리할 필요가 있어보임
+       
+
         
+        self.view.addSubview(backgroundView)
+//        backgroundView.layer.addSublayer(gradientLayer)
+        backgroundView.addSubview(todaysWeatherContainer)
+     
         todaysWeatherContainer.addArrangedSubview(locationBox)
         todaysWeatherContainer.addArrangedSubview(mainInfoBox)
         todaysWeatherContainer.addArrangedSubview(detailInfoBox)
@@ -173,20 +233,7 @@ class WeatherViewController: BaseUIViewController {
         
         temprigthInsideStackView.addArrangedSubview(tempTodayLabel)
         temprigthInsideStackView.addArrangedSubview(tempDegree)
-      
-                testBox.snp.makeConstraints { make in
-            make.bottom.equalTo(locationBox.snp.top)
-            make.right.equalToSuperview().offset(-50)
-            make.width.equalTo(50)
-            make.height.equalTo(50)
-        }
-        
-        
-        testCode.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-        
+
         todaysWeatherContainer.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
@@ -211,13 +258,11 @@ class WeatherViewController: BaseUIViewController {
         mainInfoInsideRigthBox.distribution = .fillProportionally
         mainInfoInsideRigthBox.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(25)
-            
             make.height.equalToSuperview().dividedBy(1.5)
-            make.trailing.equalToSuperview().offset(-20)
         }
-
+        
         tempDegree.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(10)
         }
         
       

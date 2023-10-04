@@ -10,11 +10,18 @@ import Alamofire
 
 extension WeatherViewController {
     
+
     
     //컴플리션(클로져) 추가 필요
-    func callWeather(){
+    func callweather2(completeHandeler :Int ){
+        
+    }
+    
+    func callWeather(completionHandler: @escaping(Bool)-> Void){
+        
+        
         AF.request(openWeatherAPI)
-                 .responseJSON { response in
+            .responseJSON { response in
                 switch response.result {
                 case .success(let json):
                     
@@ -22,7 +29,7 @@ extension WeatherViewController {
                        let weatherArray = jsonDict["weather"] as? [[String: Any]],
                        let mainDict = jsonDict["main"] as? [String: Any],
                        let conditionCode = weatherArray.first?["id"] as? Int,
-                        let mainWeather = weatherArray.first?["main"] as? String,
+                       let mainWeather = weatherArray.first?["main"] as? String,
                        let temp = mainDict["temp"] as? Double,
                        let tempMax = mainDict["temp_max"] as? Double,
                        let tempMin = mainDict["temp_min"] as? Double,
@@ -33,10 +40,8 @@ extension WeatherViewController {
                         
                     {
                         DispatchQueue.main.async {
-                            self.testCode.text = String("\(conditionCode)")
                             self.weatherConditon = conditionCode
-//                            self.weatherConditon = 800
-                            self.changeIconAndBG()
+//                            self.weatherConditon = 801
                             self.cityNameLabel.text = cityName
                             self.weatherTodayLabel.text = mainWeather
                             self.tempTodayLabel.text = String(format: " %.f", temp)
@@ -45,19 +50,21 @@ extension WeatherViewController {
                             
                             self.detailInfoBox.windData.text = String(format:"\(windSpeed)m/s" )
                             self.detailInfoBox.humidityData.text = String(format:"\(humidity) %%" )
-                            
-                            
+                            //self.changeIconAndBG()
+                            completionHandler(true)
+                       
                             
                         }
                         
                     } else {
                         
                         
-                        print("날씨안나옴! ")
+                        completionHandler(false)
+                      
                         
                     }
                 case .failure(let error):
-                    print("Error: \(error)")
+                    completionHandler(false)
                 }
             }
     }

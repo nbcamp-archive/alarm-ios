@@ -30,7 +30,6 @@ extension UIColor {
 extension CALayer {
     func addBorder(_ arr_edge: [UIRectEdge], color: UIColor, width: CGFloat) {
         for edge in arr_edge {
-//            print("check",frame.width)
             let border = CALayer()
             switch edge {
             case UIRectEdge.top:
