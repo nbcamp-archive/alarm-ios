@@ -55,6 +55,7 @@
 		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
 		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
 		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
+		D2BD5A6F2ACCCE000017EF84 /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
 		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
+		D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 				D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */,
 				D262CFFD2AC3CD87001413AB /* TimerModel.swift */,
 				D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */,
+				D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BD5A6F2ACCCE000017EF84 /* CircularSliderView.swift in Sources */,
 				1C77AA9C2AC41B0B00CE864C /* RepeatViewController.swift in Sources */,
 				1C5EC8092AC2AF71003D1D81 /* AlarmViewController.swift in Sources */,
 				1C77AA9E2AC41D1600CE864C /* RepeatViewCoordinator.swift in Sources */,

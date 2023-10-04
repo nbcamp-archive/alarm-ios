@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "wind 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "wind.png",
+      "filename" : "Group 702x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "wind 2.png",
+      "filename" : "Group 703x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

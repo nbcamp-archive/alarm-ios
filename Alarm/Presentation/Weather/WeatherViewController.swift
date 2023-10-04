@@ -2,15 +2,13 @@
 //  WeatherViewController.swift
 //  Alarm
 //
-//  Created by Yujin Kim on 2023-09-26.
+//  Created by kiakim Kim on 2023-09-26.
 //
 
 import UIKit
 import SnapKit
 
 class WeatherViewController: BaseUIViewController {
-    
-
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
     
@@ -27,7 +25,7 @@ class WeatherViewController: BaseUIViewController {
     }()
     
     
-    let cityNameLabel : UILabel = {
+    let cityNameLabel = {
         let label = UILabel()
         label.text = "cityNameLabel"
         label.textAlignment = .left
@@ -35,7 +33,7 @@ class WeatherViewController: BaseUIViewController {
         return label
     }()
     
-    let dateLabel : UILabel = {
+    let dateLabel = {
         let label = UILabel()
         //오늘 날짜 들어갈 수 있게 조정
         label.text = ""
@@ -51,7 +49,7 @@ class WeatherViewController: BaseUIViewController {
         return box
     }()
     
-    let weatherImage: UIImageView = {
+    let weatherImage = {
         let image = UIImageView()
         image.image = UIImage(named: "cludy")
         
@@ -71,7 +69,7 @@ class WeatherViewController: BaseUIViewController {
         return box
     }()
     
-    let tempTodayLabel : UILabel = {
+    let tempTodayLabel = {
         let label = UILabel()
         label.text = "온도"
         label.textAlignment = .center
@@ -81,7 +79,7 @@ class WeatherViewController: BaseUIViewController {
     }()
     
     
-    let tempDegree : UILabel = {
+    let tempDegree  = {
         let label = UILabel()
         label.text = "°C"
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -90,7 +88,7 @@ class WeatherViewController: BaseUIViewController {
         return label
     }()
     
-    let weatherTodayLabel : UILabel = {
+    let weatherTodayLabel = {
         let label = UILabel()
         label.text = "weatherLabel"
         label.textAlignment = .left
@@ -100,13 +98,11 @@ class WeatherViewController: BaseUIViewController {
     }()
  
     
-    let detailInfoBox : DetailInfoView = {
+    let detailInfoBox = {
         let box = DetailInfoView()
           return box
     }()
 
-   
-    
     weak var coordinator: WeatherViewCoordinator?
     
     override func setTitle() {
@@ -131,14 +127,13 @@ class WeatherViewController: BaseUIViewController {
     }
     
     func setupUI(){
-        
+        self.view.backgroundColor = UIColor(hex: "#A4CAF5")
         self.view.addSubview(todaysWeatherContainer)
         todaysWeatherContainer.addArrangedSubview(locationBox)
         todaysWeatherContainer.addArrangedSubview(mainInfoBox)
         todaysWeatherContainer.addArrangedSubview(detailInfoBox)
         todaysWeatherContainer.snp.makeConstraints { make in
-            //            make.height.equalToSuperview().dividedBy(10)
-        }
+       }
         
       
         locationBox.addArrangedSubview(cityNameLabel)
@@ -168,21 +163,15 @@ class WeatherViewController: BaseUIViewController {
         }
         
         //MARK: LocationArea
-//        locationBox.layer.borderWidth = 1
         locationBox.snp.makeConstraints { make in
-            make.height.equalToSuperview().dividedBy(5) //높이값 조절
+            make.height.equalToSuperview().dividedBy(5) 
            }
         
         //MARK: MainInfoArea
-        //        mainInfoBox.layer.borderColor = UIColor.blue.cgColor
-        //        mainInfoBox.layer.borderWidth = 1
-//        mainInfoBox.distribution = .fillProportionally
-//        mainInfoBox.backgroundColor = UIColor.systemYellow
         mainInfoBox.snp.makeConstraints { make in
-            make.height.equalToSuperview().dividedBy(3) //높이값 통일
+            make.height.equalToSuperview().dividedBy(3)
         }
         
-        //        weatherImage.layer.borderWidth = 1
         weatherImage.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalToSuperview()
@@ -195,19 +184,9 @@ class WeatherViewController: BaseUIViewController {
             make.height.equalToSuperview().dividedBy(1.5)
             make.trailing.equalToSuperview().offset(-20)
         }
-        
 
-        
-        tempTodayLabel.snp.makeConstraints { make in
-            //            make.height.equalTo(40)
-            
-        }
         tempDegree.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(20)
-        }
-        
-        weatherTodayLabel.snp.makeConstraints { make in
-            //            make.height.equalTo(40)
         }
         
       
