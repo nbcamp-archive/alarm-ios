@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C29A7E42ACA79C900F0012C /* AlarmNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C29A7E32ACA79C900F0012C /* AlarmNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C29A7E72ACA79C900F0012C /* AlarmNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */; };
+		1C29A7E82ACA79C900F0012C /* AlarmNotification.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1C29A7EE2ACA7A6800F0012C /* ANAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */; };
+		1C29A7F82ACAEA3A00F0012C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */; };
+		1C29A7FB2ACAF07700F0012C /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A7FA2ACAF07700F0012C /* Alarm.swift */; };
+		1C29A8052ACAFDBE00F0012C /* Tone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C29A8042ACAFDBE00F0012C /* Tone.swift */; };
+		1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */; };
+		1C328A202ACC32F600516D2A /* default.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C328A1F2ACC32F600516D2A /* default.caf */; };
+		1C328A222ACC33D100516D2A /* daydreaming.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C328A212ACC33D100516D2A /* daydreaming.caf */; };
 		1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */; };
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
@@ -48,7 +58,40 @@
 		D2BD5A6F2ACCCE000017EF84 /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1C29A7E52ACA79C900F0012C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C5EC7C02AC1D5D1003D1D81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C29A7E02ACA79C900F0012C;
+			remoteInfo = AlarmNotification;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C29A7E92ACA79C900F0012C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1C29A7E82ACA79C900F0012C /* AlarmNotification.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlarmNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C29A7E32ACA79C900F0012C /* AlarmNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmNotification.h; sourceTree = "<group>"; };
+		1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANAuthenticator.swift; sourceTree = "<group>"; };
+		1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		1C29A7FA2ACAF07700F0012C /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		1C29A8042ACAFDBE00F0012C /* Tone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tone.swift; sourceTree = "<group>"; };
+		1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
+		1C328A1F2ACC32F600516D2A /* default.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.caf; sourceTree = "<group>"; };
+		1C328A212ACC33D100516D2A /* daydreaming.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = daydreaming.caf; sourceTree = "<group>"; };
 		1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5EC7D72AC1D5D2003D1D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +135,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1C29A7DE2ACA79C900F0012C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C5EC7C52AC1D5D1003D1D81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,16 +149,72 @@
 				1C5EC8222AC32377003D1D81 /* Alamofire in Frameworks */,
 				1C5EC81C2AC32349003D1D81 /* SnapKit in Frameworks */,
 				1C5EC81F2AC32358003D1D81 /* Then in Frameworks */,
+				1C29A7E72ACA79C900F0012C /* AlarmNotification.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C29A7E22ACA79C900F0012C /* AlarmNotification */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7EF2ACA7A8500F0012C /* Source */,
+				1C29A7E32ACA79C900F0012C /* AlarmNotification.h */,
+			);
+			path = AlarmNotification;
+			sourceTree = "<group>";
+		};
+		1C29A7EF2ACA7A8500F0012C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1C29A7F62ACAEA2700F0012C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7F72ACAEA3A00F0012C /* UserDefaultsManager.swift */,
+				1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		1C29A7F92ACAF04F00F0012C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1C29A7FA2ACAF07700F0012C /* Alarm.swift */,
+				1C29A8042ACAFDBE00F0012C /* Tone.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1C29A7FC2ACAF97F00F0012C /* Tone */ = {
+			isa = PBXGroup;
+			children = (
+				1C328A212ACC33D100516D2A /* daydreaming.caf */,
+				1C328A1F2ACC32F600516D2A /* default.caf */,
+			);
+			path = Tone;
+			sourceTree = "<group>";
+		};
+		1C328A1E2ACBFD2B00516D2A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
+				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
+				1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		1C5EC7BF2AC1D5D1003D1D81 = {
 			isa = PBXGroup;
 			children = (
 				1C5EC7CA2AC1D5D1003D1D81 /* Alarm */,
+				1C29A7E22ACA79C900F0012C /* AlarmNotification */,
 				1C5EC7C92AC1D5D1003D1D81 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */,
+				1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +231,8 @@
 		1C5EC7CA2AC1D5D1003D1D81 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C29A7F92ACAF04F00F0012C /* Data */,
+				1C29A7F62ACAEA2700F0012C /* Utility */,
 				1C5EC7F22AC1EE36003D1D81 /* Presentation */,
 				1C5EC7E52AC1EA8F003D1D81 /* Global */,
 				1C5EC7E42AC1E830003D1D81 /* Resource */,
@@ -146,6 +255,7 @@
 		1C5EC7E42AC1E830003D1D81 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1C29A7FC2ACAF97F00F0012C /* Tone */,
 				1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */,
 				1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */,
 				1C5EC7D92AC1D5D2003D1D81 /* Info.plist */,
@@ -267,11 +377,9 @@
 		1C77AA902AC3EB5100CE864C /* AddAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				1C328A1E2ACBFD2B00516D2A /* Component */,
 				1C77AA912AC3EB6B00CE864C /* AddAlarmViewController.swift */,
 				1C77AA932AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift */,
-				1C77AA952AC4066700CE864C /* NavigationCell.swift */,
-				1C77AA972AC40A9300CE864C /* TextFieldCell.swift */,
-				1C77AA992AC40C3F00CE864C /* SnoozeCell.swift */,
 				1C77AA9B2AC41B0B00CE864C /* RepeatViewController.swift */,
 				1C77AA9D2AC41D1600CE864C /* RepeatViewCoordinator.swift */,
 				1C77AAA02AC42C4F00CE864C /* SoundViewController.swift */,
@@ -281,7 +389,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		1C29A7DC2ACA79C900F0012C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C29A7E42ACA79C900F0012C /* AlarmNotification.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		1C29A7E02ACA79C900F0012C /* AlarmNotification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C29A7EC2ACA79C900F0012C /* Build configuration list for PBXNativeTarget "AlarmNotification" */;
+			buildPhases = (
+				1C29A7DC2ACA79C900F0012C /* Headers */,
+				1C29A7DD2ACA79C900F0012C /* Sources */,
+				1C29A7DE2ACA79C900F0012C /* Frameworks */,
+				1C29A7DF2ACA79C900F0012C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlarmNotification;
+			productName = AlarmNotification;
+			productReference = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		1C5EC7C72AC1D5D1003D1D81 /* Alarm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C5EC7DC2AC1D5D2003D1D81 /* Build configuration list for PBXNativeTarget "Alarm" */;
@@ -289,10 +426,12 @@
 				1C5EC7C42AC1D5D1003D1D81 /* Sources */,
 				1C5EC7C52AC1D5D1003D1D81 /* Frameworks */,
 				1C5EC7C62AC1D5D1003D1D81 /* Resources */,
+				1C29A7E92ACA79C900F0012C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1C29A7E62ACA79C900F0012C /* PBXTargetDependency */,
 			);
 			name = Alarm;
 			packageProductDependencies = (
@@ -314,6 +453,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					1C29A7E02ACA79C900F0012C = {
+						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
+					};
 					1C5EC7C72AC1D5D1003D1D81 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -338,18 +481,28 @@
 			projectRoot = "";
 			targets = (
 				1C5EC7C72AC1D5D1003D1D81 /* Alarm */,
+				1C29A7E02ACA79C900F0012C /* AlarmNotification */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1C29A7DF2ACA79C900F0012C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C5EC7C62AC1D5D1003D1D81 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C328A222ACC33D100516D2A /* daydreaming.caf in Resources */,
 				1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */,
 				D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */,
 				D262CFF42AC3C10F001413AB /* StopWatchPage.storyboard in Resources */,
+				1C328A202ACC32F600516D2A /* default.caf in Resources */,
 				1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +510,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1C29A7DD2ACA79C900F0012C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C29A7EE2ACA7A6800F0012C /* ANAuthenticator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1C5EC7C42AC1D5D1003D1D81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,9 +538,11 @@
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
 				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
+				1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */,
 				1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */,
 				D262CFF62AC3C755001413AB /* StopWatch.swift in Sources */,
 				1C5EC7F12AC1EAA1003D1D81 /* BaseUIViewController.swift in Sources */,
+				1C29A8052ACAFDBE00F0012C /* Tone.swift in Sources */,
 				1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */,
 				1C5EC7FE2AC29FC3003D1D81 /* MainTabBarCoordinator.swift in Sources */,
 				D262CFFA2AC3C9ED001413AB /* UIView+Extension.swift in Sources */,
@@ -387,7 +550,9 @@
 				1C5EC7F62AC28E33003D1D81 /* Coordinator.swift in Sources */,
 				96330B7A2AC423C700C332F4 /* detailInfoView.swift in Sources */,
 				1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */,
+				1C29A7FB2ACAF07700F0012C /* Alarm.swift in Sources */,
 				D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */,
+				1C29A7F82ACAEA3A00F0012C /* UserDefaultsManager.swift in Sources */,
 				1C77AA922AC3EB6B00CE864C /* AddAlarmViewController.swift in Sources */,
 				1C5EC7FB2AC2931A003D1D81 /* MainTabBarItemType.swift in Sources */,
 				1C77AA942AC3F0FB00CE864C /* AddAlarmViewCoordinator.swift in Sources */,
@@ -398,6 +563,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1C29A7E62ACA79C900F0012C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C29A7E02ACA79C900F0012C /* AlarmNotification */;
+			targetProxy = 1C29A7E52ACA79C900F0012C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */ = {
@@ -411,6 +584,75 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1C29A7EA2ACA79C900F0012C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = archive.nbcamp.AlarmNotification;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1C29A7EB2ACA79C900F0012C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = archive.nbcamp.AlarmNotification;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		1C5EC7DA2AC1D5D2003D1D81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -528,6 +770,7 @@
 		1C5EC7DD2AC1D5D2003D1D81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -555,6 +798,7 @@
 		1C5EC7DE2AC1D5D2003D1D81 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -582,6 +826,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C29A7EC2ACA79C900F0012C /* Build configuration list for PBXNativeTarget "AlarmNotification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C29A7EA2ACA79C900F0012C /* Debug */,
+				1C29A7EB2ACA79C900F0012C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1C5EC7C32AC1D5D1003D1D81 /* Build configuration list for PBXProject "Alarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
