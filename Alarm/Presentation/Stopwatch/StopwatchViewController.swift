@@ -19,6 +19,9 @@ class StopWatchViewController: BaseUIViewController {
     
     private let stopWatch = StopWatch()
     private weak var timer :Timer?
+    
+    private var timeHandLayer: CAShapeLayer!
+    private var lapTimeHandLayer: CAShapeLayer!
 
     
     //MARK: - Outlets
@@ -45,6 +48,9 @@ class StopWatchViewController: BaseUIViewController {
 
         startView.circleView = true
         startButton.circleButton = true
+        
+        lapTimeHandLayer = createClockHandLayer(length: 150, thickness: 3, color: UIColor.systemBlue.cgColor, angle: CGFloat(stopWatch.lapCount) * 0.06)
+        timeHandLayer = createClockHandLayer(length: 150, thickness: 3, color: UIColor.systemOrange.cgColor, angle: CGFloat(stopWatch.count) * 0.06)
         
         switchButtonsAppearance(state: stopWatch.state)
     }
@@ -88,6 +94,13 @@ class StopWatchViewController: BaseUIViewController {
                     label.text = stopWatch.time
                 }
             }
+            let indexPath2 = IndexPath(item: 1, section: 0)
+            if let cell = stopWatchCollectionView.cellForItem(at: indexPath2) {
+                if let label = cell.subviews.compactMap({ $0 as? UILabel }).first {
+                    label.text = stopWatch.time
+                }
+            }
+            updateClockHands()
             switchButtonsAppearance(state: stopWatch.state)
         default: break
         }
@@ -120,6 +133,39 @@ class StopWatchViewController: BaseUIViewController {
             resetButton.alpha = 0.6
         }
     }
+    
+    //MARK: - Analog face
+    
+    private func createClockHandLayer(length: CGFloat, thickness: CGFloat, color: CGColor, angle: CGFloat) -> CAShapeLayer {
+        let path = UIBezierPath()
+        path.move(to: CGPoint(x: length, y: length))
+        path.addLine(to: CGPoint(x: length, y: 0))
+        
+        let layer = CAShapeLayer()
+        layer.path = path.cgPath
+        layer.strokeColor = color
+        layer.fillColor = UIColor.clear.cgColor
+        layer.lineWidth = thickness
+        layer.lineCap = .round
+        layer.bounds = CGRect(x: 0, y: 0, width: length * 2, height: length * 2)
+        layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        layer.transform = CATransform3DMakeRotation(angle.toRadians, 0, 0, 1)
+        
+        return layer
+    }
+    
+    private func updateClockHands() {
+        let timeAngle = CGFloat(stopWatch.count) * 0.06
+        let lapTimeAngle = CGFloat(stopWatch.lapCount) * 0.06
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(0.01)
+        
+        timeHandLayer.transform = CATransform3DMakeRotation(timeAngle.toRadians, 0, 0, 1)
+        lapTimeHandLayer.transform = CATransform3DMakeRotation(lapTimeAngle.toRadians, 0, 0, 1)
+        
+        CATransaction.commit()
+    }
 
 
     //MARK: - TimerHandler
@@ -134,7 +180,18 @@ class StopWatchViewController: BaseUIViewController {
             }
         }
         
+        let indexPath2 = IndexPath(item: 1, section: 0)
+        if let cell = stopWatchCollectionView.cellForItem(at: indexPath2) {
+            if let label = cell.subviews.compactMap({ $0 as? UILabel }).first {
+                label.text = stopWatch.time
+            }
+        }
+        
         stopWatchTableView.cellForRow(at: .init(row: 0, section: 0))?.detailTextLabel?.text = stopWatch.lapTime
+        
+        if let timeHandLayer = timeHandLayer {
+            updateClockHands()
+        }
     }
     
 }
@@ -157,6 +214,12 @@ extension StopWatchViewController: UIScrollViewDelegate {
 
 //MARK: - UICollectionView
 
+extension StopWatchViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+}
+
 extension StopWatchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
@@ -167,6 +230,9 @@ extension StopWatchViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewcell", for: indexPath)
         
         //FIXME: 이렇게 말고 이미 존재하면 새로 생성 안하도록 조건 처리
+        if let existingLabel = cell.subviews.first(where: { $0 is UILabel }) {
+            existingLabel.removeFromSuperview()
+        }
         if let existingLabel = cell.subviews.first(where: { $0 is UILabel }) {
             existingLabel.removeFromSuperview()
         }
@@ -181,21 +247,32 @@ extension StopWatchViewController: UICollectionViewDataSource {
 
         //FIXME: 아날로그 시계 생성하기
         if indexPath.row == 1 {
-            let button = UIButton(type: .system)
-            button.frame = cell.contentView.bounds
-            button.setTitle("버튼", for: .normal)
-            cell.contentView.addSubview(button)
+            let clockCenter = cell.contentView.center
+            
+            cell.addSubview(UIImageView(image: UIImage(named: "analogStopwatch")))
+            
+            let label = UILabel(frame: cell.bounds)
+            label.text = stopWatch.time
+            label.font = .monospacedDigitSystemFont(ofSize: 20, weight: .regular)
+            label.textAlignment = .center
+            cell.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: cell.centerXAnchor),
+                label.bottomAnchor.constraint(equalTo: cell.bottomAnchor, constant: -100)
+            ])
+            
+            lapTimeHandLayer.position = clockCenter
+            cell.layer.addSublayer(lapTimeHandLayer)
+            
+            timeHandLayer.position = clockCenter
+            cell.layer.addSublayer(timeHandLayer)
         }
         
         return cell
     }
 }
 
-extension StopWatchViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.bounds.size
-    }
-}
 
 //MARK: - UITableView
 
@@ -246,5 +323,17 @@ extension StopWatchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         44.0
+    }
+}
+
+extension CGFloat {
+    var toRadians: CGFloat {
+        return self * .pi / 180.0
+    }
+}
+
+extension Double {
+    var toRadians: CGFloat {
+        return CGFloat(self) * CGFloat.pi / 180
     }
 }
