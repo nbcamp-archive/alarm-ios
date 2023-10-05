@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimerViewController: BaseUIViewController {
+class TimerViewController: BaseUIViewController, ModalViewControllerDelegate {
     
     weak var coordinator: TimerViewCoordinator?
     
@@ -54,6 +54,9 @@ class TimerViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //FIXME: - 컴포넌트들 색상 투명도 테스트용 -> 지우기
+        self.view.backgroundColor = UIColor(hex: "#A4CAF5")
+        
         addCircle()
 
         
@@ -69,6 +72,9 @@ class TimerViewController: BaseUIViewController {
         timePickerView.dataSource = self
         
         timePickerView.setPickerLabelsWith(labels: ["시간","분","초"])
+        timePickerView.layer.borderWidth = 0
+        
+        ringtoneLabel.text = timerModel.alarmSound
         
         //FIXME: Notification 말고 델리게이트 방식 고려해보기
         NotificationCenter.default.addObserver(self, selector: #selector(updateTimerLabel), name: .timerValueChanged, object: nil)
@@ -81,15 +87,17 @@ class TimerViewController: BaseUIViewController {
         switch state {
         case .running:
             startButton.setTitle("일시 정지", for: .normal)
-            startButton.backgroundColor = UIColor(named: "StopBackground")
-            startButton.setTitleColor(UIColor(named: "StopText"), for: .normal)
-            startView.backgroundColor = UIColor(named: "StopBackground")
+            startButton.backgroundColor = UIColor(named: "PauseBackground")
+            startButton.setTitleColor(UIColor.systemOrange, for: .normal)
+            startView.backgroundColor = UIColor(named: "PauseBackground")
             cancelButton.alpha = 1
             
             timePickerView.isHidden = true
             timerLabel.isHidden = false
             endTimeStackView.isHidden = false
-            endTimeStackView.tintColor = .darkGray
+            
+            endTimeStackView.alpha = 1.0
+
             circularSlider.isHidden = false
             
         case .paused:
@@ -98,7 +106,7 @@ class TimerViewController: BaseUIViewController {
             startButton.setTitleColor(UIColor(named: "StartText"), for: .normal)
             startView.backgroundColor = UIColor(named: "StartBackground")
             
-            endTimeStackView.tintColor = .lightGray
+            endTimeStackView.alpha = 0.5
             
         case .default:
             startButton.setTitle("시작", for: .normal)
@@ -113,6 +121,7 @@ class TimerViewController: BaseUIViewController {
             endTimeStackView.isHidden = true
             circularSlider.isHidden = true
         }
+        
     }
     
     private func addCircle() {
@@ -180,7 +189,7 @@ class TimerViewController: BaseUIViewController {
             circularSlider.setCoundownTime(seconds: Int(totalTimeInSeconds))
             circularSlider.startCountdownAnimation()
             
-            timerModel.start(withInitialTime: totalTimeInSeconds, alarmSound: "alarm_sound.mp3")
+            timerModel.start(withInitialTime: totalTimeInSeconds)
         } else if timerModel.state == .running {
             timerModel.pause()
             circularSlider.pauseCountdownAnimation()
@@ -202,6 +211,18 @@ class TimerViewController: BaseUIViewController {
         setupUI(state: .default)
 
     }
+    
+    @IBAction func ringtoneButtonTapped(_ sender: UIButton) {
+        let soundViewController = SelectRingtoneTableViewController()
+        soundViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: soundViewController)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    func didDismissModalViewController(alarmSound: String) {
+        self.ringtoneLabel.text = alarmSound
+    }
+    
     
 }
 
@@ -276,3 +297,4 @@ extension UIPickerView {
         }
     }
 }
+

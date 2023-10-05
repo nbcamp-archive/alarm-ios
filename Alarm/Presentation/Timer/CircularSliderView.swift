@@ -20,10 +20,12 @@ class CircularSliderView: UIView {
     func createCountdownStrokeLayer(color: UIColor) -> CAShapeLayer {
         let path = UIBezierPath(arcCenter: center, radius: 170, startAngle: 3 * .pi/2, endAngle: -.pi/2, clockwise: false)
         let circleLayer = CAShapeLayer()
+        
         circleLayer.path = path.cgPath
         circleLayer.strokeColor = color.cgColor
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineWidth = 8
+        
         return circleLayer
     }
     
