@@ -127,7 +127,6 @@ extension AlarmViewController: UITableViewDelegate {
             return cell
         } else {
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "AlarmCell")
-            cell.backgroundColor = .clear
             let alarm = alarmGroup[indexPath.row - 1]
             
             // 시간 부분 폰트 설정
