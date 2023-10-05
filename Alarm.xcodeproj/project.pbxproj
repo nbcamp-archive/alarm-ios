@@ -56,6 +56,7 @@
 		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
 		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
 		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
+		D27B71742ACEAFCF0009BBD6 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B71732ACEAFCF0009BBD6 /* StopWatchViewController.swift */; };
 		D2BD5A6F2ACCCE000017EF84 /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
 		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
+		D27B71732ACEAFCF0009BBD6 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -360,6 +362,7 @@
 				1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */,
 				D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */,
 				D262CFF52AC3C755001413AB /* StopWatch.swift */,
+				D27B71732ACEAFCF0009BBD6 /* StopWatchViewController.swift */,
 			);
 			path = Stopwatch;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */,
 				968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */,
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
+				D27B71742ACEAFCF0009BBD6 /* StopWatchViewController.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
 				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
 				1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */,
