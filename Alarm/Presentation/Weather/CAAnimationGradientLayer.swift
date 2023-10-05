@@ -9,7 +9,7 @@ import UIKit
 
 class CAAnimationGradientLayer: CAGradientLayer {
     
-    var HEX = WeatherViewController().HEX
+    var HEX: String?
     
     let white: CGColor = UIColor.white.cgColor
  
@@ -18,15 +18,24 @@ class CAAnimationGradientLayer: CAGradientLayer {
     var currentGradientColorIndex: Int = 0
     
     
+    init(hex: String) {
+        self.HEX = hex
+        super.init()
+        animateGradient(hex: HEX!)
+    }
     
     override init() {
         super.init()
-
-        
-        animateGradient(hex: HEX ?? "a2d2ff")
-//        print("[CAclassBG]",self.HEX )
-
     }
+    
+//    override init() {
+//        super.init()
+//
+//        
+//        animateGradient(hex: HEX ?? "a2d2ff")
+////        print("[CAclassBG]",self.HEX )
+//
+//    }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {

@@ -50,10 +50,6 @@ extension WeatherViewController{
     
     func changeIconAndBG(){
         
-        
-        
-        let gradient = CAAnimationGradientLayer()
-        
         let yoroke = Temp(initailValue: weatherConditon)
         if let tempCase = yoroke{
             switch tempCase {
