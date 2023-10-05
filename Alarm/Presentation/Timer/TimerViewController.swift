@@ -54,8 +54,13 @@ class TimerViewController: BaseUIViewController, ModalViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //FIXME: - 컴포넌트들 색상 투명도 테스트용 -> 지우기
-        self.view.backgroundColor = UIColor(hex: "#A4CAF5")
+        let gradientBG = CAAnimationGradientLayer()
+        gradientBG.frame = view.bounds
+        gradientBG.startPoint = CGPoint(x: 0, y: 0)
+        gradientBG.endPoint = CGPoint(x: 1, y: 1)
+        gradientBG.drawsAsynchronously = true
+        
+        view.layer.insertSublayer(gradientBG, at: 0)
         
         addCircle()
 

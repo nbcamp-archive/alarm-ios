@@ -37,7 +37,13 @@ class AlarmViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(hex: "#A4CAF5")
+        let gradientBG = CAAnimationGradientLayer()
+        gradientBG.frame = view.bounds
+        gradientBG.startPoint = CGPoint(x: 0, y: 0)
+        gradientBG.endPoint = CGPoint(x: 1, y: 1)
+        gradientBG.drawsAsynchronously = true
+        
+        view.layer.insertSublayer(gradientBG, at: 0)
         
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
 
@@ -128,6 +134,9 @@ extension AlarmViewController: UITableViewDelegate {
             return cell
         } else {
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "AlarmCell")
+            cell.backgroundColor = .clear
+            cell.layer.backgroundColor = UIColor.white.withAlphaComponent(0.5).cgColor
+            
             let alarm = alarmGroup[indexPath.row - 1]
             
             // 시간 부분 폰트 설정
