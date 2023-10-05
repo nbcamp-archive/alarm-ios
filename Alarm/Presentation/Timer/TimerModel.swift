@@ -6,7 +6,12 @@
 //
 
 import UIKit
-import AVFoundation
+import UserNotifications
+
+extension Notification.Name {
+    static let timerValueChanged = Notification.Name("TimerValueChanged")
+    static let timerStopped = Notification.Name("TimerStopped")
+}
 
 final class TimerModel: NSObject {
     
@@ -21,8 +26,6 @@ final class TimerModel: NSObject {
     private enum PropertySaveKeys {
         static let state = "Timer_State"
         static let initialTime = "Timer_InitialTime"
-        static let endTime = "Timer_EndTime"
-        static let pauseTime = "Timer_PauseTime"
         static let alarmSound = "Timer_AlarmSound"
     }
     
@@ -30,12 +33,11 @@ final class TimerModel: NSObject {
     
     private(set) var state: State = .default
     private(set) var initialTime: TimeInterval = 0
-    private(set) var endTime: TimeInterval = 0
-    private(set) var pauseTime: TimeInterval = 0
     private(set) var alarmSound: String?
     private var timer: Timer?
+    private var backgroundTime: TimeInterval = 0
+    private(set) var endTime: Date?
     
-    private var alarmPlayer: AVAudioPlayer?
     
     //MARK: - Life Cycle
     
@@ -44,36 +46,66 @@ final class TimerModel: NSObject {
         
         setup()
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    //MARK: - UserNotifications
+    
+    private func scheduleNotificationForEndTime(endTime: Date) {
+        let timeInterval = endTime.timeIntervalSinceNow
+        
+        if timeInterval > 0 {
+            let content = UNMutableNotificationContent()
+            content.title = "시계"
+            content.body = "타이머"
+            content.sound = .default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+            let request = UNNotificationRequest(identifier: "timerNotification", content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request) { (error) in
+                if let error = error {
+                    print("알림 예약 실패: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    private func cancelNotificationForOldEndTime() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["timerNotification"])
+    }
+    
+    private func updateNotificationForNewEndTime() {
+        cancelNotificationForOldEndTime()
+        if let endTime = self.endTime {
+            scheduleNotificationForEndTime(endTime: endTime)
+        }
     }
     
     //MARK: - Timer Control
     
-    func start(withInitialTime initialTime: TimeInterval, endTime: TimeInterval, alarmSound: String?) {
+    private func calculateEndTime(from initialTime: TimeInterval) -> Date {
+        let currentDate = Date()
+        let endTime = currentDate.addingTimeInterval(initialTime)
+        return endTime
+    }
+    
+    func start(withInitialTime initialTime: TimeInterval, alarmSound: String?) {
         guard state != .running else {
             return
         }
         
         self.initialTime = initialTime
-        self.endTime = endTime
         self.alarmSound = alarmSound
-        
-        if let soundName = alarmSound, let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
-            do {
-                alarmPlayer = try AVAudioPlayer(contentsOf: soundURL)
-            } catch {
-                alarmPlayer = nil
-            }
-        }
         
         state = .running
         
-        if pauseTime > 0 {
-            let elapsedTimeSincePause = Date().timeIntervalSinceReferenceDate - pauseTime
-            self.endTime -= elapsedTimeSincePause
-            pauseTime = 0
-        }
+        endTime = calculateEndTime(from: initialTime)
+        scheduleNotificationForEndTime(endTime: endTime!)
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        NotificationCenter.default.post(name: .timerValueChanged, object: self)
     }
     
     func pause() {
@@ -84,7 +116,7 @@ final class TimerModel: NSObject {
         timer?.invalidate()
         state = .paused
         
-        pauseTime = Date().timeIntervalSinceReferenceDate
+        cancelNotificationForOldEndTime()
     }
     
     func resume() {
@@ -94,10 +126,9 @@ final class TimerModel: NSObject {
         
         state = .running
         
-        if pauseTime > 0 {
-            let elapsedTimeSincePause = Date().timeIntervalSinceReferenceDate - pauseTime
-            endTime -= elapsedTimeSincePause
-            pauseTime = 0
+        if initialTime > 0 {
+            endTime = calculateEndTime(from: initialTime)
+            updateNotificationForNewEndTime()
         }
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -105,27 +136,36 @@ final class TimerModel: NSObject {
     
     func stop() {
         timer?.invalidate()
+        timer = nil
         state = .default
         
-        pauseTime = 0
+        if initialTime > 0 {
+            cancelNotificationForOldEndTime()
+        }
+        NotificationCenter.default.post(name: .timerStopped, object: self)
+        print("---------------timer stopped---------------")
     }
     
     @objc private func updateTimer() {
-        if endTime <= 0 {
+        if initialTime <= 0 {
             stop()
-            playAlarmSound()
+            //NotificationCenter.default.post(name: .timerStopped, object: self)
         } else {
-            endTime -= 1
+            initialTime -= 1
+            NotificationCenter.default.post(name: .timerValueChanged, object: self)
         }
     }
     
-    private func playAlarmSound() {
-        if let soundName = alarmSound, let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") {
-            do {
-                let player = try AVAudioPlayer(contentsOf: soundURL)
-                player.play()
-            } catch {
-                
+    @objc private func appWillEnterForeground() {
+        if state == .running {
+            let elapsedTimeInBackground = Date().timeIntervalSinceReferenceDate - backgroundTime
+            initialTime -= elapsedTimeInBackground
+            if initialTime <= 0 {
+                initialTime = 0
+                stop()
+            } else {
+                endTime = calculateEndTime(from: initialTime)
+                NotificationCenter.default.post(name: .timerValueChanged, object: self)
             }
         }
     }
@@ -135,14 +175,10 @@ final class TimerModel: NSObject {
     private func setup(){
         if let savedState = UserDefaults.standard.value(forKey: PropertySaveKeys.state) as? String,
            let savedInitialTime = UserDefaults.standard.value(forKey: PropertySaveKeys.initialTime) as? TimeInterval,
-           let savedEndTime = UserDefaults.standard.value(forKey: PropertySaveKeys.endTime) as? TimeInterval,
-           let savedPauseTime = UserDefaults.standard.value(forKey: PropertySaveKeys.pauseTime) as? TimeInterval,
            let savedAlarmSound = UserDefaults.standard.value(forKey: PropertySaveKeys.alarmSound) as? String {
             
             state = savedState == "running" ? .running : .default
             initialTime = savedInitialTime
-            endTime = savedEndTime
-            pauseTime = savedPauseTime
             alarmSound = savedAlarmSound
         }
     }
@@ -150,8 +186,8 @@ final class TimerModel: NSObject {
     @objc private func save(){
         UserDefaults.standard.set(state == .running ? "running" : "stopped", forKey: PropertySaveKeys.state)
         UserDefaults.standard.set(initialTime, forKey: PropertySaveKeys.initialTime)
-        UserDefaults.standard.set(endTime, forKey: PropertySaveKeys.endTime)
-        UserDefaults.standard.set(pauseTime, forKey: PropertySaveKeys.pauseTime)
         UserDefaults.standard.set(alarmSound, forKey: PropertySaveKeys.alarmSound)
+        
+        backgroundTime = Date().timeIntervalSinceReferenceDate
     }
 }
