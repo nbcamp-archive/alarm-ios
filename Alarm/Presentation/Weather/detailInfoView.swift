@@ -93,7 +93,7 @@ class DetailInfoView : UIView {
     
     let humidityIcon = {
         let icon = UIImageView()
-        icon.image = UIImage(named: "humidity")
+        icon.image = UIImage(named: "humidity") 
         icon.contentMode  = .scaleAspectFill
         
         return icon
@@ -147,8 +147,10 @@ class DetailInfoView : UIView {
         bodyContainer.distribution = .equalSpacing
         bodyContainer.spacing = 5
         bodyContainer.snp.makeConstraints { make in
-            make.height.equalToSuperview()
-            make.width.equalToSuperview()
+            // [Bug2]: Thing again
+            make.height.equalTo(self.snp.height)
+            make.width.equalTo(self.snp.width)
+      
         }
         
         tempBackgroundBox.layer.cornerRadius = 10
