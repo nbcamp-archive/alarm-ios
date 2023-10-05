@@ -37,7 +37,7 @@ class AlarmViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gradientBG = CAAnimationGradientLayer(hex: HEX!)
+        let gradientBG = CAAnimationGradientLayer(hex: HEX)
         gradientBG.frame = view.bounds
         gradientBG.startPoint = CGPoint(x: 0, y: 0)
         gradientBG.endPoint = CGPoint(x: 1, y: 1)
