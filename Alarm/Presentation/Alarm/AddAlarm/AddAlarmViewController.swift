@@ -63,6 +63,10 @@ class AddAlarmViewController: BaseUIViewController {
     }
     
     override func setUI() {
+        
+
+        
+        
         navigationItem.leftBarButtonItem = cancelButtonItem
         navigationItem.rightBarButtonItem = saveButtonItem
         

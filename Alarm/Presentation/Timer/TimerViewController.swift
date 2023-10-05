@@ -46,6 +46,7 @@ class TimerViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         cancelView.circleView = true
         cancelButton.circleButton = true
         

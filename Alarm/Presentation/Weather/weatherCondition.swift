@@ -46,9 +46,13 @@ enum Temp {
 
 extension WeatherViewController{
     
-    
+   
     
     func changeIconAndBG(){
+        
+        
+        
+        let gradient = CAAnimationGradientLayer()
         
         let yoroke = Temp(initailValue: weatherConditon)
         if let tempCase = yoroke{
@@ -57,7 +61,8 @@ extension WeatherViewController{
                 weatherImage.image = UIImage(named: "snow")
             case .clear:
                 weatherImage.image = UIImage(named: "clear")
-                let layer = CAAnimationGradientLayer()
+                HEX = "d90429" // [Bug3] : 날씨별 배경
+//                gradient.animateGradient(hex: HEX)
             case .thunderstorm: //뇌우
                 weatherImage.image = UIImage(named: "thunderstorm")
             case .drizzle: //가랑비
@@ -73,8 +78,14 @@ extension WeatherViewController{
         } else {
             print("No Icon")
         }
+       
         
+      
     }
+    
+    
+    
+        
 }
 
 

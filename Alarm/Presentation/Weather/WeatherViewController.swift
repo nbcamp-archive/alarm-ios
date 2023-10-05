@@ -14,7 +14,7 @@ class WeatherViewController: BaseUIViewController {
     
     var weatherConditon: Int = 800
     
-//    var HEX: String = "a2d2ff" //skyblue 
+    var HEX : String?
     
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
@@ -126,7 +126,7 @@ class WeatherViewController: BaseUIViewController {
   
         callWeather { result in
             if result {
-                self.hiddenLoadingScreen()     //check ..!
+                self.hiddenLoadingScreen()     //[Bug1]: hidden
             }
             self.setupUI()
             self.changeIconAndBG()
@@ -215,6 +215,11 @@ class WeatherViewController: BaseUIViewController {
             make.height.equalToSuperview().dividedBy(5) 
            }
         
+        cityNameLabel.snp.makeConstraints { make in
+            make.height.equalToSuperview().dividedBy(1.4)
+        }
+        
+        
         //MARK: MainInfoArea
         mainInfoBox.snp.makeConstraints { make in
             make.height.equalToSuperview().dividedBy(3)
@@ -235,4 +240,5 @@ class WeatherViewController: BaseUIViewController {
         }
       
         }
+    
     }
