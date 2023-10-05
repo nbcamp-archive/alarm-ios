@@ -8,13 +8,14 @@
 import UIKit
 import SnapKit
 
+var HEX: String = "4895ef"
+
 
 class WeatherViewController: BaseUIViewController {
     
     
     var weatherConditon: Int = 800
     
-    var HEX : String?
     
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
@@ -128,9 +129,10 @@ class WeatherViewController: BaseUIViewController {
             if result {
                 self.hiddenLoadingScreen()     //[Bug1]: hidden
             }
-            self.setupUI()
+
             self.changeIconAndBG()
             self.dateTody()
+            self.setupUI()
        
         }
 
@@ -176,13 +178,12 @@ class WeatherViewController: BaseUIViewController {
     
     func setupUI(){
         
-
-        let gradientBG = CAAnimationGradientLayer()
+        let gradientBG = CAAnimationGradientLayer(hex: HEX)
         gradientBG.frame = view.bounds
         gradientBG.startPoint = CGPoint(x: 0, y: 0)
         gradientBG.endPoint = CGPoint(x: 1, y: 1)
         gradientBG.drawsAsynchronously = true
-        
+
         self.view.layer.addSublayer(gradientBG)
         
         self.view.addSubview(todaysWeatherContainer)

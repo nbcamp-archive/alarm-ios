@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		1C328A242ACC383C00516D2A /* CAAnimationGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */; };
 		1C29A7E42ACA79C900F0012C /* AlarmNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C29A7E32ACA79C900F0012C /* AlarmNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1C29A7E72ACA79C900F0012C /* AlarmNotification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */; };
 		1C29A7E82ACA79C900F0012C /* AlarmNotification.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -19,6 +17,7 @@
 		1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */; };
 		1C328A202ACC32F600516D2A /* default.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C328A1F2ACC32F600516D2A /* default.caf */; };
 		1C328A222ACC33D100516D2A /* daydreaming.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1C328A212ACC33D100516D2A /* daydreaming.caf */; };
+		1C328A242ACC383C00516D2A /* CAAnimationGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */; };
 		1C5EC7D52AC1D5D2003D1D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */; };
 		1C5EC7D82AC1D5D2003D1D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EC7D62AC1D5D2003D1D81 /* LaunchScreen.storyboard */; };
 		1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC7E02AC1E77E003D1D81 /* AppDelegate.swift */; };
@@ -32,7 +31,6 @@
 		1C5EC8032AC2A692003D1D81 /* WeatherViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */; };
 		1C5EC8092AC2AF71003D1D81 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8082AC2AF71003D1D81 /* AlarmViewController.swift */; };
 		1C5EC80B2AC2AF97003D1D81 /* AlarmViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC80A2AC2AF97003D1D81 /* AlarmViewCoordinator.swift */; };
-		1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC80E2AC2DF49003D1D81 /* StopWatchViewController.swift */; };
 		1C5EC8112AC2DF80003D1D81 /* StopWatchViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */; };
 		1C5EC8142AC2E061003D1D81 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */; };
 		1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */; };
@@ -58,6 +56,7 @@
 		D262CFFC2AC3CC69001413AB /* TimerPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */; };
 		D262CFFE2AC3CD87001413AB /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFD2AC3CD87001413AB /* TimerModel.swift */; };
 		D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */; };
+		D27B71742ACEAFCF0009BBD6 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27B71732ACEAFCF0009BBD6 /* StopWatchViewController.swift */; };
 		D2BD5A6F2ACCCE000017EF84 /* CircularSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,7 +85,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAnimationGradientLayer.swift; sourceTree = "<group>"; };
 		1C29A7E12ACA79C900F0012C /* AlarmNotification.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlarmNotification.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C29A7E32ACA79C900F0012C /* AlarmNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlarmNotification.h; sourceTree = "<group>"; };
 		1C29A7ED2ACA7A6800F0012C /* ANAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANAuthenticator.swift; sourceTree = "<group>"; };
@@ -96,6 +94,7 @@
 		1C328A1C2ACBC3F500516D2A /* AlarmScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmScheduler.swift; sourceTree = "<group>"; };
 		1C328A1F2ACC32F600516D2A /* default.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.caf; sourceTree = "<group>"; };
 		1C328A212ACC33D100516D2A /* daydreaming.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = daydreaming.caf; sourceTree = "<group>"; };
+		1C328A232ACC383C00516D2A /* CAAnimationGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAAnimationGradientLayer.swift; sourceTree = "<group>"; };
 		1C5EC7C82AC1D5D1003D1D81 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C5EC7D42AC1D5D2003D1D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C5EC7D72AC1D5D2003D1D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -113,7 +112,6 @@
 		1C5EC8022AC2A692003D1D81 /* WeatherViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8082AC2AF71003D1D81 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		1C5EC80A2AC2AF97003D1D81 /* AlarmViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewCoordinator.swift; sourceTree = "<group>"; };
-		1C5EC80E2AC2DF49003D1D81 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewCoordinator.swift; sourceTree = "<group>"; };
 		1C5EC8132AC2E061003D1D81 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		1C5EC8152AC2E08B003D1D81 /* TimerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewCoordinator.swift; sourceTree = "<group>"; };
@@ -136,6 +134,7 @@
 		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
 		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
+		D27B71732ACEAFCF0009BBD6 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -360,10 +359,10 @@
 		1C5EC80D2AC2DF39003D1D81 /* Stopwatch */ = {
 			isa = PBXGroup;
 			children = (
-				1C5EC80E2AC2DF49003D1D81 /* StopWatchViewController.swift */,
 				1C5EC8102AC2DF80003D1D81 /* StopWatchViewCoordinator.swift */,
 				D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */,
 				D262CFF52AC3C755001413AB /* StopWatch.swift */,
+				D27B71732ACEAFCF0009BBD6 /* StopWatchViewController.swift */,
 			);
 			path = Stopwatch;
 			sourceTree = "<group>";
@@ -538,11 +537,10 @@
 				1C5EC8012AC2A5EE003D1D81 /* WeatherViewController.swift in Sources */,
 				D262CFF82AC3C9B0001413AB /* UIButton+Extension.swift in Sources */,
 				1C5EC7E22AC1E77E003D1D81 /* AppDelegate.swift in Sources */,
-				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
-				1C5EC80F2AC2DF49003D1D81 /* StopWatchViewController.swift in Sources */,
 				1C77AA962AC4066700CE864C /* NavigationCell.swift in Sources */,
 				968B033E2AC6F66A008808B8 /* UIcolor+CALayer.swift in Sources */,
 				96330B782AC3D3B000C332F4 /* weatherAPI.swift in Sources */,
+				D27B71742ACEAFCF0009BBD6 /* StopWatchViewController.swift in Sources */,
 				1C5EC8162AC2E08B003D1D81 /* TimerViewCoordinator.swift in Sources */,
 				D262D0002AC3CFE5001413AB /* SelectRingtoneTableViewController.swift in Sources */,
 				1C328A1D2ACBC3F500516D2A /* AlarmScheduler.swift in Sources */,
