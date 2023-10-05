@@ -24,7 +24,7 @@ class CAAnimationGradientLayer: CAGradientLayer {
 
         
         animateGradient(hex: HEX ?? "a2d2ff")
-        print("[CAclassBG]",self.HEX )
+//        print("[CAclassBG]",self.HEX )
 
     }
     
