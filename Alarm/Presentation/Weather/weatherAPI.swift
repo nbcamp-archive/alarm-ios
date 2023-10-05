@@ -10,12 +10,6 @@ import Alamofire
 
 extension WeatherViewController {
     
-
-    
-    //파라미터 이해
-//    func callweather2(completeHandeler :Int ){
-//        
-//    }
     
     func callWeather(completionHandler: @escaping(Bool)-> Void){
         
@@ -24,7 +18,6 @@ extension WeatherViewController {
             .responseJSON { response in
                 switch response.result {
                 case .success(let json):
-                    
                     if let jsonDict = json as? [String: Any],
                        let weatherArray = jsonDict["weather"] as? [[String: Any]],
                        let mainDict = jsonDict["main"] as? [String: Any],
@@ -41,7 +34,6 @@ extension WeatherViewController {
                     {
                         DispatchQueue.main.async {
                             self.weatherConditon = conditionCode
-//                            self.weatherConditon = 801
                             self.cityNameLabel.text = cityName
                             self.weatherTodayLabel.text = mainWeather
                             self.tempTodayLabel.text = String(format: " %.f", temp)
@@ -50,18 +42,11 @@ extension WeatherViewController {
                             
                             self.detailInfoBox.windData.text = String(format:"\(windSpeed)m/s" )
                             self.detailInfoBox.humidityData.text = String(format:"\(humidity) %%" )
-//                            self.changeIconAndBG()
                             completionHandler(true)
-                       
-                            
                         }
                         
                     } else {
-                        
-                        
                         completionHandler(false)
-                      
-                        
                     }
                 case .failure(let error):
                     completionHandler(false)

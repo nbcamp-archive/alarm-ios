@@ -9,16 +9,10 @@ import UIKit
 
 class CAAnimationGradientLayer: CAGradientLayer {
     
-//    var HEX = WeatherViewController().HEX
+    var HEX : String = "a2d2ff"
     
-    let pink: CGColor = UIColor.systemPink.cgColor
-    let blue: CGColor = UIColor.systemBlue.cgColor
-    let green: CGColor = UIColor.systemGreen.cgColor
     let white: CGColor = UIColor.white.cgColor
-    
-
-    
-
+ 
     var gradientColorSet: [[CGColor]] = [[CGColor]]()
     
     var currentGradientColorIndex: Int = 0
@@ -27,24 +21,9 @@ class CAAnimationGradientLayer: CAGradientLayer {
     
     override init() {
         super.init()
-        
 
         
-        //FIXME: 움직이는 원리는 2차원 배열 형태로 색상을 지속시간 동안 반복적으로 변경하는 형태입니다.
-        
-
-        //No.1
-//        gradientColorSet.append([pink, blue])
-//        gradientColorSet.append([blue, green])
-//        gradientColorSet.append([green, white])
-//        gradientColorSet.append([white, pink])
-        
-     //hex값을 changeIconAndBG에서 적용하고, 여기에는 변수명으로 전달받게 하면 어떨까
-        
-        animateGradient(hex: WeatherViewController().HEX) //
-//        animateGradient(hex: "d62828") //red [Now]
-        print("2.HEX-skyblue", WeatherViewController().HEX)
-        
+        animateGradient(hex: HEX)
 
     }
     
@@ -57,12 +36,8 @@ class CAAnimationGradientLayer: CAGradientLayer {
 extension CAAnimationGradientLayer: CAAnimationDelegate {
     func animateGradient(hex : String) {
         
-        //변경하고 싶은 부분 here
         let cusotmHex: String = hex  
-    //    var cusotmHex: String = "3a86ff"
-    //    var cusotmHex: String = "03045e"
-        
-        //No.2
+
         gradientColorSet.append([white,UIColor(hex: cusotmHex).cgColor])
         gradientColorSet.append([UIColor(hex: cusotmHex).cgColor,white])
         
@@ -86,7 +61,6 @@ extension CAAnimationGradientLayer: CAAnimationDelegate {
         gradientChangeAnimation.toValue = gradientColorSet[currentGradientColorIndex]
         
         add(gradientChangeAnimation, forKey: "colorChange")
-//        setNeedsDisplay()
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {

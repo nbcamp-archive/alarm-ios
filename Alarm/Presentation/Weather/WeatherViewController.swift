@@ -14,23 +14,11 @@ class WeatherViewController: BaseUIViewController {
     
     var weatherConditon: Int = 800
     
-    //기본값에서 바뀌지 않는 문제
-    var HEX: String = "a2d2ff" //skyblue
+//    var HEX: String = "a2d2ff" //skyblue 
     
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
     
-    
-    lazy var backgroundView = {
-        let view = UIView()
-        let gradientBG = CAAnimationGradientLayer()
-        gradientBG.frame = self.view.bounds
-        gradientBG.startPoint = CGPoint(x: 0, y: 0)
-        gradientBG.endPoint = CGPoint(x: 1, y: 1)
-        gradientBG.drawsAsynchronously = true
-        view.layer.addSublayer(gradientBG)
-        return view
-    }()
     
     let todaysWeatherContainer = {
         let container = UIStackView()
@@ -133,33 +121,17 @@ class WeatherViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//MARK: Memo : 파라미터 이해
-//        callweather2(completeHandeler: 3)
-//
-//        callWeather(completionHandler: { result in  })
-//
-//        callWeather { <#Bool#> in
-//            <#code#>
-//        }
         
         loadingScreen()
   
         callWeather { result in
             if result {
-               print("API 호출 성공")
-                //숨겨지지않음
-                self.hiddenLoadingScreen()
+                self.hiddenLoadingScreen()     //check ..!
             }
-            self.changeIconAndBG() //switch
-            
-            
-            print("아오",self.HEX)
-            
             self.setupUI()
+            self.changeIconAndBG()
             self.dateTody()
-          
-            //loadingScreen off 필요
+       
         }
 
     }
@@ -176,7 +148,6 @@ class WeatherViewController: BaseUIViewController {
         
         self.view.addSubview(titleLabel)
         titleLabel.isHidden = false
-//        titleLabel.backgroundColor = UIColor.red
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -193,6 +164,7 @@ class WeatherViewController: BaseUIViewController {
         loadingScreen.isHidden = true
     }
     
+    
     func dateTody(){
         let dateFomatter = DateFormatter()
         dateFomatter.dateFormat = "E, MMM d"
@@ -204,19 +176,16 @@ class WeatherViewController: BaseUIViewController {
     
     func setupUI(){
         
-        //gradient Background color
-        let gradientLayer = CAAnimationGradientLayer() //에메랄드
-//        gradientLayer.frame = view.bounds
-//        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-//        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-//        gradientLayer.drawsAsynchronously = true
 
-       
-
+        let gradientBG = CAAnimationGradientLayer()
+        gradientBG.frame = view.bounds
+        gradientBG.startPoint = CGPoint(x: 0, y: 0)
+        gradientBG.endPoint = CGPoint(x: 1, y: 1)
+        gradientBG.drawsAsynchronously = true
         
-        self.view.addSubview(backgroundView)
-//        backgroundView.layer.addSublayer(gradientLayer)
-        backgroundView.addSubview(todaysWeatherContainer)
+        self.view.layer.addSublayer(gradientBG)
+        
+        self.view.addSubview(todaysWeatherContainer)
      
         todaysWeatherContainer.addArrangedSubview(locationBox)
         todaysWeatherContainer.addArrangedSubview(mainInfoBox)
@@ -225,11 +194,9 @@ class WeatherViewController: BaseUIViewController {
         locationBox.addArrangedSubview(cityNameLabel)
         locationBox.addArrangedSubview(dateLabel)
         
-      
         mainInfoBox.addArrangedSubview(weatherImage)
         mainInfoBox.addArrangedSubview(mainInfoInsideRigthBox)
      
-        
         mainInfoInsideRigthBox.addArrangedSubview(temprigthInsideStackView)
         mainInfoInsideRigthBox.addArrangedSubview(weatherTodayLabel)
         
@@ -266,7 +233,6 @@ class WeatherViewController: BaseUIViewController {
         tempDegree.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(10)
         }
-        
       
         }
     }
