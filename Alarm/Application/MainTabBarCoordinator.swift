@@ -71,7 +71,7 @@ extension MainTabBarCoordinator {
             coordinator.start()
         case .stopwatch:
             navigationController.navigationBar.isHidden = true
-            let coordinator = StopwatchViewCoordinator(navigationController: navigationController)
+            let coordinator = StopWatchViewCoordinator(navigationController: navigationController)
             childCoordinators.append(coordinator)
             coordinator.start()
         case .timer:

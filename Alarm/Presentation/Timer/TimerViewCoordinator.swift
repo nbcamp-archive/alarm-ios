@@ -20,7 +20,9 @@ class TimerViewCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = TimerViewController()
+        let storyboard = UIStoryboard(name: "TimerPage", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TimerPage") as! TimerViewController
+        
         viewController.coordinator = self
         
         navigationController.pushViewController(viewController, animated: true)
