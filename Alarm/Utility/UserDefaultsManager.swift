@@ -53,6 +53,22 @@ class UserDefaultsManager {
         }
     }
     
+    static func deleteAlarm(at index: Int, forKey key: String) {
+        var existingObject: [Alarm] = load(forKey: key)
+        
+        if index >= 0 && index < existingObject.count {
+            existingObject.remove(at: index)
+            
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(existingObject) {
+                defaults.set(data, forKey: key)
+            } else {
+                print("UserDefaultsManager : 알람을 삭제하는 것을 실패했습니다.")
+            }
+        }
+    }
+
+    
     static func printAlarmGroup() {
         let alarms: [Alarm] = load(forKey: alarmGroupKey)
         for alarm in alarms {

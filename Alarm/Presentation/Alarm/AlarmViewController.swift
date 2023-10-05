@@ -31,17 +31,14 @@ class AlarmViewController: BaseUIViewController {
     
     private lazy var tableView = UITableView(frame: .zero, style: .plain).then({
         $0.separatorStyle = .singleLine
+        $0.backgroundColor = .clear
     })
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        view.backgroundColor = UIColor(hex: "#A4CAF5")
         
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
 
         
@@ -49,7 +46,6 @@ class AlarmViewController: BaseUIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
         
@@ -89,6 +85,21 @@ extension AlarmViewController: UITableViewDataSource {
         return indexPath.row != 0
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if indexPath.row != 0 {
+                UserDefaultsManager.deleteAlarm(at: indexPath.row - 1, forKey: UserDefaultsManager.alarmGroupKey)
+                
+                alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
+                
+                AlarmScheduler.registAlarms()
+                
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+            }
+        }
+    }
+    
 }
 //MARK: - UITableView 델리게이트
 extension AlarmViewController: UITableViewDelegate {
@@ -111,6 +122,7 @@ extension AlarmViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = UITableViewCell(style: .default, reuseIdentifier: "HeaderCell")
+            cell.backgroundColor = .clear
             cell.textLabel?.text = "기타"
             cell.textLabel?.font = UIFont.systemFont(ofSize: 18.4, weight: .bold)
             return cell
