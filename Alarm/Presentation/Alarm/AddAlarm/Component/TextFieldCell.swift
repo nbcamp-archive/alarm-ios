@@ -11,13 +11,13 @@ import UIKit
 
 class TextFieldCell: UITableViewCell {
     
-    private lazy var leadingLabel = UILabel().then({
+    lazy var leadingLabel = UILabel().then({
         $0.font = UIFont.systemFont(ofSize: 16)
         $0.textColor = UIColor.black
         $0.numberOfLines = 1
     })
     
-    private lazy var trailingTextField = UITextField().then({
+    lazy var trailingTextField = UITextField().then({
         $0.textAlignment = .right
         $0.tintColor = UIColor.black
         $0.borderStyle = .none

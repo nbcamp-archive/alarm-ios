@@ -32,8 +32,8 @@ final class StopWatch: NSObject {
     
     
     //MARK: - Properties
-    private var count: Int = 0
-    private var lapCount: Int = 0
+    private(set) var count: Int = 0
+    private(set) var lapCount: Int = 0
     
     private(set) var time: String = ""
     private(set) var lapTime: String = ""

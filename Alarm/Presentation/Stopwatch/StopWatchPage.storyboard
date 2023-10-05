@@ -26,19 +26,20 @@
                                     <constraint firstAttribute="width" constant="330" id="pjt-t1-MVv"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O7c-0l-edq">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="329" height="328"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewcell" id="CZn-1L-4SI">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="1" width="329" height="328"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" insetsLayoutMarginsFromSafeArea="NO" id="Iz6-MZ-pjM">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="329" height="328"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="329" height="328"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -178,7 +179,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ThG-sC-hs6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5mA-ne-cL7"/>
-                            <constraint firstItem="rFc-Yw-505" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fek-lg-zf1"/>
                             <constraint firstItem="rFc-Yw-505" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="IFb-AP-I7b"/>
                             <constraint firstItem="ThG-sC-hs6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Lqc-3C-VHr"/>
                             <constraint firstItem="ThG-sC-hs6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="PgX-VS-DbB"/>
@@ -187,6 +187,7 @@
                             <constraint firstItem="GTc-nE-XvU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="hFX-6K-R86"/>
                             <constraint firstItem="ThG-sC-hs6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n40-MO-EQP"/>
                             <constraint firstItem="ThG-sC-hs6" firstAttribute="top" secondItem="GTc-nE-XvU" secondAttribute="bottom" constant="13" id="nGA-V2-TQx"/>
+                            <constraint firstItem="rFc-Yw-505" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v0t-kh-Q6U"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="zLc-7a-lch"/>
@@ -202,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184" y="-421"/>
+            <point key="canvasLocation" x="1183.969465648855" y="-421.12676056338029"/>
         </scene>
     </scenes>
     <resources>
