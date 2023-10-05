@@ -129,7 +129,6 @@
 		96330B792AC423C700C332F4 /* detailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailInfoView.swift; sourceTree = "<group>"; };
 		968B033D2AC6F66A008808B8 /* UIcolor+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+CALayer.swift"; sourceTree = "<group>"; };
 		968B033F2ACAA9A0008808B8 /* weatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weatherCondition.swift; sourceTree = "<group>"; };
-=======
 		D262CFF32AC3C10F001413AB /* StopWatchPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StopWatchPage.storyboard; sourceTree = "<group>"; };
 		D262CFF52AC3C755001413AB /* StopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 		D262CFF72AC3C9B0001413AB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 		D262CFFB2AC3CC69001413AB /* TimerPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimerPage.storyboard; sourceTree = "<group>"; };
 		D262CFFD2AC3CD87001413AB /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		D262CFFF2AC3CFE5001413AB /* SelectRingtoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingtoneTableViewController.swift; sourceTree = "<group>"; };
-=======
 		D2BD5A6E2ACCCE000017EF84 /* CircularSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
