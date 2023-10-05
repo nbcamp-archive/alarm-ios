@@ -40,6 +40,7 @@ class AlarmViewController: BaseUIViewController {
         view.backgroundColor = UIColor(hex: "#A4CAF5")
         
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
+
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AlarmCell")
     }

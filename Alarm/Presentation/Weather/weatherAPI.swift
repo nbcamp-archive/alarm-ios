@@ -11,16 +11,17 @@ import Alamofire
 extension WeatherViewController {
     
     
-    
-    func callWeather(){
+    func callWeather(completionHandler: @escaping(Bool)-> Void){
+        
+        
         AF.request(openWeatherAPI)
             .responseJSON { response in
                 switch response.result {
                 case .success(let json):
-                    
                     if let jsonDict = json as? [String: Any],
                        let weatherArray = jsonDict["weather"] as? [[String: Any]],
                        let mainDict = jsonDict["main"] as? [String: Any],
+                       let conditionCode = weatherArray.first?["id"] as? Int,
                        let mainWeather = weatherArray.first?["main"] as? String,
                        let temp = mainDict["temp"] as? Double,
                        let tempMax = mainDict["temp_max"] as? Double,
@@ -32,6 +33,7 @@ extension WeatherViewController {
                         
                     {
                         DispatchQueue.main.async {
+                            self.weatherConditon = conditionCode
                             self.cityNameLabel.text = cityName
                             self.weatherTodayLabel.text = mainWeather
                             self.tempTodayLabel.text = String(format: " %.f", temp)
@@ -40,19 +42,14 @@ extension WeatherViewController {
                             
                             self.detailInfoBox.windData.text = String(format:"\(windSpeed)m/s" )
                             self.detailInfoBox.humidityData.text = String(format:"\(humidity) %%" )
-                            
-                            
-                            
+                            completionHandler(true)
                         }
                         
                     } else {
-                        
-                        
-                        print("날씨안나옴! ")
-                        
+                        completionHandler(false)
                     }
                 case .failure(let error):
-                    print("Error: \(error)")
+                    completionHandler(false)
                 }
             }
     }

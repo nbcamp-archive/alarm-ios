@@ -8,15 +8,24 @@
 import UIKit
 import SnapKit
 
+
 class WeatherViewController: BaseUIViewController {
     
+    
+    var weatherConditon: Int = 800
+    
+    var HEX : String?
+    
+    
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
+    
     
     let todaysWeatherContainer = {
         let container = UIStackView()
         container.axis = .vertical
         return container
     }()
+    
     
     let locationBox = {
         let box = UIStackView()
@@ -27,7 +36,7 @@ class WeatherViewController: BaseUIViewController {
     
     let cityNameLabel = {
         let label = UILabel()
-        label.text = "cityNameLabel"
+        label.text = ""
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
         return label
@@ -35,7 +44,6 @@ class WeatherViewController: BaseUIViewController {
     
     let dateLabel = {
         let label = UILabel()
-        //오늘 날짜 들어갈 수 있게 조정
         label.text = ""
         label.textAlignment = .left
         label.textColor = UIColor.systemGray
@@ -46,13 +54,14 @@ class WeatherViewController: BaseUIViewController {
     
     let mainInfoBox = {
         let box = UIStackView()
+        box.alignment = .center
         return box
     }()
     
     let weatherImage = {
         let image = UIImageView()
         image.image = UIImage(named: "cludy")
-        
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -66,15 +75,18 @@ class WeatherViewController: BaseUIViewController {
     let temprigthInsideStackView = {
         let box = UIStackView()
         box.axis = .horizontal
+        box.alignment = .firstBaseline
+        box.distribution = .fillEqually
+        box.spacing = 0
+        
         return box
     }()
     
     let tempTodayLabel = {
         let label = UILabel()
-        label.text = "온도"
-        label.textAlignment = .center
+        label.text = ""
+        label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 50, weight: .medium)
-//         label.backgroundColor = UIColor.systemBlue
         return label
     }()
     
@@ -82,18 +94,16 @@ class WeatherViewController: BaseUIViewController {
     let tempDegree  = {
         let label = UILabel()
         label.text = "°C"
+        label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-//        label.backgroundColor = UIColor.systemGreen
-//        label.textAlignment = .left
         return label
     }()
     
     let weatherTodayLabel = {
         let label = UILabel()
-        label.text = "weatherLabel"
+        label.text = ""
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
-//        label.backgroundColor = UIColor.red
         return label
     }()
  
@@ -112,10 +122,48 @@ class WeatherViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
-        callWeather()
-        dateTody()
+        loadingScreen()
+  
+        callWeather { result in
+            if result {
+                self.hiddenLoadingScreen()     //[Bug1]: hidden
+            }
+            self.setupUI()
+            self.changeIconAndBG()
+            self.dateTody()
+       
+        }
+
     }
+    
+    func loadingScreen()->UILabel{
+        
+        let titleLabel = {
+            let label = UILabel()
+            label.text = "Loading ..."
+            label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+            label.textAlignment = .center
+            return label
+        }()
+        
+        self.view.addSubview(titleLabel)
+        titleLabel.isHidden = false
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.width.equalTo(300)
+            make.height.equalTo(100)
+
+        }
+        return titleLabel
+    }
+    
+    func hiddenLoadingScreen(){
+        let loadingScreen = loadingScreen()
+        loadingScreen.isHidden = true
+    }
+    
     
     func dateTody(){
         let dateFomatter = DateFormatter()
@@ -127,34 +175,34 @@ class WeatherViewController: BaseUIViewController {
     }
     
     func setupUI(){
-        self.view.backgroundColor = UIColor(hex: "#A4CAF5")
+        
+
+        let gradientBG = CAAnimationGradientLayer()
+        gradientBG.frame = view.bounds
+        gradientBG.startPoint = CGPoint(x: 0, y: 0)
+        gradientBG.endPoint = CGPoint(x: 1, y: 1)
+        gradientBG.drawsAsynchronously = true
+        
+        self.view.layer.addSublayer(gradientBG)
+        
         self.view.addSubview(todaysWeatherContainer)
+     
         todaysWeatherContainer.addArrangedSubview(locationBox)
         todaysWeatherContainer.addArrangedSubview(mainInfoBox)
         todaysWeatherContainer.addArrangedSubview(detailInfoBox)
-        todaysWeatherContainer.snp.makeConstraints { make in
-       }
-        
       
         locationBox.addArrangedSubview(cityNameLabel)
         locationBox.addArrangedSubview(dateLabel)
         
-      
         mainInfoBox.addArrangedSubview(weatherImage)
         mainInfoBox.addArrangedSubview(mainInfoInsideRigthBox)
      
-        
         mainInfoInsideRigthBox.addArrangedSubview(temprigthInsideStackView)
         mainInfoInsideRigthBox.addArrangedSubview(weatherTodayLabel)
         
         temprigthInsideStackView.addArrangedSubview(tempTodayLabel)
         temprigthInsideStackView.addArrangedSubview(tempDegree)
-      
-//        detailInfoBox.addArrangedSubview(tempBackgroundBox)
-//        detailInfoBox.addArrangedSubview(windBackgroundBox)
-//        detailInfoBox.addArrangedSubview(humidityBackgroundBox)
-        
-//        todaysWeatherContainer.layer.borderWidth = 1
+
         todaysWeatherContainer.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
@@ -167,28 +215,30 @@ class WeatherViewController: BaseUIViewController {
             make.height.equalToSuperview().dividedBy(5) 
            }
         
+        cityNameLabel.snp.makeConstraints { make in
+            make.height.equalToSuperview().dividedBy(1.4)
+        }
+        
+        
         //MARK: MainInfoArea
         mainInfoBox.snp.makeConstraints { make in
             make.height.equalToSuperview().dividedBy(3)
         }
         
         weatherImage.snp.makeConstraints { make in
-            make.width.equalTo(200)
-            make.height.equalToSuperview()
+            make.width.equalTo(180)
         }
         
         mainInfoInsideRigthBox.distribution = .fillProportionally
         mainInfoInsideRigthBox.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(25)
-            
             make.height.equalToSuperview().dividedBy(1.5)
-            make.trailing.equalToSuperview().offset(-20)
-        }
-
-        tempDegree.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(20)
         }
         
+        tempDegree.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(10)
+        }
       
         }
+    
     }

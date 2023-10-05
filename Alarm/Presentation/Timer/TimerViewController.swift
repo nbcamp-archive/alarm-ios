@@ -56,6 +56,7 @@ class TimerViewController: BaseUIViewController {
         
         addCircle()
 
+        
         cancelView.circleView = true
         cancelButton.circleButton = true
         
