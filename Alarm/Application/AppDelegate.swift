@@ -69,15 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let content = notification.request.content
-        let trigger = notification.request.trigger
         
         completionHandler([UNNotificationPresentationOptions.banner, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let content = response.notification.request.content
-        let trigger = response.notification.request.trigger
         
         completionHandler()
     }

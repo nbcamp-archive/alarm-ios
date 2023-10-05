@@ -27,6 +27,7 @@ final class TimerModel: NSObject {
         static let state = "Timer_State"
         static let initialTime = "Timer_InitialTime"
         static let alarmSound = "Timer_AlarmSound"
+        static let alarmSoundFile = "Timer_AlarmSoundFile"
     }
     
     //MARK: - Properties
@@ -34,6 +35,7 @@ final class TimerModel: NSObject {
     private(set) var state: State = .default
     private(set) var initialTime: TimeInterval = 0
     private(set) var alarmSound: String?
+    private(set) var alarmSoundFile: String?
     private var timer: Timer?
     private var backgroundTime: TimeInterval = 0
     private(set) var endTime: Date?
@@ -45,6 +47,14 @@ final class TimerModel: NSObject {
         super.init()
         
         setup()
+        
+        if alarmSound == nil {
+            alarmSound = "전파 탐지기(기본 설정)"
+            alarmSoundFile = "default.caf"
+            UserDefaults.standard.set(alarmSound, forKey: PropertySaveKeys.alarmSound)
+            UserDefaults.standard.set(alarmSoundFile, forKey: PropertySaveKeys.alarmSoundFile)
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
@@ -58,7 +68,10 @@ final class TimerModel: NSObject {
             let content = UNMutableNotificationContent()
             content.title = "시계"
             content.body = "타이머"
-            content.sound = .default
+            
+            alarmSound = UserDefaults.standard.string(forKey: "Timer_AlarmSound")
+            alarmSoundFile = UserDefaults.standard.string(forKey: "Timer_AlarmSoundFile")
+            content.sound = UNNotificationSound(named: UNNotificationSoundName((alarmSoundFile)!))
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
             let request = UNNotificationRequest(identifier: "timerNotification", content: content, trigger: trigger)
@@ -90,13 +103,12 @@ final class TimerModel: NSObject {
         return endTime
     }
     
-    func start(withInitialTime initialTime: TimeInterval, alarmSound: String?) {
+    func start(withInitialTime initialTime: TimeInterval) {
         guard state != .running else {
             return
         }
         
         self.initialTime = initialTime
-        self.alarmSound = alarmSound
         
         state = .running
         
@@ -175,18 +187,20 @@ final class TimerModel: NSObject {
     private func setup(){
         if let savedState = UserDefaults.standard.value(forKey: PropertySaveKeys.state) as? String,
            let savedInitialTime = UserDefaults.standard.value(forKey: PropertySaveKeys.initialTime) as? TimeInterval,
-           let savedAlarmSound = UserDefaults.standard.value(forKey: PropertySaveKeys.alarmSound) as? String {
+           let savedAlarmSound = UserDefaults.standard.value(forKey: PropertySaveKeys.alarmSound) as? String, let savedAlarmSoundFile = UserDefaults.standard.value(forKey: PropertySaveKeys.alarmSoundFile) as? String {
             
             state = savedState == "running" ? .running : .default
             initialTime = savedInitialTime
             alarmSound = savedAlarmSound
+            alarmSoundFile = savedAlarmSoundFile
         }
     }
     
     @objc private func save(){
         UserDefaults.standard.set(state == .running ? "running" : "stopped", forKey: PropertySaveKeys.state)
         UserDefaults.standard.set(initialTime, forKey: PropertySaveKeys.initialTime)
-        UserDefaults.standard.set(alarmSound, forKey: PropertySaveKeys.alarmSound)
+        //UserDefaults.standard.set(alarmSound, forKey: PropertySaveKeys.alarmSound)
+        //UserDefaults.standard.set(alarmSoundFile, forKey: PropertySaveKeys.alarmSoundFile)
         
         backgroundTime = Date().timeIntervalSinceReferenceDate
     }

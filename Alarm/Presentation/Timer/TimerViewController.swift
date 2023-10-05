@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimerViewController: BaseUIViewController {
+class TimerViewController: BaseUIViewController, ModalViewControllerDelegate {
     
     weak var coordinator: TimerViewCoordinator?
     
@@ -72,6 +72,8 @@ class TimerViewController: BaseUIViewController {
         
         timePickerView.setPickerLabelsWith(labels: ["시간","분","초"])
         timePickerView.layer.borderWidth = 0
+        
+        ringtoneLabel.text = timerModel.alarmSound
         
         //FIXME: Notification 말고 델리게이트 방식 고려해보기
         NotificationCenter.default.addObserver(self, selector: #selector(updateTimerLabel), name: .timerValueChanged, object: nil)
@@ -186,7 +188,7 @@ class TimerViewController: BaseUIViewController {
             circularSlider.setCoundownTime(seconds: Int(totalTimeInSeconds))
             circularSlider.startCountdownAnimation()
             
-            timerModel.start(withInitialTime: totalTimeInSeconds, alarmSound: "alarm_sound.mp3")
+            timerModel.start(withInitialTime: totalTimeInSeconds)
         } else if timerModel.state == .running {
             timerModel.pause()
             circularSlider.pauseCountdownAnimation()
@@ -208,6 +210,18 @@ class TimerViewController: BaseUIViewController {
         setupUI(state: .default)
 
     }
+    
+    @IBAction func ringtoneButtonTapped(_ sender: UIButton) {
+        let soundViewController = SelectRingtoneTableViewController()
+        soundViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: soundViewController)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    func didDismissModalViewController(alarmSound: String) {
+        self.ringtoneLabel.text = alarmSound
+    }
+    
     
 }
 
@@ -282,3 +296,4 @@ extension UIPickerView {
         }
     }
 }
+

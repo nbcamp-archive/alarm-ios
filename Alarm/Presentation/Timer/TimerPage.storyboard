@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -181,7 +180,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="semiTransparentWhiteBackground" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gGO-BQ-oxt" kind="presentation" id="KSE-aT-fPF"/>
+                                    <action selector="ringtoneButtonTapped:" destination="1hF-wt-y1k" eventType="touchUpInside" id="GnN-4E-bMM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전파 탐지기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oH9-MJ-eMa">
@@ -245,46 +244,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ey-MN-OpA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197.709923664122" y="240.84507042253523"/>
-        </scene>
-        <!--타이머 종료 시-->
-        <scene sceneID="eMf-ec-e1e">
-            <objects>
-                <viewController id="jPz-QU-xdo" customClass="SelectRingtoneTableViewController" customModule="Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WbQ-a9-DXm">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="I2J-0r-JjR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="타이머 종료 시" id="Db5-Pn-Z9E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c55-bo-HQQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2743" y="241"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="QRf-3C-5Yg">
-            <objects>
-                <navigationController id="gGO-BQ-oxt" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="syB-ia-eGd">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="jPz-QU-xdo" kind="relationship" relationship="rootViewController" id="kBx-qW-8yc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u2O-d1-Diy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1929" y="241"/>
+            <point key="canvasLocation" x="1202" y="241"/>
         </scene>
     </scenes>
     <resources>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
