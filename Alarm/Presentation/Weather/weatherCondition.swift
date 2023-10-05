@@ -49,11 +49,9 @@ extension WeatherViewController{
    
     
     func changeIconAndBG(){
-        
         let yoroke = Temp(initailValue: weatherConditon)
         if let tempCase = yoroke{
             switch tempCase {
-                
             case .thunderstorm: //뇌우
                 weatherImage.image = UIImage(named: "thunderstorm")
                 HEX = "031d44" //navi
@@ -79,16 +77,8 @@ extension WeatherViewController{
         } else {
             print("No Icon")
         }
-       
-        
-      
     }
-    
-    
-    
-        
 }
-
 
 
 
