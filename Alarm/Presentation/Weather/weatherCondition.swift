@@ -63,9 +63,10 @@ extension WeatherViewController{
             case .clear:
                 weatherImage.image = UIImage(named: "clear")
 //                bringAnimationBG.animateGradient(hex: "d62828") //red
-                  HEX = "d62828" //red
-                
-        
+                  HEX = "ffd60a" //yellow
+                print("Hex1",HEX)
+//                let gradient = CAAnimationGradientLayer()
+//                gradient.animateGradient(hex: HEX)
                 //hex 값 print 찍어보기
                 
                 

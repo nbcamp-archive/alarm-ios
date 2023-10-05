@@ -12,10 +12,10 @@ extension WeatherViewController {
     
 
     
-    //컴플리션(클로져) 추가 필요
-    func callweather2(completeHandeler :Int ){
-        
-    }
+    //파라미터 이해
+//    func callweather2(completeHandeler :Int ){
+//        
+//    }
     
     func callWeather(completionHandler: @escaping(Bool)-> Void){
         
@@ -50,7 +50,7 @@ extension WeatherViewController {
                             
                             self.detailInfoBox.windData.text = String(format:"\(windSpeed)m/s" )
                             self.detailInfoBox.humidityData.text = String(format:"\(humidity) %%" )
-                            //self.changeIconAndBG()
+//                            self.changeIconAndBG()
                             completionHandler(true)
                        
                             

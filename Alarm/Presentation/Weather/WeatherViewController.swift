@@ -134,7 +134,7 @@ class WeatherViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//MARK: Memo
+//MARK: Memo : 파라미터 이해
 //        callweather2(completeHandeler: 3)
 //
 //        callWeather(completionHandler: { result in  })
@@ -151,10 +151,14 @@ class WeatherViewController: BaseUIViewController {
                 //숨겨지지않음
                 self.hiddenLoadingScreen()
             }
+            self.changeIconAndBG() //switch
+            
+            
+            print("아오",self.HEX)
             
             self.setupUI()
             self.dateTody()
-            self.changeIconAndBG()
+          
             //loadingScreen off 필요
         }
 
@@ -206,9 +210,7 @@ class WeatherViewController: BaseUIViewController {
 //        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
 //        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
 //        gradientLayer.drawsAsynchronously = true
-        //gradientLayer가 계속 위로 쌓이고있음
-        //인스턴스를 생성해서, subLayer로 넣은 후에
-        // weatherImage.image를 변경한 것처럼 처리할 필요가 있어보임
+
        
 
         

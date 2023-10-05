@@ -9,7 +9,7 @@ import UIKit
 
 class CAAnimationGradientLayer: CAGradientLayer {
     
-    var HEX = WeatherViewController().HEX
+//    var HEX = WeatherViewController().HEX
     
     let pink: CGColor = UIColor.systemPink.cgColor
     let blue: CGColor = UIColor.systemBlue.cgColor
@@ -41,8 +41,9 @@ class CAAnimationGradientLayer: CAGradientLayer {
         
      //hex값을 changeIconAndBG에서 적용하고, 여기에는 변수명으로 전달받게 하면 어떨까
         
-        animateGradient(hex: HEX) //mint [Now]
-        print("2.CAAnime-init")
+        animateGradient(hex: WeatherViewController().HEX) //
+//        animateGradient(hex: "d62828") //red [Now]
+        print("2.HEX-skyblue", WeatherViewController().HEX)
         
 
     }
@@ -60,9 +61,6 @@ extension CAAnimationGradientLayer: CAAnimationDelegate {
         let cusotmHex: String = hex  
     //    var cusotmHex: String = "3a86ff"
     //    var cusotmHex: String = "03045e"
-        
-
-        
         
         //No.2
         gradientColorSet.append([white,UIColor(hex: cusotmHex).cgColor])
@@ -88,6 +86,7 @@ extension CAAnimationGradientLayer: CAAnimationDelegate {
         gradientChangeAnimation.toValue = gradientColorSet[currentGradientColorIndex]
         
         add(gradientChangeAnimation, forKey: "colorChange")
+//        setNeedsDisplay()
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
