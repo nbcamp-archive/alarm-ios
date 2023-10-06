@@ -47,12 +47,19 @@ class AlarmViewController: BaseUIViewController {
         
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: .alarmAdded, object: nil)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AlarmCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
 
+        alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
+        
+        tableView.reloadData()
+    }
+    
+    @objc private func updateTableView() {
         alarmGroup = UserDefaultsManager.load(forKey: UserDefaultsManager.alarmGroupKey)
         
         tableView.reloadData()
