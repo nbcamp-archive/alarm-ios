@@ -14,8 +14,9 @@ var HEX: String = "4895ef"
 class WeatherViewController: BaseUIViewController {
     
     
-    var weatherConditon: Int = 800
+    var weatherConditon: Int?
     
+    var landingLoadingScreen: UILabel?
     
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
@@ -113,6 +114,8 @@ class WeatherViewController: BaseUIViewController {
         let box = DetailInfoView()
           return box
     }()
+    
+   
 
     weak var coordinator: WeatherViewCoordinator?
     
@@ -120,14 +123,15 @@ class WeatherViewController: BaseUIViewController {
         title = "날씨"
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingScreen()
+        self.landingLoadingScreen = loadingScreen()
   
         callWeather { result in
             if result {
-                self.hiddenLoadingScreen()     //[Bug1]: hidden
+                self.landingLoadingScreen?.isHidden = true
             }
 
             self.changeIconAndBG()
