@@ -28,13 +28,11 @@ class WeatherViewController: BaseUIViewController {
         return container
     }()
     
-    
     let locationBox = {
         let box = UIStackView()
         box.axis = .vertical
         return box
     }()
-    
     
     let cityNameLabel = {
         let label = UILabel()
@@ -53,7 +51,6 @@ class WeatherViewController: BaseUIViewController {
         return label
     }()
     
-    
     let mainInfoBox = {
         let box = UIStackView()
         box.alignment = .center
@@ -66,7 +63,6 @@ class WeatherViewController: BaseUIViewController {
         image.contentMode = .scaleAspectFit
         return image
     }()
-    
     
     let mainInfoInsideRigthBox = {
         let box = UIStackView()
@@ -108,15 +104,15 @@ class WeatherViewController: BaseUIViewController {
         label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         return label
     }()
- 
+    
     
     let detailInfoBox = {
         let box = DetailInfoView()
-          return box
+        return box
     }()
     
-   
-
+    
+    
     weak var coordinator: WeatherViewCoordinator?
     
     override func setTitle() {
@@ -128,18 +124,18 @@ class WeatherViewController: BaseUIViewController {
         super.viewDidLoad()
         
         self.landingLoadingScreen = loadingScreen()
-  
+        
         callWeather { result in
             if result {
                 self.landingLoadingScreen?.isHidden = true
             }
-
+            
             self.changeIconAndBG()
             self.dateTody()
             self.setupUI()
-       
+            
         }
-
+        
     }
     
     func loadingScreen()->UILabel{
@@ -160,7 +156,7 @@ class WeatherViewController: BaseUIViewController {
             make.centerY.equalToSuperview()
             make.width.equalTo(300)
             make.height.equalTo(100)
-
+            
         }
         return titleLabel
     }
@@ -187,27 +183,27 @@ class WeatherViewController: BaseUIViewController {
         gradientBG.startPoint = CGPoint(x: 0, y: 0)
         gradientBG.endPoint = CGPoint(x: 1, y: 1)
         gradientBG.drawsAsynchronously = true
-
+        
         self.view.layer.addSublayer(gradientBG)
         
         self.view.addSubview(todaysWeatherContainer)
-     
+        
         todaysWeatherContainer.addArrangedSubview(locationBox)
         todaysWeatherContainer.addArrangedSubview(mainInfoBox)
         todaysWeatherContainer.addArrangedSubview(detailInfoBox)
-      
+        
         locationBox.addArrangedSubview(cityNameLabel)
         locationBox.addArrangedSubview(dateLabel)
         
         mainInfoBox.addArrangedSubview(weatherImage)
         mainInfoBox.addArrangedSubview(mainInfoInsideRigthBox)
-     
+        
         mainInfoInsideRigthBox.addArrangedSubview(temprigthInsideStackView)
         mainInfoInsideRigthBox.addArrangedSubview(weatherTodayLabel)
         
         temprigthInsideStackView.addArrangedSubview(tempTodayLabel)
         temprigthInsideStackView.addArrangedSubview(tempDegree)
-
+        
         todaysWeatherContainer.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-40)
@@ -218,7 +214,7 @@ class WeatherViewController: BaseUIViewController {
         //MARK: LocationArea
         locationBox.snp.makeConstraints { make in
             make.height.equalToSuperview().dividedBy(5) 
-           }
+        }
         
         cityNameLabel.snp.makeConstraints { make in
             make.height.equalToSuperview().dividedBy(1.4)
@@ -243,7 +239,7 @@ class WeatherViewController: BaseUIViewController {
         tempDegree.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(10)
         }
-      
-        }
-    
+        
     }
+    
+}
