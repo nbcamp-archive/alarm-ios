@@ -147,10 +147,8 @@ class DetailInfoView : UIView {
         bodyContainer.distribution = .equalSpacing
         bodyContainer.spacing = 5
         bodyContainer.snp.makeConstraints { make in
-            // [Bug2]: Thing again
-            make.height.equalTo(self.snp.height)
-            make.width.equalTo(self.snp.width)
-      
+            // [Bug2]: Constraint edges로 해결
+            make.edges.equalToSuperview()
         }
         
         tempBackgroundBox.layer.cornerRadius = 10

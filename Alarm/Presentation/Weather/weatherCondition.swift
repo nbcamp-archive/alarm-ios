@@ -49,7 +49,7 @@ extension WeatherViewController{
    
     
     func changeIconAndBG(){
-        let yoroke = Temp(initailValue: weatherConditon)
+        let yoroke = Temp(initailValue: weatherConditon ?? 800)
         if let tempCase = yoroke{
             switch tempCase {
             case .thunderstorm: //뇌우

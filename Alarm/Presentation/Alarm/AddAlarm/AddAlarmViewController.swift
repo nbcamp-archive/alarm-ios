@@ -9,6 +9,10 @@ import SnapKit
 import Then
 import UIKit
 
+extension Notification.Name {
+    static let alarmAdded = Notification.Name("AlarmAdded")
+}
+
 class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate, SoundViewControllerDelegate {
 
     weak var coordinator: AddAlarmViewCoordinator?
@@ -195,6 +199,8 @@ class AddAlarmViewController: BaseUIViewController, RepeatViewControllerDelegate
         AlarmScheduler.checkScheduledAlarms()
         UserDefaultsManager.printAlarmGroup()
         print("시간: \(hour), 분: \(minute), 레이블: \(trailingText), 레이블: \(currentTone.filename)")
+        
+        NotificationCenter.default.post(name: .alarmAdded, object: self)
         dismiss(animated: true)
     }
 }
