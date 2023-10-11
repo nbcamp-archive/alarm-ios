@@ -55,6 +55,7 @@ extension WeatherViewController{
             case .thunderstorm: //뇌우
                 weatherImage.image = UIImage(named: "thunderstorm")
                 HEX = "031d44" //navi
+                
             case .drizzle: //가랑비
                 weatherImage.image = UIImage(named: "drizzle")
                 HEX = "5390d9" //blue

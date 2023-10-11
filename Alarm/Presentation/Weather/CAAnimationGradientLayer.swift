@@ -9,7 +9,7 @@ import UIKit
 
 class CAAnimationGradientLayer: CAGradientLayer {
     
-    var HEX: String?
+    var HEXca: String?
     
     let white: CGColor = UIColor.white.cgColor
  
@@ -19,9 +19,9 @@ class CAAnimationGradientLayer: CAGradientLayer {
     
     
     init(hex: String) {
-        self.HEX = hex
+        self.HEXca = hex
         super.init()
-        animateGradient(hex: HEX!)
+        animateGradient(hex: HEXca!)
     }
     
     override init() {

@@ -8,8 +8,9 @@
 import UIKit
 import SnapKit
 
-var HEX: String = "4895ef"
-
+//전역변수는 성능면에서 overhead를 발생시킬 수있음
+// [대안] HEX 전용 class를 만들어서 usedefaluts singleton 방법을 제안
+var HEX: String = "4895ef" //skyblue
 
 class WeatherViewController: BaseUIViewController {
     
@@ -17,6 +18,7 @@ class WeatherViewController: BaseUIViewController {
     var weatherConditon: Int?
     
     var landingLoadingScreen: UILabel?
+    var landingLoadingScreen_test: UILabel?
     
     
     let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
@@ -123,7 +125,6 @@ class WeatherViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.landingLoadingScreen = loadingScreen()
         
         callWeather { result in
             if result {
@@ -133,6 +134,7 @@ class WeatherViewController: BaseUIViewController {
             self.changeIconAndBG()
             self.dateTody()
             self.setupUI()
+            
             
         }
         
