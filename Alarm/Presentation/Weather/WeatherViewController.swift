@@ -10,18 +10,15 @@ import SnapKit
 
 //전역변수는 성능면에서 overhead를 발생시킬 수있음
 // [대안] HEX 전용 class를 만들어서 usedefaluts singleton 방법을 제안
-var HEX: String = "4895ef" //skyblue
+
 
 class WeatherViewController: BaseUIViewController {
     
+    static var HEX: String = "4895ef" //skyblue
     
     var weatherConditon: Int?
-    
     var landingLoadingScreen: UILabel?
     var landingLoadingScreen_test: UILabel?
-    
-    
-    let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
     
     
     let todaysWeatherContainer = {
@@ -125,6 +122,7 @@ class WeatherViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.landingLoadingScreen = loadingScreen()
         
         callWeather { result in
             if result {
@@ -179,6 +177,8 @@ class WeatherViewController: BaseUIViewController {
     }
     
     func setupUI(){
+        
+        let HEX = WeatherViewController.HEX
         
         let gradientBG = CAAnimationGradientLayer(hex: HEX)
         gradientBG.frame = view.bounds

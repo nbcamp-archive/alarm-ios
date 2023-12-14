@@ -10,9 +10,11 @@ import Alamofire
 
 extension WeatherViewController {
     
+  
     
     func callWeather(completionHandler: @escaping(Bool)-> Void){
         
+        let openWeatherAPI = "https://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f39b81a80e0097ae770b65082a10db12&units=metric"
         
         AF.request(openWeatherAPI)
             .responseJSON { response in
@@ -34,8 +36,10 @@ extension WeatherViewController {
                     {
                         DispatchQueue.main.async {
                             self.weatherConditon = conditionCode
+//                            self.weatherConditon = 200
                             self.cityNameLabel.text = cityName
                             self.weatherTodayLabel.text = mainWeather
+//                            self.weatherTodayLabel.text = "Clouds"
                             self.tempTodayLabel.text = String(format: " %.f", temp)
                             self.detailInfoBox.tempMax.text = String(format:"Max: %.1f°C" ,tempMax)
                             self.detailInfoBox.tempMin.text = String(format:"Min: %.1f°C" ,tempMin)

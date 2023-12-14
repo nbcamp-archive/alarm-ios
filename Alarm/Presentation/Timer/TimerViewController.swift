@@ -53,7 +53,7 @@ class TimerViewController: BaseUIViewController, ModalViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let HEX = WeatherViewController.HEX
         let gradientBG = CAAnimationGradientLayer(hex: HEX)
         gradientBG.frame = view.bounds
         gradientBG.startPoint = CGPoint(x: 0, y: 0)

@@ -40,7 +40,6 @@ class DetailInfoView : UIView {
     var centerBar = {
         let bar = UIView()
         bar.backgroundColor = UIColor.systemGray
-        
         return bar
     }()
     
